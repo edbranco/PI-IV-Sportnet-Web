@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class ProdutoQuantidade implements Serializable {
 
-  private Produto produto;
+  private final Produto produto;
   private int quantidade;
   private Date dtInclusao;
 
@@ -29,7 +29,6 @@ public class ProdutoQuantidade implements Serializable {
     this.quantidade = quantidade;
     this.dtInclusao = new Date();
   }
-  
   public float getPreco() {
     // Preco * quantidade
     return produto.getPreco() * quantidade;
