@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>SPORTNET</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/style.css" />
+        <h:outputScript name="js/menu.js" />
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row" id="topo">
+                <div class="col-md-12">
+                    <h2>Olá visitante, identifique-se 
+                         <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                         ou                         
+                        <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+                    </h2>
+                </div>
+            </div>
+            <div class="row headerFooter">
+                <div class="col-md-4">
+                    <h:outputLink value="index.xhtml">
+                        <h1>SPORTNET</h1>
+                    </h:outputLink>
+                </div>
+                <div class="col-md-4">
+                    <h:form>
+                        <div class="input-group">
+                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
+                            <span class="input-group-addon">
+                                <h:graphicImage name="img/lupa.jpg" class="" />
+                            </span>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <div class="row" id="listaAndCarrinho">
+                <div class="col-md-10 pagina">
+                    <nav class="menu">
+                        <ul>
+                            <li>
+                                <h:outputLink value="#">
+                                    CALÇADOS
+                                </h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Bota</h:outputLink></li>
+                                    <li><h:outputLink value="#">Chuteira</h:outputLink></li>
+                                    <li><h:outputLink value="#">Tênis</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">ESPORTES</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Futebol</h:outputLink></li>
+                                    <li><h:outputLink value="#">Basquete</h:outputLink></li>
+                                    <li><h:outputLink value="#">Corrida</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">MARCAS</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Adidas</h:outputLink></li>
+                                    <li><h:outputLink value="#">Nike</h:outputLink></li>
+                                    <li><h:outputLink value="#">Asics</h:outputLink></li>
+                                    <li><h:outputLink value="#">Rainha</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">ROUPAS</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Agasalho</h:outputLink></li>
+                                    <li><h:outputLink value="#">Bermuda</h:outputLink></li>
+                                    <li><h:outputLink value="#">Blusa</h:outputLink></li>
+                                    <li><h:outputLink value="#">Calças</h:outputLink></li>
+                                    <li><h:outputLink value="#">Camisas Time</h:outputLink></li>
+                                    <li><h:outputLink value="#">Camisetas</h:outputLink></li>
+                                    <li><h:outputLink value="#">Jaquetas</h:outputLink></li>
+                                    <li><h:outputLink value="#">Uniformes</h:outputLink></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <h:graphicImage name="img/carrinho.jpg" />
+                </div>
+            </div>
+            <div class="row alinhamentoFooter content">
+                <div class="col-md-4">
+                    <div class="col-md-12" id="banner">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <h:graphicImage name="produtos/nike1.png"/>
+                                </div>
+                                <div class="item">
+                                    <h:graphicImage name="produtos/nike2.png"/>
+                                </div>
+                                <div class="item">
+                                    <h:graphicImage name="produtos/nike3.png"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Controle -->
+                        <h:outputLink styleClass="left carousel-control" value="#carousel-example-generic" role="button">
+                            <f:passThroughAttribute name="data-slide" value="prev" />
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                        </h:outputLink>
+                        <h:outputLink styleClass="right carousel-control" value="#carousel-example-generic" role="button">
+                            <f:passThroughAttribute name="data-slide" value="next" />
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                        </h:outputLink>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>TÊNIS NIKE FUTSLIDE CNVS</h3>
+                    <p>Indicado para dia a dia.O Tênis Nike Futslide Cnvs remete ao luxo e 
+                        à sofisticação sem abrir mão do típico espírito esportivo.
+                    </p>
+                    <p><b>Material:</b> Têxtil</p>
+                    <p><b>Fechamento:</b> Cadarço</p>
+                </div>
+
+                <div class="col-md-3 alinhamentoFooter">
+                    <div class="detalhesProduto">
+                        <p>R$ 169,90</p>
+                        <p>4x de R$ 42,49 sem juros</p>
+                        <hr/>
+                        <h:form>
+                            <h:outputLabel for="qtd" id="qtd">Quantidade:</h:outputLabel>
+                            <h:inputText p:type="number" p:step="1" p:min="1" p:max="" p:name="quantity" value="1" title="Qtd" size="2"></h:inputText>
+                            <hr/>
+                            <h:outputLabel for="tamanho" id="tamanho">Tamanho:</h:outputLabel>
+                            <br/>
+                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>36</h:outputLabel>
+                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>37</h:outputLabel>
+                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>38</h:outputLabel>
+                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>39</h:outputLabel>
+                            <hr/>
+                            <h:outputLink styleClass="btn btn-primary" type="submit">COMPRAR</h:outputLink>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row headerFooter">
+                <div class="col-md-12">
+                    <p>2016 - SportNet todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

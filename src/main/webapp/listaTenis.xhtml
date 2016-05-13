@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>SPORTNET</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/style.css" />
+        <h:outputScript name="js/menu.js" />
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row" id="topo">
+                <div class="col-md-12">
+                    <h2>Olá visitante, identifique-se 
+                         <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                         ou                         
+                        <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+                    </h2>
+                </div>
+            </div>
+            <div class="row headerFooter">
+                <div class="col-md-4">
+                    <h:outputLink value="index.xhtml">
+                        <h1>SPORTNET</h1>
+                    </h:outputLink>
+                </div>
+                <div class="col-md-4">
+                    <h:form>
+                        <div class="input-group">
+                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
+                            <span class="input-group-addon">
+                                <h:graphicImage name="img/lupa.jpg" />
+                            </span>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <div class="row" id="listaAndCarrinho">
+                <div class="col-md-10 pagina">
+                    <nav class="menu">
+                        <ul>
+                            <li>
+                                <h:outputLink value="#">
+                                    CALÇADOS
+                                </h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Bota</h:outputLink></li>
+                                    <li><h:outputLink value="#">Chuteira</h:outputLink></li>
+                                    <li><h:outputLink value="#">Tênis</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">ESPORTES</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Futebol</h:outputLink></li>
+                                    <li><h:outputLink value="#">Basquete</h:outputLink></li>
+                                    <li><h:outputLink value="#">Corrida</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">MARCAS</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Adidas</h:outputLink></li>
+                                    <li><h:outputLink value="#">Nike</h:outputLink></li>
+                                    <li><h:outputLink value="#">Asics</h:outputLink></li>
+                                    <li><h:outputLink value="#">Rainha</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">ROUPAS</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="#">Agasalho</h:outputLink></li>
+                                    <li><h:outputLink value="#">Bermuda</h:outputLink></li>
+                                    <li><h:outputLink value="#">Blusa</h:outputLink></li>
+                                    <li><h:outputLink value="#">Calças</h:outputLink></li>
+                                    <li><h:outputLink value="#">Camisas Time</h:outputLink></li>
+                                    <li><h:outputLink value="#">Camisetas</h:outputLink></li>
+                                    <li><h:outputLink value="#">Jaquetas</h:outputLink></li>
+                                    <li><h:outputLink value="#">Uniformes</h:outputLink></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <h:graphicImage name="img/carrinho.jpg" />
+                </div>
+            </div>
+
+            <div class="row alinharFooter ">
+                <div class="col-md-2">
+                    <h:form>
+                    <div class="col-md-12">
+                        <p><b>FILTRAR POR</b></p>
+                        <hr/>
+                        <p>GÊNERO</p>
+                        <h:outputLabel><h:selectBooleanCheckbox value="Masculino"/>Masculino</h:outputLabel>
+                        <h:outputLabel><h:selectBooleanCheckbox value="Feminino"/>Feminino</h:outputLabel>
+                    </div>
+                    <div class="col-md-12">
+                        <hr/>
+                        <p>MARCA</p>
+                        <div><h:outputLabel><h:selectBooleanCheckbox value="Adidas"/>Adidas</h:outputLabel>
+                            <h:outputLabel><h:selectBooleanCheckbox value="Nike"/>Nike</h:outputLabel></div>
+                    </div>
+                    <div class="col-md-12">
+                        <hr/>
+                        <p>TAMANHO</p>
+                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">P</h:outputLink>
+                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">M</h:outputLink>
+                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">G</h:outputLink>
+                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">GG</h:outputLink>
+                    </div>
+                    </h:form>
+                </div>
+                <div class="col-md-10">
+                    <div class="col-md-10 produtos" >
+                        <div class="col-md-4">
+                            <h:graphicImage name="produtos/tenis1.png" class="img-responsive"/>
+                            <p>Super Nike 1</p>
+                            <p>R$ 90,00</p>
+                            <p>2x de R$ 45,00</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h:graphicImage name="produtos/tenis2.png" class="img-responsive"/>
+                            <p>Super Nike 1</p>
+                            <p>R$ 90,00</p>
+                            <p>2x de R$ 45,00</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h:graphicImage name="produtos/tenis3.png" class="img-responsive"/>
+                            <p>Super Nike 1</p>
+                            <p>R$ 90,00</p>
+                            <p>2x de R$ 45,00</p>
+                        </div>
+                    </div>
+                    <div class="col-md-10 produtos">
+                        <div class="col-md-4">
+                            <h:graphicImage name="produtos/tenis4.png" class="img-responsive"/>
+                            <p>Super Nike 1</p>
+                            <p>R$ 90,00</p>
+                            <p>2x de R$ 45,00</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h:graphicImage name="produtos/tenis2.png" class="img-responsive"/>
+                            <p>Super Nike 1</p>
+                            <p>R$ 90,00</p>
+                            <p>2x de R$ 45,00</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h:graphicImage name="produtos/tenis3.png" class="img-responsive"/>
+                            <p>Super Nike 1</p>
+                            <p>R$ 90,00</p>
+                            <p>2x de R$ 45,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row alinhamentoFooter">
+                <div class="col-md-12">
+                    <nav id="pagination">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <h:outputLink value="#" styleClass="page-link">
+                                    <f:passThroughAttribute name="aria-label" value="Previous" />
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </h:outputLink>
+                            </li>
+                            <li class="page-item active">
+                                <h:outputLink value="#" styleClass="page-link">1
+                                    <span class="sr-only">(current)</span>
+                                </h:outputLink>
+                            </li>
+                            <li class="page-item">
+                                <h:outputLink value="#" styleClass="page-link">2</h:outputLink>
+                            </li>
+                            <li class="page-item">
+                                <h:outputLink value="#" styleClass="page-link">3</h:outputLink>
+                            </li>
+                            <li class="page-item">
+                                <h:outputLink value="#" styleClass="page-link">4</h:outputLink>
+                            </li>
+                            <li class="page-item">
+                                <h:outputLink value="#" styleClass="page-link">5</h:outputLink>
+                            </li>
+                            <li class="page-item">
+                                <h:outputLink value="#" styleClass="page-link">
+                                    <f:passThroughAttribute name="aria-label" value="Next" />
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </h:outputLink>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="row headerFooter">
+                <div class="col-md-12">
+                    <p>2016 - SportNet todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
