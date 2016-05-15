@@ -64,7 +64,7 @@ public class CompraBean implements Serializable {
             + "' adicionado com sucesso", "success"));
     
     // Redireciona para tela de listagem de produtos
-    return "lista.xhtml?faces-redirect=true";
+    return "listaTenis.xhtml?faces-redirect=true";
   }
   
   // Converte Set em List senao nao funciona no ui:repeat

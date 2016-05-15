@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>SPORTNET</title>
         <meta charset="utf-8"/>
@@ -19,8 +20,8 @@
             <div class="row" id="topo">
                 <div class="col-md-12">
                     <h2>Olá visitante, identifique-se 
-                         <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
-                         ou                         
+                        <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                        ou                         
                         <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                     </h2>
                 </div>
@@ -97,70 +98,50 @@
             <div class="row alinharFooter ">
                 <div class="col-md-2">
                     <h:form>
-                    <div class="col-md-12">
-                        <p><b>FILTRAR POR</b></p>
-                        <hr/>
-                        <p>GÊNERO</p>
-                        <h:outputLabel><h:selectBooleanCheckbox value="Masculino"/>Masculino</h:outputLabel>
-                        <h:outputLabel><h:selectBooleanCheckbox value="Feminino"/>Feminino</h:outputLabel>
-                    </div>
-                    <div class="col-md-12">
-                        <hr/>
-                        <p>MARCA</p>
-                        <div><h:outputLabel><h:selectBooleanCheckbox value="Adidas"/>Adidas</h:outputLabel>
-                            <h:outputLabel><h:selectBooleanCheckbox value="Nike"/>Nike</h:outputLabel></div>
-                    </div>
-                    <div class="col-md-12">
-                        <hr/>
-                        <p>TAMANHO</p>
-                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">P</h:outputLink>
-                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">M</h:outputLink>
-                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">G</h:outputLink>
-                        <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">GG</h:outputLink>
-                    </div>
+                        <div class="col-md-12">
+                            <p><b>FILTRAR POR</b></p>
+                            <hr/>
+                            <p>GÊNERO</p>
+                            <h:outputLabel><h:selectBooleanCheckbox value="Masculino"/>Masculino</h:outputLabel>
+                            <h:outputLabel><h:selectBooleanCheckbox value="Feminino"/>Feminino</h:outputLabel>
+                        </div>
+                        <div class="col-md-12">
+                            <hr/>
+                            <p>MARCA</p>
+                            <div><h:outputLabel><h:selectBooleanCheckbox value="Adidas"/>Adidas</h:outputLabel>
+                                <h:outputLabel><h:selectBooleanCheckbox value="Nike"/>Nike</h:outputLabel></div>
+                        </div>
+                        <div class="col-md-12">
+                            <hr/>
+                            <p>TAMANHO</p>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">P</h:outputLink>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">M</h:outputLink>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">G</h:outputLink>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">GG</h:outputLink>
+                        </div>
                     </h:form>
                 </div>
                 <div class="col-md-10">
                     <div class="col-md-10 produtos" >
-                        <div class="col-md-4">
-                            <h:graphicImage name="produtos/tenis1.png" class="img-responsive"/>
-                            <p>Super Nike 1</p>
-                            <p>R$ 90,00</p>
-                            <p>2x de R$ 45,00</p>
-                        </div>
-                        <div class="col-md-4">
-                            <h:graphicImage name="produtos/tenis2.png" class="img-responsive"/>
-                            <p>Super Nike 1</p>
-                            <p>R$ 90,00</p>
-                            <p>2x de R$ 45,00</p>
-                        </div>
-                        <div class="col-md-4">
-                            <h:graphicImage name="produtos/tenis3.png" class="img-responsive"/>
-                            <p>Super Nike 1</p>
-                            <p>R$ 90,00</p>
-                            <p>2x de R$ 45,00</p>
-                        </div>
+                        <ui:repeat value="#{produtoNovoBean.lista}" var="prod">
+                            <div class="col-md-4">
+                                <h:graphicImage name="produtos/tenis1.png" class="img-responsive"/>
+                                <p>#{prod.nome}</p>
+                                <p>#{prod.descricao}</p>
+                                <p>#{prod.preco}</p>                               
+                                <h:outputLink value="teste.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                                    <f:param name="id" value="#{prod.id}" />
+                                    Ver detalhes
+                                </h:outputLink>
+                                <div class="col-sm-8">
+                                    <h:form prependId="false">
+                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success btn-lg btn-block" pt:role="button" value="Comprar" />
+                                    </h:form>
+                                </div>
+                            </div>
+                        </ui:repeat>
                     </div>
-                    <div class="col-md-10 produtos">
-                        <div class="col-md-4">
-                            <h:graphicImage name="produtos/tenis4.png" class="img-responsive"/>
-                            <p>Super Nike 1</p>
-                            <p>R$ 90,00</p>
-                            <p>2x de R$ 45,00</p>
-                        </div>
-                        <div class="col-md-4">
-                            <h:graphicImage name="produtos/tenis2.png" class="img-responsive"/>
-                            <p>Super Nike 1</p>
-                            <p>R$ 90,00</p>
-                            <p>2x de R$ 45,00</p>
-                        </div>
-                        <div class="col-md-4">
-                            <h:graphicImage name="produtos/tenis3.png" class="img-responsive"/>
-                            <p>Super Nike 1</p>
-                            <p>R$ 90,00</p>
-                            <p>2x de R$ 45,00</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="row alinhamentoFooter">
