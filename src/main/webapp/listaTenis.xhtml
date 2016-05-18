@@ -125,7 +125,7 @@
                     <div class="col-md-10 produtos" >
                         <ui:repeat value="#{produtoNovoBean.lista}" var="prod">
                             <div class="col-md-4">
-                                <h:graphicImage name="produtos/tenis1.png" class="img-responsive"/>
+                                <h:graphicImage value="#{prod.getImagemPrincipal()}" class="img-responsive"/>
                                 <p>#{prod.nome}</p>
                                 <p>#{prod.descricao}</p>
                                 <p>#{prod.preco}</p>                               

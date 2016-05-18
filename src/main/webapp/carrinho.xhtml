@@ -100,7 +100,7 @@
                         <ui:repeat value="#{compraBean.itens}" var="item">
                             <div class="col-md-4">
                                 <h2>Descrição do Produto</h2>
-                                <div class="col-md-6"><h:graphicImage name="produtos/nike1_carrinho.png"/></div>
+                                <div class="col-md-6"><h:graphicImage value="#{item.produto.imagemPrincipal}"/></div>
                                 <div class="col-md-6"><p>#{item.produto.nome}</p></div>
                             </div>
                             <div class="col-md-2">
