@@ -5,93 +5,113 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-  <h:head>
-    <title>SportNet</title>
-    <h:outputStylesheet name="css/bootstrap.min.css" />
-    <h:outputScript name="js/jquery-2.1.4.min.js" />
-    <h:outputScript name="js/bootstrap.min.js" />
-    <script>
-      function funcaoAjax() {
-        $.get("../testeajax.xhtml", function(data) {
-          $("#outajax").html(data);
-        });
-        return false;
-      }
-    </script>
-  </h:head>
-  <h:body>
-    <ui:fragment rendered="#{flash.mensagem != null}">
-      <div class="alert alert-#{flash.mensagem.tipo}" role="alert">
-         <p>#{flash.mensagem.msg}</p>
-      </div>
-    </ui:fragment>
-    <div class="row">
-      <div class="col-sm-offset-2 col-sm-8">
-        <h:form prependId="false" enctype="multipart/form-data">
-          <div class="form-group">
-            <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
-            <h:inputText value="#{produtoNovoBean.nome}" id="txt-nome"
-                         required="true" requiredMessage="Preencher o nome" 
-                         pt:placeholder="Nome do produto" styleClass="form-control" />
-            <span><h:message for="txt-nome" /></span>
-          </div>
+    <h:head>
+        <title>SportNet</title>
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputScript name="js/jquery-2.1.4.min.js" />
+        <h:outputScript name="js/bootstrap.min.js" />
+        <script>
+            function funcaoAjax() {
+                $.get("../testeajax.xhtml", function (data) {
+                    $("#outajax").html(data);
+                });
+                return false;
+            }
+        </script>
+        <style>
+            .form-control{
+                width: 50%;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <ui:fragment rendered="#{flash.mensagem != null}">
+            <div class="alert alert-#{flash.mensagem.tipo}" role="alert">
+                <p>#{flash.mensagem.msg}</p>
+            </div>
+        </ui:fragment>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h:form prependId="false" enctype="multipart/form-data">
+                   
+                    <div class="form-group">
+                        <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
+                        <h:inputText value="#{produtoNovoBean.nome}" id="txt-nome"
+                                     required="true" requiredMessage="Preencher o nome" 
+                                     pt:placeholder="Nome do produto" styleClass="form-control" />
+                        <span><h:message for="txt-nome" /></span>
+                    </div>
 
-          <div class="form-group">
-            <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
-            <h:inputTextarea value="#{produtoNovoBean.descricao}" id="txt-descricao"
-                             required="true" requiredMessage="Preencher a descrição do produto" 
-                             pt:placeholder="Descrição do produto" styleClass="form-control" />
-            <span><h:message for="txt-descricao" /></span>
-          </div>
+                    <div class="form-group">
+                        <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
+                        <h:inputTextarea value="#{produtoNovoBean.descricao}" id="txt-descricao"
+                                         required="true" requiredMessage="Preencher a descrição do produto" 
+                                         pt:placeholder="Descrição do produto" styleClass="form-control" />
+                        <span><h:message for="txt-descricao" /></span>
+                    </div>
 
-          <div>
-            <h:outputLabel value="Categorias" />
-            <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
-            <h:selectManyCheckbox value="#{produtoNovoBean.idsCategorias}" label="Categorias" id="chk-categorias" 
-                                  converter="javax.faces.Integer">
-              <f:selectItems value="#{categoriaBean.lista}" var="cat"
-                             itemValue="#{cat.id}" 
-                             itemLabel="#{cat.nome}" />
-            </h:selectManyCheckbox>
-            <span><h:message for="chk-categorias" /></span>
-          </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Categorias" />
+                        <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
+                        <h:selectManyCheckbox value="#{produtoNovoBean.idsCategorias}" label="Categorias" id="chk-categorias" 
+                                              converter="javax.faces.Integer">
+                            <f:selectItems value="#{categoriaBean.lista}" var="cat"
+                                           itemValue="#{cat.id}" 
+                                           itemLabel="#{cat.nome}" />
+                        </h:selectManyCheckbox>
+                        <span><h:message for="chk-categorias" /></span>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Cor"/>
+                        <h:inputText styleClass="form-control" value="#{produtoNovoBean.cor}"/>
 
-          <div class="form-group">
-            <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
-            <h:inputText value="#{produtoNovoBean.preco}" id="txt-preco"
-                             required="true" requiredMessage="Preencher o preço do produto" 
-                             pt:placeholder="Preço do produto" styleClass="form-control">
-              <f:convertNumber minFractionDigits="2" />
-            </h:inputText>
-            <span><h:message for="txt-preco" /></span>
-          </div>
-          <ui:fragment rendered="false">
-          <div class="form-group">
-              <h:commandButton value="Teste">
-                <f:ajax execute="txt-nome" render="out" />
-              </h:commandButton>
-            <h:outputText id="out" value="#{produtoNovoBean.fragmento}" escape="false"></h:outputText>
-          </div>
-          
-          <div>
-            <button onclick="funcaoAjax(); return false;">Teste 2</button>
-            <div id="outajax"></div>
-          </div>
-          </ui:fragment>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Tamanho"/>
+                        <h:inputText styleClass="form-control" value="#{produtoNovoBean.tamanho}"/>
 
-          <div class="form-group">
-            <h:outputLabel value="Imagem" styleClass="control-label" />
-            <h:inputFile value="#{produtoNovoBean.imagem}" />
-          </div>
-          
-          <div>
-            <h:commandButton value="Salvar"
-                action="#{produtoNovoBean.salvar()}"
-                styleClass="btn btn-primary btn-lg btn-block" />
-          </div>
-        </h:form>
-      </div>
-    </div>
-  </h:body>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Genero"/>
+                        <h:inputText styleClass="form-control" value="#{produtoNovoBean.genero}"/>   
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
+                        <h:inputText value="#{produtoNovoBean.preco}" id="txt-preco"
+                                     required="true" requiredMessage="Preencher o preço do produto" 
+                                     pt:placeholder="Preço do produto" styleClass="form-control">
+                            <f:convertNumber minFractionDigits="2" />
+                        </h:inputText>
+                        <span><h:message for="txt-preco" /></span>
+                    </div>
+                    <ui:fragment rendered="false">
+                        <div class="form-group">
+                            <h:commandButton value="Teste">
+                                <f:ajax execute="txt-nome" render="out" />
+                            </h:commandButton>
+                            <h:outputText id="out" value="#{produtoNovoBean.fragmento}" escape="false"></h:outputText>
+                        </div>
+
+                        <div>
+                            <button onclick="funcaoAjax();
+                                    return false;">Teste 2</button>
+                            <div id="outajax"></div>
+                        </div>
+                    </ui:fragment>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Imagem" styleClass="control-label" />
+                        <h:inputFile value="#{produtoNovoBean.imagem}" />
+                    </div>
+
+                    <div>
+                        <h:commandButton value="Salvar"
+                                         action="#{produtoNovoBean.salvar()}"
+                                         styleClass="btn btn-primary btn-lg btn-block" />
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
 </html>
 

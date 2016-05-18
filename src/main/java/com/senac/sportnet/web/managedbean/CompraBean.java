@@ -86,7 +86,7 @@ public class CompraBean implements Serializable {
 
     public void fecharCompra() {
         ProdutoService prodService = new ProdutoServiceJPA();
-        
+        prodService.finalizarCompra(itens);
     }
 
 }
