@@ -10,10 +10,12 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputScript name="js/jquery.min.js" />
         <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
+        <h:outputScript name="js/addProduto.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
@@ -91,7 +93,8 @@
                     </nav>
                 </div>
                 <div class="col-md-2">
-                    <h:graphicImage name="img/carrinho.jpg" />
+                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>
+                    
                 </div>
             </div>
 
@@ -125,17 +128,14 @@
                     <div class="col-md-10 produtos" >
                         <ui:repeat value="#{produtoNovoBean.lista}" var="prod">
                             <div class="col-md-4">
-                                <h:graphicImage value="#{prod.getImagemPrincipal()}" class="img-responsive"/>
+                                <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>
                                 <p>#{prod.nome}</p>
                                 <p>#{prod.descricao}</p>
                                 <p>#{prod.preco}</p>                               
-                                <h:outputLink value="teste.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
                                     <f:param name="id" value="#{prod.id}" />
-                                    Ver detalhes
-                                </h:outputLink>
-                                <div class="col-sm-8">
+                                <div class="col-md-8">
                                     <h:form prependId="false">
-                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-default btn-block" pt:role="button" value="Comprar" />
+                                        <h:outputLink onclick="adicionado()"><h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar" /></h:outputLink>
                                     </h:form>
                                 </div>
                             </div>

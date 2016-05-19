@@ -280,11 +280,18 @@ hr {
     width:100px;
 }
 
-.carrinho .col-md-12 > .col-md-6{
+.carrinho .col-md-12 .col-md-6{
     text-align: center;
 }
-.carrinho .col-md-12 > .col-md-6 > a{
+.carrinho .col-md-12 .col-md-6 a{
     margin-bottom: 20px;
+    text-align: center;
+}
+.carrinho .col-md-12 .col-md-6 img{
+    width: 100px;
+    height: 100px;
+}
+.carrinho .col-md-12 div{
     text-align: center;
 }
 
