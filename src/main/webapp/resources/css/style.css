@@ -353,6 +353,9 @@ hr {
     #telaAdmin .btn, #telaAdmin input{
         width: 100%;
     }
+    #telaAdmin .col-md-6{
+        margin: 100px 15% 0 15%;
+    }
 }
 
 /* --------BEGIN--------------------- */
