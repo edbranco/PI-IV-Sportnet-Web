@@ -324,6 +324,28 @@ hr {
     font-size:14pt;
     
 }
+/*--------MODAL BOOTSTRAP-------------*/
+.modal-body{
+    font-size:11pt;
+    text-align: center;
+}
+#telaAdmin .col-md-12 .btn-lg{
+    width: 50px;
+    margin-right: 10px;
+}
+#telaAdmin .col-md-12{
+    text-align: right;
+}
+.modal-title{
+    text-align: center;
+}
+#telaAdmin .modal-body .form-group .btn{
+    width: 2%;
+    height: 30px;
+    font-size:8pt;
+    padding-left:12px;
+    padding-right: 22px;
+}
 @media all and (max-width: 991px) {
     .detalhesProduto{
         width: 240px;
