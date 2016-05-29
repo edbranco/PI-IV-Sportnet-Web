@@ -32,7 +32,7 @@ public class CompraBean implements Serializable {
 
     private Set<ProdutoQuantidade> itens
             = new LinkedHashSet<ProdutoQuantidade>();
-
+    float total = 0;
     private ProdutoQuantidade obterItem(Produto produto) {
         for (ProdutoQuantidade pq : itens) {
             if (pq.getProduto().equals(produto)) {
@@ -77,7 +77,7 @@ public class CompraBean implements Serializable {
 
     //ARRUMAR METODO QUE PEGA VALOR TOTAL, DO TIPO FLOAT
     public float getValorTotal() {
-        float total = 0;
+        total = 0;
         for (ProdutoQuantidade pq : itens) {
             total += pq.getPreco();
         }
@@ -86,7 +86,9 @@ public class CompraBean implements Serializable {
 
     public void fecharCompra() {
         ProdutoService prodService = new ProdutoServiceJPA();
-        prodService.finalizarCompra(itens);
+        prodService.finalizarCompra(itens,total);
     }
-
+     public void atualizarQuantidade() {
+        this.itens = this.itens;
+    }
 }

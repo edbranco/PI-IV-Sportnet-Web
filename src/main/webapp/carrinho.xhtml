@@ -114,42 +114,44 @@
                             <h2>Preço Total</h2>
                         </div>
                     </div>
-                        <ui:repeat value="#{compraBean.itens}" var="item">
-                            <div class="col-md-12">
-                                <div class="col-md-4">
-                                    <div class="col-md-6"><h:graphicImage value="resources/produtos/#{item.produto.imagemPrincipal}"/></div>
-                                    <div class="col-md-6"><p>#{item.produto.nome}</p></div>
-                                </div>
-                                <div class="col-md-2">
-                                    <h:graphicImage name="img/lixeira.png"/>
-                                </div>
-                                <div class="col-md-2">
-                                    <p>#{item.quantidade}</p>
-                                </div>
-                                <div class="col-md-2">
-                                    <p>#{item.produto.preco}</p>
-                                </div>
-                                <div class="col-md-2">
-                                    <p>#{item.preco}</p>
-                                </div>
-                            </div>
-                        </ui:repeat>
-
-                        <hr/>
-                        <!--<div class="col-md-12 total">SUBTOTAL <h:outputLabel>R$169,90</h:outputLabel></div>
-                        <hr/>
-                        <div class="col-md-12 total">CEP <h:outputLabel><h:inputText styleClass="form-control" pt:placeholder="00000-000"/></h:outputLabel></div>
-                        <hr/> -->
-                        <div class="col-md-12 total">TOTAL <h:outputLabel>#{compraBean.valorTotal}</h:outputLabel></div>
-                        <hr/>  
+                    <ui:repeat value="#{compraBean.itens}" var="item">
                         <div class="col-md-12">
-                            <div class="col-md-6">
-                                <h:outputLink styleClass="btn btn-success" type="submit" value="listaTenis.xhtml">CONTINUAR COMPRA</h:outputLink>
+                            <div class="col-md-4">
+                                <div class="col-md-6"><h:graphicImage value="resources/produtos/#{item.produto.imagemPrincipal}"/></div>
+                                <div class="col-md-6"><p>#{item.produto.nome}</p></div>
                             </div>
-                            <div class="col-md-6">
-                                <h:commandButton action="#{compraBean.fecharCompra()}" styleClass="btn btn-primary"  value="FECHAR COMPRA"/>
+                            <div class="col-md-2">
+                                <h:graphicImage name="img/lixeira.png"/>
+                            </div>
+                            <div class="col-md-2">
+                                <h:inputText pt:type="number" value="#{item.quantidade}">
+                                    <f:ajax render="@form" listener="#{compraBean.atualizarQuantidade()}" />
+                                </h:inputText>
+                            </div>
+                            <div class="col-md-2">
+                                <p>#{item.produto.preco}</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p>#{item.preco}</p>
                             </div>
                         </div>
+                    </ui:repeat>
+
+                    <hr/>
+                    <!--<div class="col-md-12 total">SUBTOTAL <h:outputLabel>R$169,90</h:outputLabel></div>
+                    <hr/>
+                    <div class="col-md-12 total">CEP <h:outputLabel><h:inputText styleClass="form-control" pt:placeholder="00000-000"/></h:outputLabel></div>
+                    <hr/> -->
+                    <div class="col-md-12 total">TOTAL <h:outputLabel>#{compraBean.valorTotal}</h:outputLabel></div>
+                    <hr/>  
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <h:outputLink styleClass="btn btn-success" type="submit" value="listaTenis.xhtml">CONTINUAR COMPRA</h:outputLink>
+                        </div>
+                        <div class="col-md-6">
+                            <h:commandButton action="#{compraBean.fecharCompra()}" styleClass="btn btn-primary"  value="FECHAR COMPRA"/>
+                        </div>
+                    </div>
                 </h:form>
             </div>
             <div class="row headerFooter">
