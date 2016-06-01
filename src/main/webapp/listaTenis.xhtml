@@ -124,15 +124,22 @@
                     <div class="col-md-10 produtos" >
                         <ui:repeat value="#{produtoNovoBean.lista}" var="prod">
                             <div class="col-md-4">
-                                <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>
+                                <h:form>
+                                   <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>
+                                   
+                                </h:form>
                                 <p>#{prod.nome}</p>
                                 <p>#{prod.descricao}</p>
                                 <p>#{prod.preco}</p>                               
-                                    <f:param name="id" value="#{prod.id}" />
+                                <f:param name="id" value="#{prod.id}" />
                                 <div class="col-md-8">
                                     <h:form prependId="false">
                                         <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar" />
                                     </h:form>
+                                    <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                                        <f:param name="id" value="#{prod.id}" />
+                                        Ver detalhes
+                                    </h:outputLink>
                                 </div>
                             </div>
                         </ui:repeat>

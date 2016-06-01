@@ -8,6 +8,7 @@ package com.senac.sportnet.web.managedbean;
 import com.senac.spornet.entity.Categoria;
 import com.senac.spornet.entity.ImagemProduto;
 import com.senac.spornet.entity.Produto;
+import com.senac.sportnet.fakeimpl.ProdutoServiceFakeImpl;
 import com.senac.sportnet.service.CategoriaService;
 import com.senac.sportnet.service.ProdutoService;
 import com.senac.sportnet.servicejpa.CategoriaServiceJPA;
@@ -44,13 +45,13 @@ public class ProdutoNovoBean implements Serializable {
 
     @ManagedProperty(value = "#{param.id}")
     private Long idProduto;
-    
+  
     private String nome;
     private String descricao;
     private List<Integer> idsCategorias;
     private float preco;
     private Part imagem;
-
+    private String genero;
     private List<Produto> produtosLista;
 
     public ProdutoNovoBean() {
@@ -177,6 +178,14 @@ public class ProdutoNovoBean implements Serializable {
         this.descricao = descricao;
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    
     public List<Integer> getIdsCategorias() {
         return idsCategorias;
     }
@@ -209,4 +218,11 @@ public class ProdutoNovoBean implements Serializable {
         this.idProduto = idProduto;
     }
     
+    public Produto obter(long idProduto) {
+        ProdutoService service = new ProdutoServiceJPA();
+        return service.obter(idProduto);
+    }
+    public Produto getProduto(){
+        return obter(getIdProduto());
+    }
 }

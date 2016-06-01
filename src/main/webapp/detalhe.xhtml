@@ -20,8 +20,8 @@
             <div class="row" id="topo">
                 <div class="col-md-12">
                     <h2>Olá visitante, identifique-se 
-                         <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
-                         ou                         
+                        <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                        ou                         
                         <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                     </h2>
                 </div>
@@ -100,7 +100,7 @@
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <h:graphicImage name="produtos/nike1.png"/>
+                                    <h:graphicImage value="/resources/produtos/#{produtoNovoBean.produto.imagemPrincipal}" class="img-responsive"/>
                                 </div>
                                 <div class="item">
                                     <h:graphicImage name="produtos/nike2.png"/>
@@ -124,17 +124,16 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h3>TÊNIS NIKE FUTSLIDE CNVS</h3>
-                    <p>Indicado para dia a dia.O Tênis Nike Futslide Cnvs remete ao luxo e 
-                        à sofisticação sem abrir mão do típico espírito esportivo.
+                    <h3>#{produtoNovoBean.produto.nome}</h3>
+                    <p>#{produtoNovoBean.produto.descricao}
                     </p>
-                    <p><b>Material:</b> Têxtil</p>
-                    <p><b>Fechamento:</b> Cadarço</p>
+                    <p><b>Categoria:</b> #{produtoNovoBean.produto.categorias}</p>
+                    <p><b>Género:</b> #{produtoNovoBean.produto.genero}</p>
                 </div>
 
                 <div class="col-md-3 alinhamentoFooter">
                     <div class="detalhesProduto">
-                        <p>R$ 169,90</p>
+                        <p>R$ #{produtoNovoBean.produto.preco}</p>
                         <p>4x de R$ 42,49 sem juros</p>
                         <hr/>
                         <h:form>
@@ -143,12 +142,16 @@
                             <hr/>
                             <h:outputLabel for="tamanho" id="tamanho">Tamanho:</h:outputLabel>
                             <br/>
+                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>#{produtoNovoBean.produto.tamanho}</h:outputLabel>
                             <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>36</h:outputLabel>
                             <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>37</h:outputLabel>
                             <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>38</h:outputLabel>
                             <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>39</h:outputLabel>
                             <hr/>
-                            <h:outputLink styleClass="btn btn-primary" type="submit">COMPRAR</h:outputLink>
+                            
+                            <h:commandButton action="#{compraBean.adicionarProduto(produtoNovoBean.idProduto, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar">
+                                <f:param name="id" value="#{produtoNovoBean.idProduto}" />
+                            </h:commandButton>
                         </h:form>
                     </div>
                 </div>
