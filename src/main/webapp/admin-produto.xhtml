@@ -109,13 +109,13 @@
                         </div>
                     </div>
 
-                    <p:dataTable var="car" value="" reflow="true" rows="5" paginator="true">
+                    <p:dataTable var="prod" value="#{produtoNovoBean.lista}" reflow="true" rows="5" paginator="true">
                         <p:column headerText="Id">
-                            <h:outputText value="" />
+                            <h:outputText value="#{prod.id}" />
                         </p:column>
 
                         <p:column headerText="Nome">
-                            <h:outputText value="" />
+                            <h:outputText value="#{prod.nome}" />
                         </p:column>
 
                         <p:column headerText="Categoria">
@@ -127,27 +127,31 @@
                         </p:column>
 
                         <p:column headerText="Descrição">
-                            <h:outputText value="" />
+                            <h:outputText value="#{prod.descricao}" />
+                        </p:column>
+                        
+                        <p:column headerText="Gênero">
+                            <h:outputText value="#{prod.genero}" />
                         </p:column>
 
                         <p:column headerText="Tamanho">
-                            <h:outputText value="" />
+                            <h:outputText value="#{prod.tamanho}" />
                         </p:column>
 
                         <p:column headerText="Cor">
-                            <h:outputText value="" />
+                            <h:outputText value="#{prod.cor}" />
                         </p:column>
 
                         <p:column headerText="Quantidade">
-                            <h:outputText value="" />
+                            <h:outputText value="#{prod.qtdAtual}" />
                         </p:column>
 
                         <p:column headerText="Preço">
-                            <h:outputText value="" />
+                            <h:outputText value="#{prod.preco}" />
                         </p:column>
 
                         <p:column headerText="Imagem">
-                            <h:outputText value="" />
+                            <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>
                         </p:column>
                     </p:dataTable>
                 </div>
