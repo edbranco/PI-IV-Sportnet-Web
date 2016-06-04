@@ -54,6 +54,7 @@ public class ProdutoNovoBean implements Serializable {
     private String genero;
     private String cor;
     private String tamanho;
+    private String marca;
     private int qtdAtual;
     private List<Produto> produtosLista;
     private String nomeCategoria;
@@ -83,6 +84,7 @@ public class ProdutoNovoBean implements Serializable {
         p.setCor(cor);
         p.setQtdAtual(qtdAtual);
         p.setGenero(genero);
+        p.setMarca(marca);
         List<Categoria> listaCategorias = new ArrayList<Categoria>();
         for (int idCat : idsCategorias) {
             Categoria cat = cServ.obter(idCat);
@@ -276,6 +278,16 @@ public class ProdutoNovoBean implements Serializable {
     public void setQtdAtual(int qtdAtual) {
         this.qtdAtual = qtdAtual;
     }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    
+    
     
     
     
