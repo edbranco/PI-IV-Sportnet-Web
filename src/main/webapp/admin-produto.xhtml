@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>SPORTNET</title>
         <meta charset="utf-8"/>
@@ -51,60 +52,97 @@
                                     </h4>
                                 </div>
                                 <!-- Modal Body -->
-                                <div class="modal-body">
-                                    <form role="form">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <h:outputLabel>Nome</h:outputLabel>
-                                                <h:inputText> 
-                                                    <f:validateRequired/>
-                                                </h:inputText>
-                                            </div>
-                                            <div class="form-group">
-                                                <h:outputLabel>Categoria</h:outputLabel>
-                                                <h:outputLabel>xxxxx</h:outputLabel>
-                                            </div>
-                                            <div class="form-group">
-                                                <h:outputLabel>Marca</h:outputLabel>
-                                                <h:outputLabel>xxxxx</h:outputLabel>
-                                            </div>
-                                            <div class="form-group">
-                                                <h:outputLabel>Descrição</h:outputLabel>
-                                                <h:inputTextarea>
-                                                    <f:validateRequired/> 
-                                                </h:inputTextarea>
-                                            </div>
-                                        </div> 
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <p>TAMANHO</p>
-                                                <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">P</h:outputLink>
-                                                <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">M</h:outputLink>
-                                                <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">G</h:outputLink>
-                                                <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">GG</h:outputLink>
-                                            </div>
-                                            <div class="form-group">
-                                                <h:outputLabel>Cor</h:outputLabel>
-                                                <h:inputText> 
-                                                    <f:validateRequired/>
-                                                </h:inputText>
-                                            </div>
-                                            <div class="form-group">
-                                                <h:outputLabel>Quantidade</h:outputLabel>
-                                                <h:inputText> 
-                                                    <f:validateRequired/>
-                                                </h:inputText>
-                                            </div>
-                                            <div class="form-group">
-                                                <h:outputLabel>Preço</h:outputLabel>
-                                                <h:inputText> 
-                                                    <f:validateRequired/>
-                                                </h:inputText>
-                                            </div>  
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Adicionar</button>
-                                    </form>
-                                </div>
+                                
+                                <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h:form prependId="false" enctype="multipart/form-data">
+                   
+                    <div class="form-group">
+                        <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
+                        <h:inputText value="#{produtoNovoBean.nome}" id="txt-nome"
+                                     required="true" requiredMessage="Preencher o nome" 
+                                     pt:placeholder="Nome do produto" styleClass="form-control" />
+                        <span><h:message for="txt-nome" /></span>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
+                        <h:inputTextarea value="#{produtoNovoBean.descricao}" id="txt-descricao"
+                                         required="true" requiredMessage="Preencher a descrição do produto" 
+                                         pt:placeholder="Descrição do produto" styleClass="form-control" />
+                        <span><h:message for="txt-descricao" /></span>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Categorias" />
+                        <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
+                        <h:selectManyCheckbox value="#{produtoNovoBean.idsCategorias}" label="Categorias" id="chk-categorias" 
+                                              converter="javax.faces.Integer">
+                            <f:selectItems value="#{categoriaBean.lista}" var="cat"
+                                           itemValue="#{cat.id}" 
+                                           itemLabel="#{cat.nome}" />
+                        </h:selectManyCheckbox>
+                        <span><h:message for="chk-categorias" /></span>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Cor"/>
+                        <h:inputText styleClass="form-control" value="#{produtoNovoBean.cor}"/>
+
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Tamanho"/>
+                        <h:inputText styleClass="form-control" value="#{produtoNovoBean.tamanho}"/>
+
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Genero"/>
+                        <h:inputText styleClass="form-control" value="#{produtoNovoBean.genero}"/>   
+                    </div>
+                    
+                      <div class="form-group">
+                        <h:outputLabel value="Qtd Atual"/>
+                        <h:inputText styleClass="form-control" value="#{produtoNovoBean.qtdAtual}"/>   
+                    </div>
+                    
+                    <div class="form-group">
+                        <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
+                        <h:inputText value="#{produtoNovoBean.preco}" id="txt-preco"
+                                     required="true" requiredMessage="Preencher o preço do produto" 
+                                     pt:placeholder="Preço do produto" styleClass="form-control">
+                            <f:convertNumber minFractionDigits="2" />
+                        </h:inputText>
+                        <span><h:message for="txt-preco" /></span>
+                    </div>
+                    <ui:fragment rendered="false">
+                        <div class="form-group">
+                            <h:commandButton value="Teste">
+                                <f:ajax execute="txt-nome" render="out" />
+                            </h:commandButton>
+                            <h:outputText id="out" value="#{produtoNovoBean.fragmento}" escape="false"></h:outputText>
+                        </div>
+
+                        <div>
+                            <button onclick="funcaoAjax();
+                                    return false;">Teste 2</button>
+                            <div id="outajax"></div>
+                        </div>
+                    </ui:fragment>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Imagem" styleClass="control-label" />
+                        <h:inputFile value="#{produtoNovoBean.imagem}" />
+                    </div>
+
+                    <div>
+                        <h:commandButton value="Salvar"
+                                         action="#{produtoNovoBean.salvar()}"
+                                         styleClass="btn btn-primary btn-lg btn-block" />
+                    </div>
+                </h:form>
+            </div>
+        </div>
+                 
+                                <!-- fim do modal -->
                             </div>
                         </div>
                     </div>

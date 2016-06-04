@@ -52,6 +52,9 @@ public class ProdutoNovoBean implements Serializable {
     private float preco;
     private Part imagem;
     private String genero;
+    private String cor;
+    private String tamanho;
+    private int qtdAtual;
     private List<Produto> produtosLista;
     private String nomeCategoria;
     
@@ -76,6 +79,10 @@ public class ProdutoNovoBean implements Serializable {
 
         p.setNome(nome);
         p.setDescricao(descricao);
+        p.setTamanho(tamanho);
+        p.setCor(cor);
+        p.setQtdAtual(qtdAtual);
+        p.setGenero(genero);
         List<Categoria> listaCategorias = new ArrayList<Categoria>();
         for (int idCat : idsCategorias) {
             Categoria cat = cServ.obter(idCat);
@@ -103,7 +110,7 @@ public class ProdutoNovoBean implements Serializable {
         flash.put("mensagem", new Mensagem("Produto '"
                 + p.getNome()
                 + "' cadastrado com sucesso", "success"));
-        return "/lista.xhtml?faces-redirect=true";
+        return "/admin-produto.xhtml?faces-redirect=true";
     }
 
     private String obterNomeArquivo() {
@@ -245,5 +252,31 @@ public class ProdutoNovoBean implements Serializable {
     public void setNomeCategoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
     }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public int getQtdAtual() {
+        return qtdAtual;
+    }
+
+    public void setQtdAtual(int qtdAtual) {
+        this.qtdAtual = qtdAtual;
+    }
+    
+    
     
 }
