@@ -53,7 +53,8 @@ public class ProdutoNovoBean implements Serializable {
     private Part imagem;
     private String genero;
     private List<Produto> produtosLista;
-
+    private String nomeCategoria;
+    
     public ProdutoNovoBean() {
     }
 
@@ -219,9 +220,30 @@ public class ProdutoNovoBean implements Serializable {
     
     public Produto obter(long idProduto) {
         ProdutoService service = new ProdutoServiceJPA();
-        return service.obter(idProduto);
+        Produto produtoObtido = service.obter(idProduto);
+        for (Categoria c : produtoObtido.getCategorias()) {
+            nomeCategoria = c.getNome();
+        }
+        return produtoObtido; 
     }
     public Produto getProduto(){
         return obter(getIdProduto());
     }
+
+    public List<Produto> getProdutosLista() {
+        return produtosLista;
+    }
+
+    public void setProdutosLista(List<Produto> produtosLista) {
+        this.produtosLista = produtosLista;
+    }
+
+    public String getNomeCategoria() {
+        return nomeCategoria;
+    }
+
+    public void setNomeCategoria(String nomeCategoria) {
+        this.nomeCategoria = nomeCategoria;
+    }
+    
 }
