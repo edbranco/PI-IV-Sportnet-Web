@@ -21,8 +21,8 @@
             <div class="row" id="topo">
                 <div class="col-md-12">
                     <h2>Olá visitante, identifique-se 
-                         <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
-                         ou                         
+                        <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                        ou                         
                         <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                     </h2>
                 </div>
@@ -93,116 +93,22 @@
                     <h:graphicImage name="img/carrinho.jpg" />
                 </div>
             </div>
-            <div class="row cadastro content">
-                <h:form>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        Dados Pessoais<br/><br/>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                       <br/> *Nome
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-4">
-                        <br/>*Sexo
-                        <h:selectOneRadio value=""> 
-                            <f:validateRequired/> 
-                            <f:selectItem itemValue="masculino" itemLabel="Masculino" />
-                            <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
-                        </h:selectOneRadio>
-                    </div>
-                    <div class="col-md-4">
-                       <br/> *Data de Nascimento
-                        <p:calendar  locale="pt_BR" navigator="true">
-                            <f:validateRequired/> 
-                        </p:calendar>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <br/>*CPF
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-4">
-                        <br/>*Telefone
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>  
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <br/>*E-mail
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-4">
-                        <br/>*Senha
-                        <h:inputSecret>  
-                            <f:validateRequired/> 
-                        </h:inputSecret> 
-                    </div>  
-                    <div class="col-md-4">
-                        <br/>*Confirmar a Senha
-                        <h:inputSecret> 
-                            <f:validateRequired/> 
-                        </h:inputSecret> 
-                    </div> 
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                       <br/><br/> Endereço
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-3">
-                        <br/>*CEP
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-3">
-                        <br/>*Logradouro
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-3">
-                        <br/>*Número
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-3">
-                        <br/>*Complemento
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                       <br/>*Bairro
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-4">
-                        <br/>*Cidade
-                        <h:inputText> 
-                            <f:validateRequired/> 
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-4">
-                        <br/>*Estado
-                        <h:selectOneMenu>
+            <div id="cadastro" class="row">
+                <div class="col-md-3 col-sm-12">
+                    <p:outputLabel>Nome</p:outputLabel>
+                    <p:inputText><f:validateRequired/></p:inputText>
+                    
+                    <p:outputLabel>CPF</p:outputLabel>
+                    <p:inputMask mask="999.999.999-99"><f:validateRequired/></p:inputMask>
+                    
+                    <p:outputLabel>Endereço</p:outputLabel>
+                    <p:inputText><f:validateRequired/></p:inputText>
+                    
+                    <p:outputLabel>Número</p:outputLabel>
+                    <p:inputText><f:validateRequired/></p:inputText>
+                    
+                    <p:outputLabel>Estado</p:outputLabel>
+                    <p:selectOneMenu style="width:180px">
                             <f:validateRequired/> 
                             <f:selectItem itemValue="" itemLabel="Selecione" />
                             <f:selectItem itemValue="SP" itemLabel="SP" />
@@ -232,15 +138,42 @@
                             <f:selectItem itemValue="SC" itemLabel="SC" />
                             <f:selectItem itemValue="SE" itemLabel="SE" />
                             <f:selectItem itemValue="TO" itemLabel="TO" />
-                        </h:selectOneMenu>
-                    </div>
+                        </p:selectOneMenu>
                 </div>
-                <div class="col-md-12">
-                    <br/>
-                    <br/>
-                <h:outputLink styleClass="btn btn-success" type="submit">REALIZAR CADASTRO</h:outputLink>
+                <div class="col-md-3 col-sm-12">
+                    <p:outputLabel>Sexo</p:outputLabel>
+                    <p:selectOneRadio value="">
+                        <f:validateRequired/> 
+                        <f:selectItem itemValue="masculino" itemLabel="Masculino"/>
+                        <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
+                    </p:selectOneRadio>
+
+                    <p:outputLabel>E-mail</p:outputLabel>
+                    <p:inputText><f:validateRequired/></p:inputText>
+
+                    <p:outputLabel>CEP</p:outputLabel>
+                    <p:inputMask mask="99999-999"><f:validateRequired/></p:inputMask>
+                    
+                    <p:outputLabel>Complemento</p:outputLabel>
+                    <p:inputText><f:validateRequired/></p:inputText>
                 </div>
-                    </h:form>
+                <div class="col-md-3 col-sm-12">
+                    <p:outputLabel>Data de Nascimento</p:outputLabel>
+                    <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999">
+                        <f:validateRequired/> 
+                    </p:calendar>
+                    
+                    <p:outputLabel>Senha</p:outputLabel>
+                    <p:password><f:validateRequired/></p:password>
+
+                    <p:outputLabel>Bairro</p:outputLabel>
+                    <p:inputText><f:validateRequired/></p:inputText>
+
+                    <p:outputLabel>Cidade</p:outputLabel>
+                    <p:inputText styleClass="display:block"><f:validateRequired/></p:inputText>
+                    
+                    <h:commandButton styleClass="btn btn-primary"  value="CADASTRAR"/>
+                </div>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-12">

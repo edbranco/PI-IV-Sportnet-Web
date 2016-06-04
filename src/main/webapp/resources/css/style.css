@@ -346,6 +346,33 @@ hr {
     padding-left:12px;
     padding-right: 22px;
 }
+#cadastro{
+    margin:30px 20% 100px 20%;
+    font-size:10pt;  
+}
+#cadastro > div > label,#cadastro > div > table{
+    display: block;
+}
+#cadastro table tr td label {
+    margin-right:10px;
+    margin-left:10px;
+    margin-top:5px;
+}
+#cadastro > div{
+    padding:0;
+}
+#cadastro > div:nth-of-type(2){
+    margin: 0 12% 0 12%;
+}
+#cadastro label{
+    margin-top:10px;
+}
+#cadastro .btn-primary{
+    margin-top:30px;
+    display: block;
+    text-align: center;
+}
+
 @media all and (max-width: 991px) {
     .detalhesProduto{
         width: 240px;
@@ -355,6 +382,16 @@ hr {
     }
     .carrinho div:last-child{
         padding-right:0px;
+    }
+    #cadastro{
+        text-align: center;
+        margin:30px 40% 100px 40%;
+    }
+    #cadastro table tr td label{
+        margin-top:0;
+    }
+    #cadastro > div:nth-of-type(2){
+        margin:0;
     }
 }
 
@@ -383,6 +420,11 @@ hr {
     }
     #telaAdmin .col-md-6{
         margin: 100px 15% 0 15%;
+    }
+    #cadastro{
+        text-align: center;
+        margin:30px 20% 100px 20%;
+        font-size:8pt;
     }
 }
 
