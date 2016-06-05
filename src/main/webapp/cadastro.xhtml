@@ -110,9 +110,7 @@
                         </p:selectOneRadio>
 
                         <p:outputLabel>Data de Nascimento</p:outputLabel>
-                        <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{clienteNovoBean.dtNascimento}">
-                            <f:validateRequired/> 
-                        </p:calendar>
+                        <p:calendar locale="pt_BR" navigator="true" value="#{clienteNovoBean.dtNascimento}"/>
                         
                         <p:outputLabel>Cidade</p:outputLabel>
                         <p:inputText></p:inputText>

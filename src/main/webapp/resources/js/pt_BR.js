@@ -20,14 +20,11 @@ PrimeFaces.locales['pt_BR'] = {
                 hourText: 'Hora',  
                 minuteText: 'Minuto',  
                 secondText: 'Segundo',  
-                currentText: 'Data Atual',  
                 ampm: false,  
                 month: 'Mês',  
                 week: 'Semana',  
                 day: 'Dia',  
                 allDayText : 'Todo Dia',
-                dateFormat: 'dd-mm-yy',
-                changeMonth:true,
-                changeYear:true,
+                dateFormat: 'dd/mm/yy',
                 yearRange: '1903:2003'
             };
