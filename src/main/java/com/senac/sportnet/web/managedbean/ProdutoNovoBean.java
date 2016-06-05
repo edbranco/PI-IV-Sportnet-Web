@@ -25,7 +25,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -33,6 +35,8 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.servlet.http.Part;
+import org.primefaces.component.datatable.DataTable;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -45,7 +49,7 @@ public class ProdutoNovoBean implements Serializable {
 
     @ManagedProperty(value = "#{param.id}")
     private Long idProduto;
-  
+
     private String nome;
     private String descricao;
     private List<Integer> idsCategorias;
@@ -58,7 +62,7 @@ public class ProdutoNovoBean implements Serializable {
     private int qtdAtual;
     private List<Produto> produtosLista;
     private String nomeCategoria;
-    
+
     public ProdutoNovoBean() {
     }
 
@@ -179,6 +183,7 @@ public class ProdutoNovoBean implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getDescricao() {
         return descricao;
     }
@@ -194,7 +199,7 @@ public class ProdutoNovoBean implements Serializable {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    
+
     public List<Integer> getIdsCategorias() {
         return idsCategorias;
     }
@@ -226,16 +231,17 @@ public class ProdutoNovoBean implements Serializable {
     public void setIdProduto(Long idProduto) {
         this.idProduto = idProduto;
     }
-    
+
     public Produto obter(long idProduto) {
         ProdutoService service = new ProdutoServiceJPA();
         Produto produtoObtido = service.obter(idProduto);
         for (Categoria c : produtoObtido.getCategorias()) {
             nomeCategoria = c.getNome();
         }
-        return produtoObtido; 
+        return produtoObtido;
     }
-    public Produto getProduto(){
+
+    public Produto getProduto() {
         return obter(getIdProduto());
     }
 
@@ -286,9 +292,25 @@ public class ProdutoNovoBean implements Serializable {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-    
-    
-    
-    
-    
+
+//    public void onRowEdit(RowEditEvent event) {
+//        FacesMessage msg = new FacesMessage("Car Edited", ((Car) event.getObject()).getId());
+//        FacesContext.getCurrentInstance().addMessage(null, msg);
+//    }
+//
+//    public void onRowCancel(RowEditEvent event) {
+//        FacesMessage msg = new FacesMessage("Edit Cancelled", ((Car) event.getObject()).getId());
+//        FacesContext.getCurrentInstance().addMessage(null, msg);
+//    }
+//
+//    public void onCellEdit(CellEditEvent event) {
+//        Object oldValue = event.getOldValue();
+//        Object newValue = event.getNewValue();
+//
+//        if (newValue != null && !newValue.equals(oldValue)) {
+//            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
+//            FacesContext.getCurrentInstance().addMessage(null, msg);
+//        }
+//    }
+//    
 }
