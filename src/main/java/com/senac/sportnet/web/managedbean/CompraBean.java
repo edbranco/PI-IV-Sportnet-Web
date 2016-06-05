@@ -62,9 +62,7 @@ public class CompraBean implements Serializable {
         flash.put("mensagem", new Mensagem("Produto '"
                 + p.getNome()
                 + "' adicionado com sucesso", "success"));
-
-        // Redireciona para tela de listagem de produtos
-        return "listaTenis.xhtml?faces-redirect=true";
+        return "carrinho.xhtml?faces-redirect=true";
     }
 
     // Converte Set em List senao nao funciona no ui:repeat

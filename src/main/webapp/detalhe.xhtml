@@ -10,8 +10,9 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputScript name="js/jquery.min.js" />
         <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
     </h:head>
@@ -123,12 +124,12 @@
                         </h:outputLink>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div id="detalhesProduto2" class="col-md-4">
                     <h3>#{produtoNovoBean.produto.nome}</h3>
                     <p>#{produtoNovoBean.produto.descricao}
                     </p>
                     <p><b>Categoria:</b> #{produtoNovoBean.nomeCategoria}</p>
-                    <p><b>Género:</b> #{produtoNovoBean.produto.genero}</p>
+                    <p><b>Gênero:</b> #{produtoNovoBean.produto.genero}</p>
                 </div>
 
                 <div class="col-md-3 alinhamentoFooter">
@@ -148,10 +149,11 @@
                             <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>38</h:outputLabel>
                             <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>39</h:outputLabel>
                             <hr/>
-                            
-                            <h:commandButton action="#{compraBean.adicionarProduto(produtoNovoBean.idProduto, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar">
-                                <f:param name="id" value="#{produtoNovoBean.idProduto}" />
-                            </h:commandButton>
+                            <a>
+                                <h:commandButton action="#{compraBean.adicionarProduto(produtoNovoBean.idProduto, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar">
+                                    <f:param name="id" value="#{produtoNovoBean.idProduto}" />
+                                </h:commandButton>
+                            </a>
                         </h:form>
                     </div>
                 </div>

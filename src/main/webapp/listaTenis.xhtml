@@ -10,10 +10,11 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputScript name="js/jquery.min.js"/>
-        <h:outputScript name="js/bootstrap.min.js"/>
-        <h:outputStylesheet name="css/bootstrap.min.css"/>
-        <h:outputStylesheet name="css/style.css"/>
+        <h:outputScript name="js/jquery.min.js" />
+        <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/style.css" />
+        <h:outputScript name="js/menu.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
@@ -124,22 +125,20 @@
                     <div class="col-md-10 produtos" >
                         <ui:repeat value="#{produtoNovoBean.lista}" var="prod">
                             <div class="col-md-4">
-                                <h:form>
-                                   <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>
-                                   
-                                </h:form>
+                                <h:outputLink value="detalhe.xhtml">
+                                    <f:param name="id" value="#{prod.id}" />
+                                    <h:form>
+                                        <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   
+                                    </h:form>
+                                </h:outputLink>
                                 <p>#{prod.nome}</p>
                                 <p>#{prod.descricao}</p>
-                                <p>#{prod.preco}</p>                               
+                                <p>R$ #{prod.preco}</p>                               
                                 <f:param name="id" value="#{prod.id}" />
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <h:form prependId="false">
-                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar" />
+                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success carrinhoButton tamanhoButton" pt:role="button"/>
                                     </h:form>
-                                    <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
-                                        <f:param name="id" value="#{prod.id}" />
-                                        Ver detalhes
-                                    </h:outputLink>
                                 </div>
                             </div>
                         </ui:repeat>

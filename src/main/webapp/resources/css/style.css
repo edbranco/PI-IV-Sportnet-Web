@@ -33,7 +33,7 @@ h1{
 }
 
 .headerFooter > .col-md-4 > a{
-     text-decoration:none; 
+    text-decoration:none; 
 }
 
 .input-group .input-group-addon, div > form > .input-group > .input-group-addon > img{
@@ -45,6 +45,17 @@ h1{
 #topo{
     background-color: #021f54;
     min-height: 36px;
+}
+.carrinhoButton{
+    background-image: url("#{resource['/img/carrinhoButton.png']}");
+    background-repeat: no-repeat;
+    background-size: 70px;
+    background-position: center;
+}
+/*botao de comprar*/
+.tamanhoButton{
+    width: 50%;
+    height: 50px;
 }
 
 /* Parte da Header */
@@ -322,7 +333,7 @@ hr {
 .crudProdutoCliente h2{
     text-align: center;
     font-size:14pt;
-    
+
 }
 /*--------MODAL BOOTSTRAP-------------*/
 .modal-body{
@@ -348,7 +359,7 @@ hr {
 }
 #cadastro{
     margin:15px 20% 115px 20%;
-    font-size:10pt;  
+    font-size:10pt;
 }
 #cadastro > form > div > label,#cadastro > div > table{
     display: block;
@@ -374,8 +385,9 @@ hr {
 }
 
 @media all and (max-width: 991px) {
-    .detalhesProduto{
+    .detalhesProduto, #detalhesProduto2{
         width: 240px;
+        margin-left: 50%;
     }
     .carrinho div:first-child{
         padding-left:0px;
@@ -412,6 +424,10 @@ hr {
     }
 }
 @media all and (max-width: 499px){
+    .detalhesProduto, #detalhesProduto2{
+        width: 240px;
+        margin-left: 0;
+    }
     .alinharFooter > .col-md-2{
         margin-left: 40px;
     }
@@ -562,4 +578,3 @@ hr {
 }
 /* --------END---------------------- */
 /* --------MENU RESPONSIVO---------- */
-	
