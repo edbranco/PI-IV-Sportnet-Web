@@ -113,13 +113,13 @@
                         <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{clienteNovoBean.dtNascimento}">
                             <f:validateRequired/> 
                         </p:calendar>
-                        
+
                         <p:outputLabel>Cidade</p:outputLabel>
-                        <p:inputText></p:inputText>
-                        
+                        <p:inputText value="#{clienteNovoBean.endCidade}"><f:validateRequired/></p:inputText>
+
                         <p:outputLabel>Estado</p:outputLabel>
-                        <p:selectOneMenu style="width:180px">
-                            
+                        <p:selectOneMenu style="width:180px" value="#{clienteNovoBean.endEstado}">
+                            <f:validateRequired/>
                             <f:selectItem itemValue="" itemLabel="Selecione" />
                             <f:selectItem itemValue="SP" itemLabel="SP" />
                             <f:selectItem itemValue="AC" itemLabel="AC" />
@@ -152,24 +152,23 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <p:outputLabel>Endereço</p:outputLabel>
-                        <p:inputText  value="#{clienteNovoBean.endereco}"><f:validateRequired/></p:inputText>
+                        <p:inputText  value="#{clienteNovoBean.endRua}"><f:validateRequired/></p:inputText>
 
                         <p:outputLabel>Número</p:outputLabel>
-                        <p:inputText></p:inputText>
-                                                
+                        <p:inputText value="#{clienteNovoBean.endNum}"><f:validateRequired/></p:inputText>
+
                         <p:outputLabel>Complemento</p:outputLabel>
-                        <p:inputText></p:inputText>
-                        
+                        <p:inputText value="#{clienteNovoBean.endComplemento}"></p:inputText>
+
                         <p:outputLabel>Bairro</p:outputLabel>
-                        <p:inputText></p:inputText>
+                        <p:inputText value="#{clienteNovoBean.endBairro}"><f:validateRequired/></p:inputText>
 
                         <p:outputLabel>CEP</p:outputLabel>
-                        <p:inputMask mask="99999-999"></p:inputMask>
+                        <p:inputMask mask="99999-999" value="#{clienteNovoBean.endCep}"><f:validateRequired/></p:inputMask>
                     </div>
 
                     <div class="col-md-3 col-sm-12">
-                   
-                        
+
                         <p:outputLabel>E-mail</p:outputLabel>
                         <p:inputText value="#{clienteNovoBean.email}"><f:validateRequired/></p:inputText>
 
