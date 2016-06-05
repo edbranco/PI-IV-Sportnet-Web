@@ -6,7 +6,9 @@
 package com.senac.sportnet.web.managedbean;
 
 import com.senac.spornet.entity.Cliente;
+import com.senac.sportnet.service.CategoriaService;
 import com.senac.sportnet.service.ClienteService;
+import com.senac.sportnet.servicejpa.CategoriaServiceJPA;
 import com.senac.sportnet.servicejpa.ClienteServiceJPA;
 import com.senac.sportnet.web.util.Mensagem;
 import java.io.Serializable;
@@ -29,61 +31,50 @@ public class ClienteNovoBean implements Serializable {
 
     @ManagedProperty(value = "#{param.id}")
     private Long idCliente;
-
+    
     private String nome;
     private String cpf;
     private String sexo;
     private String email;
     private String login;
     private String senha;
-    private String endRua;
-    private int endNum;
-    private String endComplemento;
-    private String endBairro;
-    private String endCep;
-    private String endCidade;
-    private String endEstado;
+    private String endereco;
     private Date dtNascimento;
-
+    
     public ClienteNovoBean() {
     }
-
-    public String getFragmento() {
+    
+       public String getFragmento() {
         if (nome != null && nome.length() > 0) {
             return "<h1>" + getNome() + "</h1>";
         }
         return "ERRO";
     }
-
-    public String salvar() {
-        Cliente c = new Cliente();
-        ClienteService cServ = new ClienteServiceJPA();
-
-        c.setNome(nome);
-        c.setCpf(cpf);
-        c.setEmail(email);
-        c.setLogin(login);
-        c.setSenha(senha);
-        c.setSexo(sexo);
-        c.setEndRua(endRua);
-        c.setEndNum(endNum);
-        c.setEndComplemento(endComplemento);
-        c.setEndBairro(endBairro);
-        c.setEndCep(endCep);
-        c.setEndCidade(endCidade);
-        c.setEndEstado(endEstado);
-        c.setDtNascimento(dtNascimento);
-
-        cServ.incluir(c);
-        Flash flash = FacesContext.getCurrentInstance()
+       
+      public String salvar() {
+          Cliente c = new Cliente();
+          ClienteService cServ = new ClienteServiceJPA();
+          
+          c.setNome(nome);
+          c.setCpf(cpf);
+          c.setEmail(email);
+          c.setLogin(login);
+          c.setSenha(senha);
+          c.setSexo(sexo);
+          c.setEndereco(endereco);
+          c.setDtNascimento(dtNascimento);
+          
+          cServ.incluir(c);
+           Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
         flash.put("mensagem", new Mensagem("Cliente '"
                 + c.getNome()
                 + "' cadastrado com sucesso", "success"));
         return "/index.xhtml?faces-redirect=true";
+          
+      }
 
-    }
-
+       
     public Long getIdCliente() {
         return idCliente;
     }
@@ -140,6 +131,14 @@ public class ClienteNovoBean implements Serializable {
         this.senha = senha;
     }
 
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
     public Date getDtNascimento() {
         return dtNascimento;
     }
@@ -147,61 +146,9 @@ public class ClienteNovoBean implements Serializable {
     public void setDtNascimento(Date dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
+       
+       
 
-    public String getEndRua() {
-        return endRua;
-    }
-
-    public void setEndRua(String endRua) {
-        this.endRua = endRua;
-    }
-
-    public int getEndNum() {
-        return endNum;
-    }
-
-    public void setEndNum(int endNum) {
-        this.endNum = endNum;
-    }
-
-    public String getEndComplemento() {
-        return endComplemento;
-    }
-
-    public void setEndComplemento(String endComplemento) {
-        this.endComplemento = endComplemento;
-    }
-
-    public String getEndBairro() {
-        return endBairro;
-    }
-
-    public void setEndBairro(String endBairro) {
-        this.endBairro = endBairro;
-    }
-
-    public String getEndCep() {
-        return endCep;
-    }
-
-    public void setEndCep(String endCep) {
-        this.endCep = endCep;
-    }
-
-    public String getEndCidade() {
-        return endCidade;
-    }
-
-    public void setEndCidade(String endCidade) {
-        this.endCidade = endCidade;
-    }
-
-    public String getEndEstado() {
-        return endEstado;
-    }
-
-    public void setEndEstado(String endEstado) {
-        this.endEstado = endEstado;
-    }
+            
 
 }
