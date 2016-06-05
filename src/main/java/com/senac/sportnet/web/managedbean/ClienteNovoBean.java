@@ -6,9 +6,7 @@
 package com.senac.sportnet.web.managedbean;
 
 import com.senac.spornet.entity.Cliente;
-import com.senac.sportnet.service.CategoriaService;
 import com.senac.sportnet.service.ClienteService;
-import com.senac.sportnet.servicejpa.CategoriaServiceJPA;
 import com.senac.sportnet.servicejpa.ClienteServiceJPA;
 import com.senac.sportnet.web.util.Mensagem;
 import java.io.Serializable;
@@ -38,7 +36,14 @@ public class ClienteNovoBean implements Serializable {
     private String email;
     private String login;
     private String senha;
-    private String endereco;
+    //atributos do endereco
+    private String endRua;
+    private int endNum;
+    private String endComplemento;
+    private String endBairro;
+    private String endCep;
+    private String endCidade;
+    private String endEstado;
     private Date dtNascimento;
     
     public ClienteNovoBean() {
@@ -61,7 +66,13 @@ public class ClienteNovoBean implements Serializable {
           c.setLogin(login);
           c.setSenha(senha);
           c.setSexo(sexo);
-          c.setEndereco(endereco);
+          c.setEndRua(endRua);
+          c.setEndNum(endNum);
+          c.setEndComplemento(endComplemento);
+          c.setEndBairro(endBairro);
+          c.setEndCep(endCep);
+          c.setEndCidade(endCidade);
+          c.setEndEstado(endEstado);
           c.setDtNascimento(dtNascimento);
           
           cServ.incluir(c);
@@ -131,14 +142,6 @@ public class ClienteNovoBean implements Serializable {
         this.senha = senha;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
     public Date getDtNascimento() {
         return dtNascimento;
     }
@@ -146,6 +149,64 @@ public class ClienteNovoBean implements Serializable {
     public void setDtNascimento(Date dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
+
+    public String getEndRua() {
+        return endRua;
+    }
+
+    public void setEndRua(String endRua) {
+        this.endRua = endRua;
+    }
+
+    public int getEndNum() {
+        return endNum;
+    }
+
+    public void setEndNum(int endNum) {
+        this.endNum = endNum;
+    }
+
+    public String getEndComplemento() {
+        return endComplemento;
+    }
+
+    public void setEndComplemento(String endComplemento) {
+        this.endComplemento = endComplemento;
+    }
+
+    public String getEndBairro() {
+        return endBairro;
+    }
+
+    public void setEndBairro(String endBairro) {
+        this.endBairro = endBairro;
+    }
+
+    public String getEndCep() {
+        return endCep;
+    }
+
+    public void setEndCep(String endCep) {
+        this.endCep = endCep;
+    }
+
+    public String getEndCidade() {
+        return endCidade;
+    }
+
+    public void setEndCidade(String endCidade) {
+        this.endCidade = endCidade;
+    }
+
+    public String getEndEstado() {
+        return endEstado;
+    }
+
+    public void setEndEstado(String endEstado) {
+        this.endEstado = endEstado;
+    }
+    
+    
        
        
 
