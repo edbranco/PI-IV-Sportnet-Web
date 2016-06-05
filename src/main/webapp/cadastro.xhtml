@@ -110,9 +110,7 @@
                         </p:selectOneRadio>
 
                         <p:outputLabel>Data de Nascimento</p:outputLabel>
-                        <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{clienteNovoBean.dtNascimento}">
-                            <f:validateRequired/> 
-                        </p:calendar>
+                        <p:calendar locale="pt_BR" navigator="true" value="#{clienteNovoBean.dtNascimento}"/>
                         
                         <p:outputLabel>Cidade</p:outputLabel>
                         <p:inputText></p:inputText>
@@ -168,7 +166,8 @@
                     </div>
 
                     <div class="col-md-3 col-sm-12">
-                   
+                        <p:outputLabel>Telefone</p:outputLabel>
+                        <p:inputMask mask="(99)9999-9999"></p:inputMask>
                         
                         <p:outputLabel>E-mail</p:outputLabel>
                         <p:inputText value="#{clienteNovoBean.email}"><f:validateRequired/></p:inputText>
