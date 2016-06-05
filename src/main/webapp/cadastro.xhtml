@@ -115,11 +115,11 @@
                         </p:calendar>
                         
                         <p:outputLabel>Cidade</p:outputLabel>
-                        <p:inputText><f:validateRequired/></p:inputText>
+                        <p:inputText></p:inputText>
                         
                         <p:outputLabel>Estado</p:outputLabel>
                         <p:selectOneMenu style="width:180px">
-                            <f:validateRequired/>
+                            
                             <f:selectItem itemValue="" itemLabel="Selecione" />
                             <f:selectItem itemValue="SP" itemLabel="SP" />
                             <f:selectItem itemValue="AC" itemLabel="AC" />
@@ -155,21 +155,21 @@
                         <p:inputText  value="#{clienteNovoBean.endereco}"><f:validateRequired/></p:inputText>
 
                         <p:outputLabel>Número</p:outputLabel>
-                        <p:inputText><f:validateRequired/></p:inputText>
+                        <p:inputText></p:inputText>
                                                 
                         <p:outputLabel>Complemento</p:outputLabel>
                         <p:inputText></p:inputText>
                         
                         <p:outputLabel>Bairro</p:outputLabel>
-                        <p:inputText><f:validateRequired/></p:inputText>
+                        <p:inputText></p:inputText>
 
                         <p:outputLabel>CEP</p:outputLabel>
-                        <p:inputMask mask="99999-999"><f:validateRequired/></p:inputMask>
+                        <p:inputMask mask="99999-999"></p:inputMask>
                     </div>
 
                     <div class="col-md-3 col-sm-12">
                         <p:outputLabel>Telefone</p:outputLabel>
-                        <p:inputMask mask="(99)9999-9999"><f:validateRequired/></p:inputMask>
+                        <p:inputMask mask="(99)9999-9999"></p:inputMask>
                         
                         <p:outputLabel>E-mail</p:outputLabel>
                         <p:inputText value="#{clienteNovoBean.email}"><f:validateRequired/></p:inputText>
