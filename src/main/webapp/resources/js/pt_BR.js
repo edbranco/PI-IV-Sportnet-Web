@@ -26,5 +26,8 @@ PrimeFaces.locales['pt_BR'] = {
                 week: 'Semana',  
                 day: 'Dia',  
                 allDayText : 'Todo Dia',
-                yearRange: 'c-100:c-10'
+                dateFormat: 'dd-mm-yy',
+                changeMonth:true,
+                changeYear:true,
+                yearRange: '1903:2003'
             };

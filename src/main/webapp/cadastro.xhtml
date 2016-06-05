@@ -95,26 +95,31 @@
             </div>
             <div id="cadastro" class="row">
                 <h:form prependId="false" enctype="multipart/form-data">
-                <div class="col-md-3 col-sm-12">
-                    <p:outputLabel>Nome</p:outputLabel>
-                    <p:inputText  value="#{clienteNovoBean.nome}"><f:validateRequired/></p:inputText>
-                    
-                    <p:outputLabel>CPF</p:outputLabel>
-                    <p:inputMask mask="999.999.999-99" value="#{clienteNovoBean.cpf}"><f:validateRequired/></p:inputMask>
-                    
-                    <p:outputLabel>Endereço</p:outputLabel>
-                    <p:inputText  value="#{clienteNovoBean.endereco}"><f:validateRequired/></p:inputText>
-                    
-                    <p:outputLabel>Login</p:outputLabel>
-                    <p:inputText  value="#{clienteNovoBean.login}"><f:validateRequired/></p:inputText>
-              
-                    
-                    <p:outputLabel>Número</p:outputLabel>
-                    <p:inputText ></p:inputText>
-                    
-                    <p:outputLabel>Estado</p:outputLabel>
-                    <p:selectOneMenu style="width:180px">
-                          
+                    <div class="col-md-3 col-sm-12">
+                        <p:outputLabel>Nome Completo</p:outputLabel>
+                        <p:inputText  value="#{clienteNovoBean.nome}"><f:validateRequired/></p:inputText>
+
+                        <p:outputLabel>CPF</p:outputLabel>
+                        <p:inputMask mask="999.999.999-99" value="#{clienteNovoBean.cpf}"><f:validateRequired/></p:inputMask>
+
+                        <p:outputLabel>Sexo</p:outputLabel>
+                        <p:selectOneRadio value="#{clienteNovoBean.sexo}">
+                            <f:validateRequired/> 
+                            <f:selectItem itemValue="masculino" itemLabel="Masculino"/>
+                            <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
+                        </p:selectOneRadio>
+
+                        <p:outputLabel>Data de Nascimento</p:outputLabel>
+                        <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{clienteNovoBean.dtNascimento}">
+                            <f:validateRequired/> 
+                        </p:calendar>
+                        
+                        <p:outputLabel>Cidade</p:outputLabel>
+                        <p:inputText><f:validateRequired/></p:inputText>
+                        
+                        <p:outputLabel>Estado</p:outputLabel>
+                        <p:selectOneMenu style="width:180px">
+                            <f:validateRequired/>
                             <f:selectItem itemValue="" itemLabel="Selecione" />
                             <f:selectItem itemValue="SP" itemLabel="SP" />
                             <f:selectItem itemValue="AC" itemLabel="AC" />
@@ -144,47 +149,42 @@
                             <f:selectItem itemValue="SE" itemLabel="SE" />
                             <f:selectItem itemValue="TO" itemLabel="TO" />
                         </p:selectOneMenu>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                    <p:outputLabel>Sexo</p:outputLabel>
-                    <p:selectOneRadio value="#{clienteNovoBean.sexo}">
-                        <f:validateRequired/> 
-                        <f:selectItem itemValue="masculino" itemLabel="Masculino"/>
-                        <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
-                    </p:selectOneRadio>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <p:outputLabel>Endereço</p:outputLabel>
+                        <p:inputText  value="#{clienteNovoBean.endereco}"><f:validateRequired/></p:inputText>
 
-                    <p:outputLabel>E-mail</p:outputLabel>
-                    <p:inputText value="#{clienteNovoBean.email}"><f:validateRequired/></p:inputText>
+                        <p:outputLabel>Número</p:outputLabel>
+                        <p:inputText><f:validateRequired/></p:inputText>
+                                                
+                        <p:outputLabel>Complemento</p:outputLabel>
+                        <p:inputText></p:inputText>
+                        
+                        <p:outputLabel>Bairro</p:outputLabel>
+                        <p:inputText><f:validateRequired/></p:inputText>
 
-                    <p:outputLabel>CEP</p:outputLabel>
-                    <p:inputMask mask="99999-999"></p:inputMask>
-                    
-                    <p:outputLabel>Complemento</p:outputLabel>
-                    <p:inputText></p:inputText>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                    <p:outputLabel>Data de Nascimento</p:outputLabel>
-                    <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{clienteNovoBean.dtNascimento}">
-                        <f:validateRequired/> 
-                    </p:calendar>
-                 
-                    
-                    <p:outputLabel>Senha</p:outputLabel>
-                    <p:password value="#{clienteNovoBean.senha}"><f:validateRequired/></p:password>
+                        <p:outputLabel>CEP</p:outputLabel>
+                        <p:inputMask mask="99999-999"><f:validateRequired/></p:inputMask>
+                    </div>
 
-                    <p:outputLabel>Bairro</p:outputLabel>
-                    <p:inputText></p:inputText>
+                    <div class="col-md-3 col-sm-12">
+                        <p:outputLabel>Telefone</p:outputLabel>
+                        <p:inputMask mask="(99)9999-9999"><f:validateRequired/></p:inputMask>
+                        
+                        <p:outputLabel>E-mail</p:outputLabel>
+                        <p:inputText value="#{clienteNovoBean.email}"><f:validateRequired/></p:inputText>
 
-                    <p:outputLabel>Cidade</p:outputLabel>
-                    <p:inputText styleClass="display:block"></p:inputText>
-                    
-                   
-                    
-                      <h:commandButton value="CADASTRAR"
+                        <p:outputLabel>Login</p:outputLabel>
+                        <p:inputText  value="#{clienteNovoBean.login}"><f:validateRequired/></p:inputText>
+
+                        <p:outputLabel>Senha</p:outputLabel>
+                        <p:password value="#{clienteNovoBean.senha}"><f:validateRequired/></p:password>
+
+                        <h:commandButton value="CADASTRAR"
                                          action="#{clienteNovoBean.salvar()}"
-                                         styleClass="btn btn-primary btn-lg btn-block" />
-                </div>
-                    </h:form>
+                                         styleClass="btn btn-primary" />
+                    </div>
+                </h:form>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-12">
