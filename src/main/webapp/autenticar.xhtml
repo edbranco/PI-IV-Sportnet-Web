@@ -93,20 +93,23 @@
                 </div>
             </div>
             <div class="row autenticar content">
+                <h:form>
                 <div class="col-md-12">
                     <div class="col-md-6">
                         <br/><br/><br/><br/>JÁ SOU CLIENTE
                         <br/>*E-mail
-                        <h:inputText> 
+                        <h:inputText value="#{usuarioBean.nome}"> 
                             <f:validateRequired/> 
                         </h:inputText>
                         <br/>*Senha
-                        <h:inputSecret> 
+                        <h:inputSecret value="#{usuarioBean.senha}"> 
                             <f:validateRequired/> 
                         </h:inputSecret> 
                         <br/><br/><br/><br/>
-                        <h:outputLink styleClass="btn btn-success" value="">CONTINUAR A COMPRA</h:outputLink>
-                    </div>
+                        <h:commandButton  styleClass="btn btn-success" value="Entrar" action="#{usuarioBean.autenticar()}"/>
+                        <!--<h:outputLink  value="">CONTINUAR A COMPRA</h:outputLink>
+                        -->
+                        </div>
                     <div class="col-md-6">
                         <br/><br/><br/><br/>QUERO ME CADASTRAR
                         Crie uma conta e finaliza sua compra.
@@ -115,6 +118,7 @@
                         
                     </div>
                 </div>
+                </h:form>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-12">
