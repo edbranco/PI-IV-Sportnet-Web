@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Forma de pagamento</title>
+    </h:head>
+    <h:body>
+        <h:selectOneMenu id="formaPagamento" value="#{compraBean.pagamento}">
+            <f:selectItem id="item1" itemLabel="Boleto" itemValue="boleto"/>
+            <f:selectItem id="item2" itemLabel="Cartão de Crédito" itemValue="credito"/>
+        </h:selectOneMenu>
+
+        <div class="row">
+            <h:form>
+                <h:outputLabel value="Numero do Cartão"/>
+                <h:inputText value="#{compraBean.cc.numero}"/>
+                <h:outputLabel value="Numero de Segurança"/>
+                <h:inputText value="#{compraBean.cc.numSegurança}"/>
+                <h:outputLabel value="Data de Vencimento"/>
+                <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{compraBean.cc.vencimento}">
+                    <f:validateRequired/> 
+                </p:calendar>
+                <h:outputLabel value="Nome Completo do Titular"/>
+                <h:inputText value="#{compraBean.cc.titular}"/>
+                
+                <h:commandButton action="#{compraBean.fecharCompra()}" styleClass="btn btn-primary"  value="FECHAR COMPRA"/>
+            </h:form>
+
+        </div>
+
+    </h:body>
+</html>
+

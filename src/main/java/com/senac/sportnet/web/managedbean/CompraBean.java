@@ -5,6 +5,7 @@
  */
 package com.senac.sportnet.web.managedbean;
 
+import com.senac.spornet.entity.CartaoCredito;
 import com.senac.spornet.entity.Produto;
 import com.senac.sportnet.fakeimpl.ProdutoServiceFakeImpl;
 import com.senac.sportnet.service.ProdutoService;
@@ -18,6 +19,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
@@ -33,6 +35,33 @@ public class CompraBean implements Serializable {
     private Set<ProdutoQuantidade> itens
             = new LinkedHashSet<ProdutoQuantidade>();
     float total = 0;
+    private String pagamento;
+    
+    private CartaoCredito cc;
+    
+    @ManagedProperty("#{usuarioBean}")
+    private UsuarioBean usuarioBean;
+    
+    public void setUsuarioBean(UsuarioBean bean) {
+        this.usuarioBean = bean;
+    }
+
+    public CartaoCredito getCc() {
+        return cc;
+    }
+
+    public void setCc(CartaoCredito cc) {
+        this.cc = cc;
+    }
+    public String getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(String pagamento) {
+        this.pagamento = pagamento;
+    }
+    
+    
     private ProdutoQuantidade obterItem(Produto produto) {
         for (ProdutoQuantidade pq : itens) {
             if (pq.getProduto().equals(produto)) {
@@ -84,7 +113,7 @@ public class CompraBean implements Serializable {
 
     public void fecharCompra() {
         ProdutoService prodService = new ProdutoServiceJPA();
-        prodService.finalizarCompra(itens,total);
+        prodService.finalizarCompra(itens,total,usuarioBean.getUsuario().getId());
     }
      public void atualizarQuantidade() {
         this.itens = this.itens;
