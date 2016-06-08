@@ -5,12 +5,13 @@
  */
 package com.senac.sportnet.web.managedbean;
 
-import com.senac.spornet.entity.Cliente;
+import com.senac.spornet.entity.Usuario;
 import com.senac.sportnet.service.UsuarioClienteService;
 import com.senac.sportnet.servicejpa.UsuarioClienteServiceJPA;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -23,7 +24,7 @@ public class UsuarioBean implements Serializable {
     private String nome;
     private String senha;
 
-    private Cliente usuario;
+    private Usuario usuario;
 
     public String getNome() {
         return nome;
@@ -41,23 +42,31 @@ public class UsuarioBean implements Serializable {
         this.senha = senha;
     }
 
-    public Cliente getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Cliente usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
     public String autenticar() {
+        FacesContext context = FacesContext.getCurrentInstance();
         UsuarioClienteService ucs = new UsuarioClienteServiceJPA();
-        
+
         this.usuario = ucs.Validar(nome, senha);
-        
+
         if (this.usuario != null) {
+            
             return "index.xhtml?faces-redirect=true";
         }
         return "erroLogin.xhtml?faces-redirect=true";
+    }
+
+    public String logout() {
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        
+        return "autenticar.xhtml?faces-redirect=true";
     }
 
 }

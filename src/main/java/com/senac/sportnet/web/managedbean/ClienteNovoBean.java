@@ -5,7 +5,7 @@
  */
 package com.senac.sportnet.web.managedbean;
 
-import com.senac.spornet.entity.Cliente;
+import com.senac.spornet.entity.Usuario;
 import com.senac.sportnet.service.ClienteService;
 import com.senac.sportnet.servicejpa.ClienteServiceJPA;
 import com.senac.sportnet.web.util.Mensagem;
@@ -57,7 +57,7 @@ public class ClienteNovoBean implements Serializable {
     }
        
       public String salvar() {
-          Cliente c = new Cliente();
+          Usuario c = new Usuario();
           ClienteService cServ = new ClienteServiceJPA();
           
           c.setNome(nome);

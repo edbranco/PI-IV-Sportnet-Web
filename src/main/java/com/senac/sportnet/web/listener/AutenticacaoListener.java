@@ -23,7 +23,7 @@
  */
 package com.senac.sportnet.web.listener;
 
-import com.senac.spornet.entity.Cliente;
+import com.senac.spornet.entity.Usuario;
 import com.senac.sportnet.web.managedbean.UsuarioBean;
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
@@ -53,6 +53,10 @@ public class AutenticacaoListener implements PhaseListener {
             if (usuarioBean == null || usuarioBean.getUsuario() == null) {
                 nh.handleNavigation(facesContext, null,
                         "/autenticar.xhtml?faces-redirect=true");
+                return;
+            }else if(usuarioBean.getUsuario().getPapel().equals("cliente")){
+                nh.handleNavigation(facesContext, null,
+                        "/erroNaoAutorizado.xhtml?faces-redirect=true");
                 return;
             }
             if (!verificarAcesso(usuarioBean.getUsuario(), paginaAtual)) {
@@ -84,12 +88,12 @@ public class AutenticacaoListener implements PhaseListener {
 
     }
 
-    private static boolean verificarAcesso(Cliente usuario,
+    private static boolean verificarAcesso(Usuario usuario,
             String pagina) {
-//        if (pagina.lastIndexOf("produto-form.xhtml") > -1
-//                && usuario.autorizado("ADMIN")) {
-//            return true;
-//        } 
+        if (pagina.lastIndexOf("test.xhtml") > -1
+                && usuario.autorizado(usuario)) {
+            return true;
+        } 
         if (pagina.indexOf("admin") > -1){
             return true;
         }

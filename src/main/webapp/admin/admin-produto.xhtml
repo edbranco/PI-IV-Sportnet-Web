@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>SPORTNET</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputScript name="js/jquery.min.js" />
+        <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/style.css" />
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row" id="topo">
+                <div class="col-md-12">
+                    <ui:fragment rendered="#{usuarioBean.usuario == null}">
+                        <h2>Olá visitante, identifique-se 
+                            <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                            ou                         
+                            <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+
+                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
+
+                            <h:form>
+                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                            </h:form>
+                        </h2>
+                    </ui:fragment>
+                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                        <h2>Olá #{usuarioBean.nome},
+                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
+                            <h:form>
+                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                            </h:form>
+                        </h2>
+                    </ui:fragment>
+                </div>
+            </div>
+            <div class="row headerFooter">
+                <div class="col-md-4">
+                    <h:outputLink value="index.xhtml">
+                        <h1>SPORTNET</h1>
+                    </h:outputLink>
+                </div>
+            </div>
+            <div id="listaAndCarrinho" class="row crudProdutoCliente"><h2>Produto</h2></div>
+            <div class="row content alinhamentoFooter">
+                <div class="col-md-12">
+                    <!-- Button trigger modal -->
+                    <div id="addProduto">
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm">
+                            +
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" 
+                         aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <button type="button" class="close" 
+                                            data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Novo Produto
+                                    </h4>
+                                </div>
+                                <!-- Inicio modal -->
+                                <div id="formProduto" class="row">
+                                    <h:form prependId="false" enctype="multipart/form-data">
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
+                                            <h:inputText value="#{produtoNovoBean.nome}" id="txt-nome"
+                                                         required="true" requiredMessage="Preencher o nome" 
+                                                         pt:placeholder="Nome do produto" styleClass="form-control" />
+                                            <span><h:message for="txt-nome" /></span>
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
+                                            <h:inputTextarea value="#{produtoNovoBean.descricao}" id="txt-descricao"
+                                                             required="true" requiredMessage="Preencher a descrição do produto" 
+                                                             pt:placeholder="Descrição do produto" styleClass="form-control" />
+                                            <span><h:message for="txt-descricao" /></span>
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel value="Categorias" />
+                                            <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
+                                            <h:selectManyCheckbox value="#{produtoNovoBean.idsCategorias}" label="Categorias" id="chk-categorias" 
+                                                                  converter="javax.faces.Integer">
+                                                <f:selectItems value="#{categoriaBean.lista}" var="cat"
+                                                               itemValue="#{cat.id}" 
+                                                               itemLabel="#{cat.nome}" />
+                                            </h:selectManyCheckbox>
+                                            <span><h:message for="chk-categorias" /></span>
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel value="Marca"/>
+                                            <h:inputText styleClass="form-control" value="#{produtoNovoBean.marca}"/>   
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel value="Cor"/>
+                                            <h:inputText styleClass="form-control" value="#{produtoNovoBean.cor}"/>
+
+                                        </div>
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel value="Tamanho"/>
+                                            <h:inputText styleClass="form-control" value="#{produtoNovoBean.tamanho}"/>
+
+                                        </div>
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel value="Genero"/>
+                                            <h:inputText styleClass="form-control" value="#{produtoNovoBean.genero}"/>   
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel value="Qtd Atual"/>
+                                            <h:inputText styleClass="form-control" value="#{produtoNovoBean.qtdAtual}"/>   
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
+                                            <h:inputText value="#{produtoNovoBean.preco}" id="txt-preco"
+                                                         required="true" requiredMessage="Preencher o preço do produto" 
+                                                         pt:placeholder="Preço do produto" styleClass="form-control">
+                                                <f:convertNumber minFractionDigits="2" />
+                                            </h:inputText>
+                                            <span><h:message for="txt-preco" /></span>
+                                        </div>
+                                        <ui:fragment rendered="false">
+                                            <div class="form-group">
+                                                <h:commandButton value="Teste">
+                                                    <f:ajax execute="txt-nome" render="out" />
+                                                </h:commandButton>
+                                                <h:outputText id="out" value="#{produtoNovoBean.fragmento}" escape="false"></h:outputText>
+                                            </div>
+
+                                            <div>
+                                                <button onclick="funcaoAjax();
+                                                        return false;">Teste 2</button>
+                                                <div id="outajax"></div>
+                                            </div>
+                                        </ui:fragment>
+
+                                        <div class="form-group col-md-6 col-xs-12">
+                                            <h:outputLabel value="Imagem" styleClass="control-label" />
+                                            <h:inputFile value="#{produtoNovoBean.imagem}" />
+                                        </div>
+
+                                        <div>
+                                            <h:commandButton value="Salvar"
+                                                             action="#{produtoNovoBean.salvar()}"
+                                                             styleClass="btn btn-primary btn-lg btn-block" />
+                                        </div>
+                                    </h:form>
+                                </div>
+                                <!-- fim do modal -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <p:dataTable var="prod" value="#{produtoNovoBean.lista}" reflow="true" rows="5" paginator="true">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{prod.id}" />
+                        </p:column>
+
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{prod.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Categoria">
+                            <h:outputText value="#{prod.categorias}" />
+                        </p:column>
+
+                        <p:column headerText="Marca">
+                            <h:outputText value="#{prod.marca}" />
+                        </p:column>
+
+                        <p:column headerText="Descrição">
+                            <h:outputText value="#{prod.descricao}" />
+                        </p:column>
+
+                        <p:column headerText="Gênero">
+                            <h:outputText value="#{prod.genero}" />
+                        </p:column>
+
+                        <p:column headerText="Tamanho">
+                            <h:outputText value="#{prod.tamanho}" />
+                        </p:column>
+
+                        <p:column headerText="Cor">
+                            <h:outputText value="#{prod.cor}" />
+                        </p:column>
+
+                        <p:column headerText="Quantidade">
+                            <h:outputText value="#{prod.qtdAtual}" />
+                        </p:column>
+
+                        <p:column headerText="Preço">
+                            <h:outputText value="#{prod.preco}" />
+                        </p:column>
+
+                        <p:column headerText="Imagem">
+                            <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+            <div class="row alinhamentoFooter"></div>
+            <div class="row headerFooter">
+                <div class="col-md-12">
+                    <p>2016 - SportNet todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
