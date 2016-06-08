@@ -69,6 +69,20 @@ public class ProdutoNovoBean implements Serializable {
         ProdutoService service = new ProdutoServiceJPA();
         return service.listar(0, 100);
     }
+    
+    public List<Produto> getListaPorCategoria(int idCat, String nomeCat) {
+        ProdutoService service = new ProdutoServiceJPA();
+        Categoria categoria = new Categoria();
+        categoria.setId(idCat);
+        categoria.setNome(nomeCat);
+        
+        return service.listarPorCategoria(categoria, 0, 100);
+    }
+    
+    public List<Produto> getListaPorMarca(String nomeMarca) {
+        ProdutoService service = new ProdutoServiceJPA();        
+        return service.listarPorMarca(0, 100, nomeMarca);
+    }
 
     public String getFragmento() {
         if (nome != null && nome.length() > 0) {

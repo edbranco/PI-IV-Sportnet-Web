@@ -10,51 +10,25 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputScript name="js/jquery.min.js" />
-        <h:outputScript name="js/bootstrap.min.js" />
-        <h:outputStylesheet name="css/bootstrap.min.css" />
-        <h:outputStylesheet name="css/style.css" />
-        <h:outputScript name="js/menu.js" />
-        <style>
-            #logout{
-                position: relative;
-                left: 500px;
-            }
-
-        </style>
+        <h:outputScript name="js/jquery.min.js"/>
+        <h:outputScript name="js/bootstrap.min.js"/>
+        <h:outputStylesheet name="css/bootstrap.min.css"/>
+        <h:outputStylesheet name="css/style.css"/>
     </h:head>
     <h:body>
         <div class="container-fluid">
             <div class="row" id="topo">
                 <div class="col-md-12">
-                    <ui:fragment rendered="#{usuarioBean.usuario == null}">
-                        <h2>Olá visitante, identifique-se 
-                            <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
-                            ou                         
-                            <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
-
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
-                        </h2>
-                    </ui:fragment>
-                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                        <h2>Olá #{usuarioBean.nome},
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
-                        </h2>
-                    </ui:fragment>
-
-
+                    <h2>Olá visitante, identifique-se 
+                        <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                        ou                         
+                        <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+                    </h2>
                 </div>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-4">
-                    <h:outputLink value="">
+                    <h:outputLink value="index.xhtml">
                         <h1>SPORTNET</h1>
                     </h:outputLink>
                 </div>
@@ -96,7 +70,7 @@
                                 <ul>
                                     <li><h:outputLink value="listaAdidas.xhtml">Adidas</h:outputLink></li>
                                     <li><h:outputLink value="listaNike.xhtml">Nike</h:outputLink></li>
-                                    <li><h:outputLink value="listaPuma.xhtml">Puma</h:outputLink></li>
+                                    <li><h:outputLink value="#">Puma</h:outputLink></li>
                                     <li><h:outputLink value="listaFila.xhtml">Fila</h:outputLink></li>
                                 </ul>
                             </li>
@@ -116,80 +90,58 @@
                     </nav>
                 </div>
                 <div class="col-md-2">
-                    <h:graphicImage name="img/carrinho.jpg" />
+                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12" id="banner">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Imagens dos sliders -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <h:graphicImage name="img/banner1.jpg" />
-                            </div>
-                            <div class="item">
-                                <h:graphicImage name="img/banner2.jpg" />
-                            </div>
-                            <div class="item">
-                                <h:graphicImage name="img/banner3.jpg" />
-                            </div>
-                            <div class="item">
-                                <h:graphicImage name="img/banner4.jpg" />
-                            </div>
+            <div class="row alinharFooter ">
+                <div class="col-md-2">
+                    <h:form>
+                        <div class="col-md-12">
+                            <p><b>FILTRAR POR</b></p>
+                            <hr/>
+                            <p>GÊNERO</p>
+                            <h:outputLabel><h:selectBooleanCheckbox value="Masculino"/>Masculino</h:outputLabel>
+                            <h:outputLabel><h:selectBooleanCheckbox value="Feminino"/>Feminino</h:outputLabel>
                         </div>
-                    </div>
-                    <!-- Controle -->
-                    <h:outputLink styleClass="left carousel-control" value="#carousel-example-generic" role="button">
-                        <f:passThroughAttribute name="data-slide" value="prev" />
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                    </h:outputLink>
-                    <h:outputLink styleClass="right carousel-control" value="#carousel-example-generic" role="button">
-                        <f:passThroughAttribute name="data-slide" value="next" />
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                    </h:outputLink>
+                        <div class="col-md-12">
+                            <hr/>
+                            <p>MARCA</p>
+                            <div><h:outputLabel><h:selectBooleanCheckbox value="Adidas"/>Adidas</h:outputLabel>
+                                <h:outputLabel><h:selectBooleanCheckbox value="Nike"/>Nike</h:outputLabel></div>
+                        </div>
+                        <div class="col-md-12">
+                            <hr/>
+                            <p>TAMANHO</p>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">P</h:outputLink>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">M</h:outputLink>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">G</h:outputLink>
+                            <h:outputLink value="#" class="btn btn-default btn-lg active" role="button">GG</h:outputLink>
+                        </div>
+                    </h:form>
                 </div>
-            </div>
-            <div class="row content">
-                <div class="col-md-12 produtos">
-                    <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis1.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis2.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis3.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
-                    </div>
-                </div>
-                <div class="col-md-12 produtos">
-                    <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis4.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis1.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis2.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
+                <div class="col-md-10">
+                    <div class="col-md-10 produtos" >
+                        <ui:repeat value="#{produtoNovoBean.getListaPorMarca('Puma')}" var="prod">
+                            <div class="col-md-4">
+                                <h:form>
+                                   <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>
+                                   
+                                </h:form>
+                                <p>#{prod.nome}</p>
+                                <p>#{prod.descricao}</p>
+                                <p>#{prod.preco}</p>                               
+                                <f:param name="id" value="#{prod.id}" />
+                                <div class="col-md-8">
+                                    <h:form prependId="false">
+                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar" />
+                                    </h:form>
+                                    <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                                        <f:param name="id" value="#{prod.id}" />
+                                        Ver detalhes
+                                    </h:outputLink>
+                                </div>
+                            </div>
+                        </ui:repeat>
                     </div>
                 </div>
             </div>
