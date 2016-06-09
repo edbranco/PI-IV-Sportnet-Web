@@ -83,7 +83,7 @@ public class ProdutoNovoBean implements Serializable {
         ProdutoService service = new ProdutoServiceJPA();        
         return service.listarPorMarca(0, 100, nomeMarca);
     }
-
+    
     public String getFragmento() {
         if (nome != null && nome.length() > 0) {
             return "<h1>" + getNome() + "</h1>";

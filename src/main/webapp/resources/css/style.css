@@ -7,7 +7,6 @@ body{
     padding: 0;
     font-size: 100%;
 }
-
 *{
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
@@ -31,17 +30,14 @@ h1{
     margin-bottom:50px;
     font-family: sans-serif;
 }
-
 .headerFooter > .col-md-4 > a{
     text-decoration:none; 
 }
-
 .input-group .input-group-addon, div > form > .input-group > .input-group-addon > img{
     padding: 0px;
     border-radius: 4px;
     font-size: 14pt;
 }
-
 #topo{
     background-color: #021f54;
     min-height: 36px;
@@ -57,7 +53,6 @@ h1{
     width: 50%;
     height: 50px;
 }
-
 /* Parte da Header */
 .headerFooter{
     background-image: url("#{resource['/img/fundoTopo.jpg']}");
@@ -70,17 +65,14 @@ h1{
 .headerFooter .input-group .form-control{
     font-size:14pt;
 }
-
 /*Parte da Footer */
 .alinhamentoFooter{
     padding-bottom: 80px;
 }
-
 .container-fluid{
     position: relative;
     min-height: 100%;
 }
-
 .headerFooter:last-child{
     position: absolute;
     bottom: 0;
