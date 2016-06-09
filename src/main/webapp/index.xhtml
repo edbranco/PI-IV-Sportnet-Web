@@ -154,42 +154,66 @@
             <div class="row content">
                 <div class="col-md-12 produtos">
                     <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis1.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
+                        <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(8).imagemPrincipal}" class="img-responsive"/>
+                        <p>#{produtoNovoBean.obter(8).nome}</p>                        
+                        <p>#{produtoNovoBean.obter(8).descricao}</p>
+                        <p>R$ #{produtoNovoBean.obter(8).preco}</p>
+                        <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                            <f:param name="id" value="#{produtoNovoBean.obter(8).id}" />
+                            Ver detalhes
+                        </h:outputLink>
                     </div>
                     <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis2.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
+                        <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(72).imagemPrincipal}" class="img-responsive"/>
+                        <p>#{produtoNovoBean.obter(72).nome}</p>                        
+                        <p>#{produtoNovoBean.obter(72).descricao}</p>
+                        <p>R$ #{produtoNovoBean.obter(72).preco}</p>
+                        <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                            <f:param name="id" value="#{produtoNovoBean.obter(72).id}" />
+                            Ver detalhes
+                        </h:outputLink>
                     </div>
                     <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis3.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
+                        <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(29).imagemPrincipal}" class="img-responsive"/>
+                        <p>#{produtoNovoBean.obter(29).nome}</p>                        
+                        <p>#{produtoNovoBean.obter(29).descricao}</p>
+                        <p>R$ #{produtoNovoBean.obter(29).preco}</p>
+                        <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                            <f:param name="id" value="#{produtoNovoBean.obter(29).id}" />
+                            Ver detalhes
+                        </h:outputLink>
                     </div>
                 </div>
                 <div class="col-md-12 produtos">
                     <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis4.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
+                        <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(65).imagemPrincipal}" class="img-responsive"/>
+                        <p>#{produtoNovoBean.obter(65).nome}</p>                        
+                        <p>#{produtoNovoBean.obter(65).descricao}</p>
+                        <p>R$ #{produtoNovoBean.obter(65).preco}</p>
+                        <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                            <f:param name="id" value="#{produtoNovoBean.obter(65).id}" />
+                            Ver detalhes
+                        </h:outputLink>
                     </div>
                     <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis1.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
+                        <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(19).imagemPrincipal}" class="img-responsive"/>
+                        <p>#{produtoNovoBean.obter(19).nome}</p>  
+                        <p>#{produtoNovoBean.obter(19).descricao}</p>
+                        <p>R$ #{produtoNovoBean.obter(19).preco}</p>
+                        <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                            <f:param name="id" value="#{produtoNovoBean.obter(19).id}" />
+                            Ver detalhes
+                        </h:outputLink>
                     </div>
                     <div class="col-md-4">
-                        <h:graphicImage name="produtos/tenis2.png" styleClass="img-responsive"/>
-                        <p>Super Nike 1</p>
-                        <p>R$ 90,00</p>
-                        <p>2x de R$ 45,00</p>
+                        <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(9).imagemPrincipal}" class="img-responsive"/>
+                        <p>#{produtoNovoBean.obter(9).nome}</p>                        
+                        <p>#{produtoNovoBean.obter(9).descricao}</p>
+                        <p>R$ #{produtoNovoBean.obter(9).preco}</p>
+                        <h:outputLink value="detalhe.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                            <f:param name="id" value="#{produtoNovoBean.obter(9).id}" />
+                            Ver detalhes
+                        </h:outputLink>
                     </div>
                 </div>
             </div>
