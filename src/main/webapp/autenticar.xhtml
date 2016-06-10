@@ -105,7 +105,7 @@
                     </nav>
                 </div>
                 <div class="col-md-2">
-                    <h:graphicImage name="img/carrinho.jpg" />
+                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
                 </div>
             </div>
             <div class="row autenticar content alinhamentoFooter">
@@ -121,8 +121,9 @@
                             <p:password value="#{usuarioBean.senha}"> 
                                 <f:validateRequired/> 
                             </p:password> 
-                            
-                            <h:commandButton  styleClass="btn btn-info buttonAutenticar" value="Entrar" action="#{usuarioBean.autenticar()}"/>
+                            <!-- correção do bug do commandbutton -->
+                            <p:outputLabel></p:outputLabel>
+                            <h:commandButton styleClass="btn btn-info buttonAutenticar" value="Entrar" action="#{usuarioBean.autenticar()}"/>
                         </div>
                         <div class="col-md-6">
                             <p:outputLabel>QUERO ME CADASTRAR</p:outputLabel>
