@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>SPORTNET</title>
         <meta charset="utf-8"/>
@@ -16,34 +16,27 @@
         <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
-        <h:outputScript name="js/parcelamento.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
             <div class="row" id="topo">
                 <div class="col-md-12">
-                                        <ui:fragment rendered="#{usuarioBean.usuario == null}">
+                    <ui:fragment rendered="#{usuarioBean.usuario == null}">
                         <h2>Olá visitante, identifique-se 
                             <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
                             ou                         
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
-
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
-                        </h2>
-                    </ui:fragment>
-                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                        <h2>Olá #{usuarioBean.nome},
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
                         </h2>
                     </ui:fragment>
                 </div>
+                <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                    <h2>Olá #{usuarioBean.nome},
+                        <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
+                        <h:form>
+                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                        </h:form>
+                    </h2>
+                </ui:fragment>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-4">

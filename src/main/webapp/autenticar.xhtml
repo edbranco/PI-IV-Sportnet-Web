@@ -4,15 +4,16 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>SPORTNET</title>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputScript name="js/jquery.min.js" />
         <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
     </h:head>
@@ -25,23 +26,17 @@
                             <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
                             ou                         
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
-
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
-                        </h2>
-                    </ui:fragment>
-                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                        <h2>Olá #{usuarioBean.nome},
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
                         </h2>
                     </ui:fragment>
                 </div>
+                <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                    <h2>Olá #{usuarioBean.nome},
+                        <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
+                        <h:form>
+                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                        </h:form>
+                    </h2>
+                </ui:fragment>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-4">
@@ -110,29 +105,26 @@
                     <h:graphicImage name="img/carrinho.jpg" />
                 </div>
             </div>
-            <div class="row autenticar content">
+            <div class="row autenticar content alinhamentoFooter">
                 <h:form>
                     <div class="col-md-12">
                         <div class="col-md-6">
-                            <br/><br/><br/><br/>JÁ SOU CLIENTE
-                            <br/>*E-mail
-                            <h:inputText value="#{usuarioBean.nome}"> 
+                            <p:outputLabel>JÁ SOU CLIENTE</p:outputLabel>
+                            <p:outputLabel>E-mail</p:outputLabel>
+                            <p:inputText value="#{usuarioBean.nome}"> 
                                 <f:validateRequired/> 
-                            </h:inputText>
-                            <br/>*Senha
-                            <h:inputSecret value="#{usuarioBean.senha}"> 
+                            </p:inputText>
+                            <p:outputLabel>Senha</p:outputLabel>
+                            <p:password value="#{usuarioBean.senha}"> 
                                 <f:validateRequired/> 
-                            </h:inputSecret> 
-                            <br/><br/><br/><br/>
-                            <h:commandButton  styleClass="btn btn-success" value="Entrar" action="#{usuarioBean.autenticar()}"/>
-                            <!--<h:outputLink  value="">CONTINUAR A COMPRA</h:outputLink>
-                            -->
+                            </p:password> 
+                            
+                            <h:commandButton  styleClass="btn btn-info buttonAutenticar" value="Entrar" action="#{usuarioBean.autenticar()}"/>
                         </div>
                         <div class="col-md-6">
-                            <br/><br/><br/><br/>QUERO ME CADASTRAR
-                            Crie uma conta e finaliza sua compra.
-                            <br/><br/>
-                            <h:outputLink styleClass="btn btn-success" value="cadastro.xhtml">REALIZAR CADASTRO</h:outputLink>
+                            <p:outputLabel>QUERO ME CADASTRAR</p:outputLabel>
+                            <p:outputLabel>Crie uma conta e finaliza sua compra.</p:outputLabel>
+                            <h:outputLink styleClass="btn btn-info" value="cadastro.xhtml">REALIZAR CADASTRO</h:outputLink>
 
                         </div>
                     </div>

@@ -52,6 +52,7 @@ h1{
 .tamanhoButton{
     width: 50%;
     height: 50px;
+    margin-bottom: 20px;
 }
 /* Parte da Header */
 .headerFooter{
@@ -67,7 +68,7 @@ h1{
 }
 /*Parte da Footer */
 .alinhamentoFooter{
-    padding-bottom: 80px;
+    padding-bottom: 100px;
 }
 .container-fluid{
     position: relative;
@@ -124,20 +125,31 @@ h1{
     color:#5B8594;
     font-weight: bold;
 }
-
+.produtos img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
 .produtos p:first-of-type{
     margin-bottom: 25px;
 }
-
+.produtos p:nth-last-child(3){
+    height: 50px;
+}
+.produtos p:nth-last-child(2){
+    padding: 0 50px 0 50px;
+}
 .produtos p:first-letter{
     color:red;
 }
+
 .col-md-4 > h3{
     color: #021F54;
     padding-bottom: 10px;
 }
 
-.alinhamentoFooter .col-md-4 > p{
+.alinhamentoFooter > .col-md-4 > p{
     text-align: justify;    
     font-size: 13pt;
     padding-bottom: 10px;
@@ -326,6 +338,27 @@ hr {
     text-align: center;
     font-size:14pt;
 
+}
+.autenticar{
+    text-align: center;
+    margin: 20px;
+}
+.autenticar > form > div > div label{
+    display: block;
+    margin-bottom: 10px;
+    margin-top:20px;
+    font-size:10pt;
+}
+.autenticar > form > div > div input{
+    width: 200px;
+    height: 30px;
+}
+.buttonAutenticar{
+    margin-top:20px;
+    margin-bottom:20px;
+    display: block;
+    margin-left: 30%;
+    margin-right:30%;
 }
 /*--------MODAL BOOTSTRAP-------------*/
 .modal-body{

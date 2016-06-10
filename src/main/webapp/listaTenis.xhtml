@@ -25,23 +25,17 @@
                             <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
                             ou                         
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
-
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
-                        </h2>
-                    </ui:fragment>
-                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                        <h2>Olá #{usuarioBean.nome},
-                            <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
                         </h2>
                     </ui:fragment>
                 </div>
+                <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                    <h2>Olá #{usuarioBean.nome},
+                        <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
+                        <h:form>
+                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                        </h:form>
+                    </h2>
+                </ui:fragment>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-4">
@@ -71,7 +65,7 @@
                                 <ul>
                                     <li><h:outputLink value="listaBota.xhtml">Bota</h:outputLink></li>
                                     <li><h:outputLink value="listaChuteira.xhtml">Chuteira</h:outputLink></li>
-                                    <li><h:outputLink value="#">Tênis</h:outputLink></li>
+                                    <li><h:outputLink value="listaTenis.xhtml">Tênis</h:outputLink></li>
                                 </ul>
                             </li>
                             <li>
