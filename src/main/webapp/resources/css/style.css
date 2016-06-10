@@ -42,6 +42,16 @@ h1{
     background-color: #021f54;
     min-height: 36px;
 }
+#topo div:last-child{
+    text-align: right;
+    font-size: 11pt;
+    padding-right:30px;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+#topo h2 form{
+    margin-top:5px;
+}
 .carrinhoButton{
     background-image: url("#{resource['/img/carrinhoButton.png']}");
     background-repeat: no-repeat;
@@ -360,11 +370,25 @@ hr {
     margin-left: 30%;
     margin-right:30%;
 }
+#datatableProduto img{
+    height: 100px;
+    width: 100px;
+}
+#addProduto{
+    margin-right:10px;
+    text-align: right;
+    margin-top:10px;
+}
+
 /*--------MODAL BOOTSTRAP-------------*/
 .modal-body{
     font-size:11pt;
     text-align: center;
 }
+.modal-content {
+    padding:50px;
+}
+/*-----------------------------------*/
 #telaAdmin .col-md-12 .btn-lg{
     width: 50px;
     margin-right: 10px;
