@@ -19,7 +19,7 @@
     <h:body>
         <div class="container-fluid">
             <div class="row" id="topo">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <ui:fragment rendered="#{usuarioBean.usuario == null}">
                         <h2>Olá visitante, identifique-se 
                             <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
@@ -27,15 +27,18 @@
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                         </h2>
                     </ui:fragment>
+
+                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                        <h2>Olá #{usuarioBean.nome} ;)
+                            <h:form>
+                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                            </h:form>
+                        </h2>
+                    </ui:fragment>
                 </div>
-                <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                    <h2>Olá #{usuarioBean.nome},
-                        <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
-                        <h:form>
-                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                        </h:form>
-                    </h2>
-                </ui:fragment>
+                <div class="col-md-6">
+                    <h:outputLink value="admin/admin-produto.xhtml">Acesso de admin</h:outputLink>                    
+                </div>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-4">

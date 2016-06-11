@@ -93,13 +93,11 @@ h1{
     margin-top:30px;
     margin-bottom:30px; 
 }
-
 .headerFooter > .col-md-12 > p{
     text-align: center;
     color:#FFF;
     font-size: 10pt;
 }
-
 #listaAndCarrinho .col-md-4, #pagination{
     text-align: center;
     font-size: 14pt;
@@ -114,21 +112,17 @@ h1{
 .glyphicon-chevron-left{
     content: url("#{resource['/img/back.png']}");
 }
-
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .thumbnail a > img, .thumbnail > img {
     display: block;
     width: 100%;
     height: auto;
 }
-
 .img-responsive{
     display:inline;
 }
-
 .col-md-12, #banner{
     padding: 0px;
 }
-
 .produtos{
     text-align: center;
     font-size:12pt;
@@ -142,43 +136,40 @@ h1{
     margin-top:10px;
 }
 .produtos p:first-of-type{
-    margin-bottom: 25px;
+    height: 50px;
 }
 .produtos p:nth-last-child(3){
-    height: 50px;
+    height: 65px;
+    padding: 0 10% 0 10%;
 }
 .produtos p:nth-last-child(2){
     padding: 0 50px 0 50px;
+    height: 20px;
 }
 .produtos p:first-letter{
     color:red;
 }
-
 .col-md-4 > h3{
     color: #021F54;
     padding-bottom: 10px;
 }
-
 .alinhamentoFooter > .col-md-4 > p{
     text-align: justify;    
     font-size: 13pt;
     padding-bottom: 10px;
 }
-
 .alinhamentoFooter > .col-md-4{
     margin: 0px 20px;
 }
 .alinhamentoFooter .col-md-4, .alinhamentoFooter .col-md-3{
     margin-top: 20px;
 }
-
 .detalhesProduto {
     background-color: #EBEBEB;
     margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.5);
 }
-
 .detalhesProduto p:first-child{
     font-size: 14pt;
     color: #0844A4;
@@ -188,19 +179,16 @@ h1{
 .detalhesProduto p:not(first-child){
     font-size: 12pt;
 }
-
 .detalhesProduto p, .detalhesProduto label, .detalhesProduto select, .detalhesProduto .btn{
     position: relative;
     left:10px;
     padding-bottom: 10px;
 }
-
 hr {
     border-width:2px;	
     border-style:solid;
     border-color: #E6E6E6;
 }
-
 .detalhesProduto > form > label:not(.radio-inline){
     font-size: 14px;
     font-style: normal;
@@ -213,51 +201,42 @@ hr {
     margin-left: 10px;
     font-size: 10pt;
 }
-
 .radio-inline {
     font-size: 14px;
 }
-
 .btn-primary {
     background-color: rgb(117, 169, 249);
     margin-bottom: 15px;
 }
-
 .botoes{
     padding-left:50px;
     height:20px;
     background:red;
 }
-
 .carousel-control.left, .carousel-control.right{
     background-image: none;
 }
 .content{
     min-height: 300px;
 }
-
 .alinharFooter > .col-md-2 > form > .col-md-12 {
     font-size: 11pt;
 }
-
 .alinharFooter > .col-md-2 {
     margin: 60px 0px;
 }
 .alinharFooter > .col-md-2 .col-md-12 label{
     display:block;
 }
-
 .alinharFooter > .col-md-2 .col-md-12 input{
     margin-right: 10px;
 }
-
 .alinharFooter .btn-default.active{
     width: 30px;
     height: 30px;
     font-size: 8pt;
     padding:7px;
 }
-
 .carrinho h2{
     background-color: #f2f2f2;
     border: 1px solid #ddd;
@@ -266,35 +245,31 @@ hr {
     padding-top:5px;
     text-align: center;
 }
-
 .carrinho .col-md-12 .col-md-4 {
     margin:0px;
 }
-
 .carrinho > .col-md-12 > .col-md-4 > p{
     position:relative;
     bottom:10px;
 }
 .carrinho img, .carrinho p{
     display:inline;
+    margin-bottom: 10px;
+    margin-top:10px;
 }
-
-.carrinho p, .carrinho > .col-md-12 > .col-md-2, .carrinho > .col-md-12 > .col-md-4 > .col-md-6 {
-    font-size:13pt;
+.carrinho p, .carrinho > form  > .col-md-12 > .col-md-2 > input, .carrinho > form > .col-md-12 > .col-md-4 > .col-md-6 {
+    font-size:12pt;
     text-align: center;
 }
 .carrinho div{
     padding:0px;
 }
-
 .carrinho div:first-child{
     padding-left:10px;
 }
-
 .carrinho div:last-child{
     padding-right:10px;
 }
-
 .carrinho .total{
     text-align: right;
     padding-right: 100px;
@@ -302,11 +277,9 @@ hr {
     padding-top:10px;
     font-size:11pt;
 }
-
 .carrinho .total input{
     width:100px;
 }
-
 .carrinho .col-md-12 .col-md-6{
     text-align: center;
 }
@@ -321,33 +294,9 @@ hr {
 .carrinho .col-md-12 div{
     text-align: center;
 }
-#telaAdmin .col-md-6{
-    background-color:#3d8af7;
-    height: 250px;
-    text-align: center;
-    margin: 100px 25% 0 25%;
-    font-size:12pt;
-    border: 2px solid rgba(2,31,84,0.21);
-}
-#telaAdmin input{
-    width: 50%;
-    height: 30px;
-    font-size:15pt;    
-}
-#telaAdmin label{
-    display: block;
-    margin: 20px 0px 10px 0px;
-}
-#telaAdmin .btn{
-    margin-top:25px;
-    width: 20%;
-    font-size:10pt;
-    font-weight: bold;
-}
 .crudProdutoCliente h2{
     text-align: center;
     font-size:14pt;
-
 }
 .autenticar{
     text-align: center;
@@ -363,13 +312,9 @@ hr {
     width: 200px;
     height: 30px;
 }
-.buttonAutenticar{
-    margin-top:20px;
-    margin-bottom:20px;
+/*.buttonAutenticar{
     display: block;
-    margin-left: 30%;
-    margin-right:30%;
-}
+}*/
 #datatableProduto img{
     height: 100px;
     width: 100px;
@@ -379,7 +324,6 @@ hr {
     text-align: right;
     margin-top:10px;
 }
-
 /*--------MODAL BOOTSTRAP-------------*/
 .modal-body{
     font-size:11pt;
@@ -432,7 +376,6 @@ hr {
     display: block;
     text-align: center;
 }
-
 @media all and (max-width: 991px) {
     .detalhesProduto, #detalhesProduto2{
         width: 240px;
@@ -455,7 +398,6 @@ hr {
         margin:0;
     }
 }
-
 @media all and (min-width: 500px) and (max-width: 994px) {
     #telaAdmin .btn, #telaAdmin input{
         width: 80%;
@@ -492,7 +434,6 @@ hr {
         font-size:8pt;
     }
 }
-
 /* --------BEGIN--------------------- */
 /* --------MENU RESPONSIVO---------- */
 @media all and (max-width: 994px) {     
