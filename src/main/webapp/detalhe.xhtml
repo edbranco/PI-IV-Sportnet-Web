@@ -16,6 +16,7 @@
         <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
+        <h:outputScript name="js/parcelamento.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
@@ -28,14 +29,14 @@
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                         </h2>
                     </ui:fragment>
-                
-                <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                    <h2>Olá #{usuarioBean.nome} ;)
-                        <h:form>
-                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                        </h:form>
-                    </h2>
-                </ui:fragment>
+
+                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                        <h2>Olá #{usuarioBean.nome} ;)
+                            <h:form>
+                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                            </h:form>
+                        </h2>
+                    </ui:fragment>
                 </div>
                 <div class="col-md-6">
                     <h:outputLink value="admin/admin-produto.xhtml">Acesso de admin</h:outputLink>                    
@@ -110,31 +111,9 @@
             </div>
             <div class="row alinhamentoFooter content">
                 <div class="col-md-4">
-                    <div class="col-md-12" id="banner">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <h:graphicImage value="/resources/produtos/#{produtoNovoBean.produto.imagemPrincipal}" class="img-responsive"/>
-                                </div>
-                                <div class="item">
-                                    <h:graphicImage name="produtos/nike2.png"/>
-                                </div>
-                                <div class="item">
-                                    <h:graphicImage name="produtos/nike3.png"/>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Controle -->
-                        <h:outputLink styleClass="left carousel-control" value="#carousel-example-generic" role="button">
-                            <f:passThroughAttribute name="data-slide" value="prev" />
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            <span class="sr-only"></span>
-                        </h:outputLink>
-                        <h:outputLink styleClass="right carousel-control" value="#carousel-example-generic" role="button">
-                            <f:passThroughAttribute name="data-slide" value="next" />
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            <span class="sr-only"></span>
-                        </h:outputLink>
+                    <div class="col-md-12" id="banner">                          
+                        <h:graphicImage value="/resources/produtos/#{produtoNovoBean.produto.imagemPrincipal}" class="img-responsive"/>
+
                     </div>
                 </div>
                 <div id="detalhesProduto2" class="col-md-4">
