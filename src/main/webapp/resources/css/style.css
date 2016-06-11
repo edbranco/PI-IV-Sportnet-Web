@@ -142,13 +142,15 @@ h1{
     margin-top:10px;
 }
 .produtos p:first-of-type{
-    margin-bottom: 25px;
+    height: 50px;
 }
 .produtos p:nth-last-child(3){
-    height: 50px;
+    height: 65px;
+    padding: 0 10% 0 10%;
 }
 .produtos p:nth-last-child(2){
     padding: 0 50px 0 50px;
+    height: 20px;
 }
 .produtos p:first-letter{
     color:red;
