@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>SPORTNET</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/style.css" />
+    </h:head>
+    <h:body>
+
+        <!-- topo usuario -->
+
+        <div class="row" id="topo">
+            <div class="col-md-12">
+                <ui:fragment rendered="#{usuarioBean.usuario == null}">
+                    <h2>Olá visitante, identifique-se 
+                        <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                        ou                         
+                        <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+
+                        <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
+
+                        <h:form>
+                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                        </h:form>
+                    </h2>
+                </ui:fragment>
+                <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                    <h2>Olá #{usuarioBean.nome},
+                        <h:outputLink value="admin/admin-produto.xhtml">pagina admin</h:outputLink>
+                        <h:form>
+                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                        </h:form>
+                    </h2>
+                </ui:fragment>
+            </div>
+        </div>
+
+        <div class="row headerFooter">
+            <div class="col-md-4">
+                <h:outputLink value="../index.xhtml">
+                    <h1>SPORTNET</h1>
+                </h:outputLink>
+            </div>
+        </div>
+
+        <div id="listaAndCarrinho" class="row crudProdutoCliente"><h2>Lista de Produtos</h2></div>
+
+        <p:commandButton value="Cadastrar"
+                         actionListener="#{prodBean.cadastrar}"
+                         update=":formPrincipal:tabelaProdutos"
+                         oncomplete="PF('dialogCadastrar').hide()" />
+
+        <div align="center">
+            <h:form id="formPrincipal">
+                <div class="row content alinhamentoFooter">
+                    <div class="col-md-12">
+                        <p:dataTable  id="tabelaProdutos" var="lista" value="#{prodBean.produtos}"
+                                      style="width:70%" paginator="true" rows="5">
+                            <!--                    <f:facet name="header">Lista de Produtos Cadastrados</f:facet>-->
+
+                            <p:column headerText="Id">
+                                <h:outputText value="#{lista.id}" />
+                            </p:column>
+
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{lista.nome}" />
+                            </p:column>
+
+                            <p:column headerText="Categoria">
+
+                                <h:outputText value="#{lista.categorias[0].nome}" />
+                            </p:column>
+
+                            <p:column headerText="Marca">
+                                <h:outputText value="#{lista.marca}" />
+                            </p:column>
+
+                            <p:column headerText="Descrição">
+                                <h:outputText value="#{lista.descricao}" />
+                            </p:column>
+
+                            <p:column headerText="Gênero">
+                                <h:outputText value="#{lista.genero}" />
+                            </p:column>
+
+                            <p:column headerText="Tamanho">
+                                <h:outputText value="#{lista.tamanho}" />
+                            </p:column>
+
+                            <p:column headerText="Cor">
+                                <h:outputText value="#{lista.cor}" />
+                            </p:column>
+
+                            <p:column headerText="Quantidade">
+                                <h:outputText value="#{lista.qtdAtual}" />
+                            </p:column>
+
+                            <p:column headerText="Preço">
+                                <h:outputText value="#{lista.preco}" />
+                            </p:column>
+
+                            <p:column headerText="Imagem">
+                                <h:graphicImage value="/resources/produtos/#{lista.getImagemPrincipal()}" class="img-responsive"/>
+                            </p:column>
+                            <p:column headerText="Ações">
+                                <p:commandLink title="Alterar" update=":formAlterar:Alterar"
+                                               oncomplete="PF('dialogAlterar').show()" immediate="true">
+                                    <p:graphicImage value="./imagens/edit_icon.png" />
+                                    <f:setPropertyActionListener target="#{prodBean.produto}"
+                                                                 value="#{lista}" />
+                                </p:commandLink>
+                                <p:commandLink title="Excluir" update=":formExcluir:Excluir"
+                                               oncomplete="PF('confirmation').show()" immediate="true">
+                                    <p:graphicImage value="./imagens/del_icon.png" />
+                                    <f:setPropertyActionListener target="#{prodBean.produto}"
+                                                                 value="#{lista}" />
+                                </p:commandLink>
+                            </p:column>
+
+                        </p:dataTable>
+
+                    </div>
+                </div>
+
+                <p:commandButton value="Cadastrar" id="cadastrar"
+                                 oncomplete="PF('dialogCadastrar').show()" />
+            </h:form>
+        </div>
+
+        <!-- formulario de edicao -->
+        <h:form id="formAlterar">
+            <p:dialog header="Alterar" widgetVar="dialogAlterar" modal="true" showEffect="explode"
+                      id="Alterar">
+                <p:panelGrid id="panelAlterar" columns="2">
+
+                    <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
+                    <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
+                                 required="true" requiredMessage="Preencher o nome" 
+                                 pt:placeholder="Nome do produto" styleClass="form-control" />
+                    <span><h:message for="txt-nome" /></span>
+
+                    <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
+                    <h:inputTextarea value="#{prodBean.produto.descricao}" id="txt-descricao"
+                                     required="true" requiredMessage="Preencher a descrição do produto" 
+                                     pt:placeholder="Descrição do produto" styleClass="form-control" />
+                    <span><h:message for="txt-descricao" /></span>
+
+                    <h:outputLabel value="Categorias" />
+                    <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
+                    <h:selectManyCheckbox value="#{prodBean.idsCategorias}" label="Categorias" converter="javax.faces.Integer">
+                        <f:selectItems id="teste" value="#{categoriaBean.lista}" var="cat"
+                                       itemValue="#{cat.id}" 
+                                       itemLabel="#{cat.nome}" />
+                    </h:selectManyCheckbox>
+                    <span><h:message for="chk-categorias" /></span>
+
+                    <h:outputLabel value="Marca"/>
+                    <h:inputText styleClass="form-control" value="#{prodBean.produto.marca}"/>
+
+                    <h:outputLabel value="Cor"/>
+                    <h:inputText styleClass="form-control" value="#{prodBean.produto.cor}"/>
+
+                    <h:outputLabel value="Tamanho"/>
+                    <h:inputText styleClass="form-control" value="#{prodBean.produto.tamanho}"/>
+
+                    <h:outputLabel value="Genero"/>
+                    <h:inputText styleClass="form-control" value="#{prodBean.produto.genero}"/> 
+
+                    <h:outputLabel value="Qtd Atual"/>
+                    <h:inputText styleClass="form-control" value="#{prodBean.produto.qtdAtual}"/>  
+
+                    <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
+                    <h:inputText value="#{prodBean.produto.preco}" id="txt-preco"
+                                 required="true" requiredMessage="Preencher o preço do produto" 
+                                 pt:placeholder="Preço do produto" styleClass="form-control">
+
+                    </h:inputText>
+                    <span><h:message for="txt-preco" /></span>
+
+                </p:panelGrid>
+                <p:commandButton value="Alterar"
+                                 actionListener="#{prodBean.alterar}"
+                                 update=":formPrincipal:tabelaProdutos"
+                                 oncomplete="PF('dialogAlterar').hide()" />
+            </p:dialog>
+        </h:form>
+
+        <!-- formulario de cadastro -->
+        <div id="formProduto" class="row">
+            <h:form id="formCadastrar">
+                <p:dialog header="Cadastrar" widgetVar="dialogCadastrar" modal="true" showEffect="explode">
+                    <p:panelGrid id="panelCadastrar" columns="2">
+
+                        <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
+                        <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
+                                     required="true" requiredMessage="Preencher o nome" 
+                                     pt:placeholder="Nome do produto" styleClass="form-control" />
+                        <span><h:message for="txt-nome" /></span>
+
+                        <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
+                        <h:inputTextarea value="#{prodBean.produto.descricao}" id="txt-descricao"
+                                         required="true" requiredMessage="Preencher a descrição do produto" 
+                                         pt:placeholder="Descrição do produto" styleClass="form-control" />
+                        <span><h:message for="txt-descricao" /></span>
+
+                        <h:outputLabel value="Categorias" />
+                        <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
+                        <h:selectManyCheckbox value="#{prodBean.idsCategorias}" label="Categorias" converter="javax.faces.Integer">
+                            <f:selectItems id="teste" value="#{categoriaBean.lista}" var="cat"
+                                           itemValue="#{cat.id}" 
+                                           itemLabel="#{cat.nome}" />
+                        </h:selectManyCheckbox>
+                        <span><h:message for="chk-categorias" /></span>
+
+                        <h:outputLabel value="Marca"/>
+                        <h:inputText styleClass="form-control" value="#{prodBean.produto.marca}"/>
+
+                        <h:outputLabel value="Cor"/>
+                        <h:inputText styleClass="form-control" value="#{prodBean.produto.cor}"/>
+
+                        <h:outputLabel value="Tamanho"/>
+                        <h:inputText styleClass="form-control" value="#{prodBean.produto.tamanho}"/>
+
+                        <h:outputLabel value="Genero"/>
+                        <h:inputText styleClass="form-control" value="#{prodBean.produto.genero}"/> 
+
+                        <h:outputLabel value="Qtd Atual"/>
+                        <h:inputText styleClass="form-control" value="#{prodBean.produto.qtdAtual}"/>  
+
+                        <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
+                        <h:inputText value="#{prodBean.produto.preco}" id="txt-preco"
+                                     required="true" requiredMessage="Preencher o preço do produto" 
+                                     pt:placeholder="Preço do produto" styleClass="form-control">
+
+                        </h:inputText>
+                        <span><h:message for="txt-preco" /></span>
+
+                    </p:panelGrid>
+
+                </p:dialog>
+            </h:form>
+        </div>
+
+
+        <h:form id="formExcluir">
+            <p:confirmDialog id="Excluir"
+                             message="Você gostaria de Deletar o #{prodBean.produto.nome}?"
+                             header="Excluir" severity="alert" widgetVar="confirmation" showEffect="explode">
+
+                <p:commandButton id="confirm" value="Sim"
+                                 oncomplete="PF('confirmation').hide()"
+                                 actionListener="#{prodBean.excluir}"
+                                 update=":formPrincipal:tabelaProdutos" />
+                <p:commandButton id="decline" value="Não"
+                                 onclick="PF('confirmation').hide()" type="button" />
+
+            </p:confirmDialog>
+        </h:form>
+
+    </h:body>
+</html>
