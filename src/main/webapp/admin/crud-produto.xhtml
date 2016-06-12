@@ -16,28 +16,28 @@
         <h:outputStylesheet name="css/style.css" />
     </h:head>
     <h:body>
-         <div class="row" id="topo">
-                <div class="col-md-6">
-                    <ui:fragment rendered="#{usuarioBean.usuario == null}">
-                        <h2>Olá visitante, identifique-se 
-                            <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
-                            ou                         
-                            <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
-                        </h2>
-                    </ui:fragment>
+        <div class="row" id="topo">
+            <div class="col-md-6">
+                <ui:fragment rendered="#{usuarioBean.usuario == null}">
+                    <h2>Olá visitante, identifique-se 
+                        <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                        ou                         
+                        <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+                    </h2>
+                </ui:fragment>
 
-                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                        <h2>Olá #{usuarioBean.nome} ;)
-                            <h:form>
-                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                            </h:form>
-                        </h2>
-                    </ui:fragment>
-                </div>
-                <div class="col-md-6">
-                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>                    
-                </div>
+                <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                    <h2>Olá #{usuarioBean.nome} ;)
+                        <h:form>
+                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                        </h:form>
+                    </h2>
+                </ui:fragment>
             </div>
+            <div class="col-md-6">
+                <h:outputLink value="crud-produto.xhtml">Acesso de admin</h:outputLink>                    
+            </div>
+        </div>
 
         <div class="row headerFooter">
             <div class="col-md-4">
@@ -49,12 +49,21 @@
 
         <div id="listaAndCarrinho" class="row crudProdutoCliente"><h2>Lista de Produtos</h2></div>
 
- 
+    
+             <div class="col-md-6">
+                    <h:outputLink value="cadastro-admin.xhtml">Cadastrar Novo Usuário</h:outputLink>                    
+                </div>
+
 
         <div align="center">
             <h:form id="formPrincipal">
                 <div class="row content alinhamentoFooter">
                     <div class="col-md-12">
+
+                        <p:commandButton value="Cadastrar" id="cadastrar"
+                                         oncomplete="PF('dialogCadastrar').show()" />
+
+
                         <p:dataTable  id="tabelaProdutos" var="lista" value="#{prodBean.produtos}"
                                       style="width:70%" paginator="true" rows="5">
                             <!--                    <f:facet name="header">Lista de Produtos Cadastrados</f:facet>-->
@@ -123,8 +132,7 @@
                     </div>
                 </div>
 
-                <p:commandButton value="Cadastrar" id="cadastrar"
-                                 oncomplete="PF('dialogCadastrar').show()" />
+
             </h:form>
         </div>
 
@@ -235,11 +243,11 @@
 
                         </h:inputText>
                         <span><h:message for="txt-preco" /></span>
-                        
-                               <p:commandButton value="Cadastrar"
-                         actionListener="#{prodBean.cadastrar}"
-                         update=":formPrincipal:tabelaProdutos"
-                         oncomplete="PF('dialogCadastrar').hide()" />
+
+                        <p:commandButton value="Cadastrar"
+                                         actionListener="#{prodBean.cadastrar}"
+                                         update=":formPrincipal:tabelaProdutos"
+                                         oncomplete="PF('dialogCadastrar').hide()" />
 
                     </p:panelGrid>
 

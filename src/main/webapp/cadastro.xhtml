@@ -22,9 +22,9 @@
             <div class="row" id="topo">
                 <div class="col-md-6">
                     <ui:fragment rendered="#{usuarioBean.usuario == null}">
-                        <h2>Olá visitante, identifique-se 
+                        <h2>Olá visitante, identifique-se
                             <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
-                            ou                         
+                            ou
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                         </h2>
                     </ui:fragment>
@@ -38,7 +38,7 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>
                 </div>
             </div>
             <div class="row headerFooter">
@@ -50,7 +50,7 @@
                 <div class="col-md-4">
                     <h:form>
                         <div class="input-group">
-                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
+                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/>
                             <span class="input-group-addon">
                                 <h:graphicImage name="img/lupa.jpg" />
                             </span>
@@ -105,7 +105,7 @@
                     </nav>
                 </div>
                 <div class="col-md-2">
-                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
+                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>
                 </div>
             </div>
             <div id="cadastro" class="row">
@@ -119,14 +119,14 @@
 
                         <p:outputLabel>Sexo</p:outputLabel>
                         <p:selectOneRadio value="#{clienteNovoBean.sexo}">
-                            <f:validateRequired/> 
+                            <f:validateRequired/>
                             <f:selectItem itemValue="masculino" itemLabel="Masculino"/>
-                            <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
+                            <f:selectItem itemValue="feminino" itemLabel="Feminino" />
                         </p:selectOneRadio>
 
                         <p:outputLabel>Data de Nascimento</p:outputLabel>
                         <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{clienteNovoBean.dtNascimento}">
-                            <f:validateRequired/> 
+                            <f:validateRequired/>
                         </p:calendar>
 
                         <p:outputLabel>Cidade</p:outputLabel>
@@ -190,7 +190,9 @@
 
                         <p:outputLabel>Senha</p:outputLabel>
                         <p:password value="#{clienteNovoBean.senha}"><f:validateRequired/></p:password>
-                        
+
+                        <h:inputHidden value="#{clienteNovoBean.papel}" />
+
                         <div>
                         <h:commandButton value="CADASTRAR"
                                          action="#{clienteNovoBean.salvar()}"

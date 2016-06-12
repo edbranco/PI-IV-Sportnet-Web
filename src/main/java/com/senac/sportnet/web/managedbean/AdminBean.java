@@ -20,12 +20,12 @@ import javax.faces.context.Flash;
 
 /**
  *
- * @author nliggia-ibm
+ * @author Equipe F5
  */
 @ManagedBean
 @RequestScoped
 @ViewScoped
-public class ClienteNovoBean implements Serializable {
+public class AdminBean implements Serializable {
 
     @ManagedProperty(value = "#{param.id}")
     private Long idCliente;
@@ -37,17 +37,17 @@ public class ClienteNovoBean implements Serializable {
     private String login;
     private String senha;
     //atributos do endereco
-    private String endRua;
-    private int endNum;
+    private String endRua= "endRua";
+    private int endNum = 404;
     private String endComplemento;
-    private String endBairro;
-    private String endCep;
-    private String endCidade;
-    private String endEstado;
+    private String endBairro = "endBairro";
+    private String endCep = "endCep";
+    private String endCidade = "endCIdade";
+    private String endEstado = "endEstado";
     private Date dtNascimento;
-    private String papel = "cliente";
+    private String papel = "admin";
 
-    public ClienteNovoBean() {
+    public AdminBean() {
     }
 
     public String getFragmento() {
@@ -82,10 +82,10 @@ public class ClienteNovoBean implements Serializable {
         cServ.incluir(c);
         Flash flash = FacesContext.getCurrentInstance()
                 .getExternalContext().getFlash();
-        flash.put("mensagem", new Mensagem("Cliente '"
+        flash.put("mensagem", new Mensagem("Admin '"
                 + c.getNome()
                 + "' cadastrado com sucesso", "success"));
-        return "/index.xhtml?faces-redirect=true";
+        return "crud-produto.xhtml?faces-redirect=true";
 
     }
 
