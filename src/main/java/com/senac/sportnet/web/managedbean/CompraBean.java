@@ -7,6 +7,7 @@ package com.senac.sportnet.web.managedbean;
 
 import com.senac.spornet.entity.CartaoCredito;
 import com.senac.spornet.entity.Produto;
+import com.senac.spornet.entity.Venda;
 import com.senac.sportnet.fakeimpl.ProdutoServiceFakeImpl;
 import com.senac.sportnet.service.ProdutoService;
 import com.senac.sportnet.servicejpa.ProdutoServiceJPA;
@@ -36,12 +37,12 @@ public class CompraBean implements Serializable {
             = new LinkedHashSet<ProdutoQuantidade>();
     float total = 0;
     private String pagamento;
-    
+
     private CartaoCredito cc;
-    
+
     @ManagedProperty("#{usuarioBean}")
     private UsuarioBean usuarioBean;
-    
+
     public void setUsuarioBean(UsuarioBean bean) {
         this.usuarioBean = bean;
     }
@@ -53,6 +54,7 @@ public class CompraBean implements Serializable {
     public void setCc(CartaoCredito cc) {
         this.cc = cc;
     }
+
     public String getPagamento() {
         return pagamento;
     }
@@ -60,8 +62,7 @@ public class CompraBean implements Serializable {
     public void setPagamento(String pagamento) {
         this.pagamento = pagamento;
     }
-    
-    
+
     private ProdutoQuantidade obterItem(Produto produto) {
         for (ProdutoQuantidade pq : itens) {
             if (pq.getProduto().equals(produto)) {
@@ -111,11 +112,22 @@ public class CompraBean implements Serializable {
         return total;
     }
 
-    public void fecharCompra() {
+    public String fecharCompra() {
         ProdutoService prodService = new ProdutoServiceJPA();
-        prodService.finalizarCompra(itens,total,usuarioBean.getUsuario().getId());
+        try {
+            prodService.finalizarCompra(itens, total, usuarioBean.getUsuario().getId());
+            return "venda/codigoVenda.xhtml?faces-redirect=true";
+        } catch (NullPointerException e) {
+            return "autenticar.xhtml?faces-redirect=true";
+        }
     }
-     public void atualizarQuantidade() {
+
+    public void atualizarQuantidade() {
         this.itens = this.itens;
+    }
+
+    public Venda ultimaVenda() {
+        ProdutoService cv = new ProdutoServiceJPA();
+        return cv.protocoloVenda();
     }
 }
