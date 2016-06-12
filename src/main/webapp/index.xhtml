@@ -15,6 +15,7 @@
         <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
+        <h:outputScript name="js/parcelamento.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
@@ -37,7 +38,7 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/admin-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
@@ -147,8 +148,8 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(8).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(8).nome}</p>                        
-                        <p>#{produtoNovoBean.obter(8).descricao}</p>
                         <p>R$ #{produtoNovoBean.obter(8).preco}</p>
+                        <p></p>
                     </div>
                     <div class="col-md-4">
                         <h:outputLink value="detalhe.xhtml">
@@ -156,8 +157,8 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(72).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(72).nome}</p>                        
-                        <p>#{produtoNovoBean.obter(72).descricao}</p>
                         <p>R$ #{produtoNovoBean.obter(72).preco}</p>
+                        <p></p>
                     </div>
                     <div class="col-md-4">
                         <h:outputLink value="detalhe.xhtml">
@@ -165,8 +166,8 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(29).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(29).nome}</p>                        
-                        <p>#{produtoNovoBean.obter(29).descricao}</p>
                         <p>R$ #{produtoNovoBean.obter(29).preco}</p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="col-md-12 produtos">
@@ -176,8 +177,8 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(65).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(65).nome}</p>                        
-                        <p>#{produtoNovoBean.obter(65).descricao}</p>
                         <p>R$ #{produtoNovoBean.obter(65).preco}</p>
+                        <p></p>
                     </div>
                     <div class="col-md-4">
                         <h:outputLink value="detalhe.xhtml">
@@ -185,8 +186,8 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(19).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(19).nome}</p>  
-                        <p>#{produtoNovoBean.obter(19).descricao}</p>
                         <p>R$ #{produtoNovoBean.obter(19).preco}</p>
+                        <p></p>
                     </div>
                     <div class="col-md-4">
                         <h:outputLink value="detalhe.xhtml">
@@ -194,8 +195,8 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(9).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(9).nome}</p>                        
-                        <p>#{produtoNovoBean.obter(9).descricao}</p>
                         <p>R$ #{produtoNovoBean.obter(9).preco}</p>
+                        <p></p>
                     </div>
                 </div>
             </div>

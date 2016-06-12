@@ -38,7 +38,7 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/admin-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
@@ -133,9 +133,7 @@
                         <p:inputText value="#{clienteNovoBean.endCidade}"><f:validateRequired/></p:inputText>
 
                         <p:outputLabel>Estado</p:outputLabel>
-                        <p:selectOneMenu style="width:180px" value="#{clienteNovoBean.endEstado}">
-                            <f:validateRequired/>
-                            <f:selectItem itemValue="" itemLabel="Selecione" />
+                        <h:selectOneMenu style="width:180px" value="#{clienteNovoBean.endEstado}">
                             <f:selectItem itemValue="SP" itemLabel="SP" />
                             <f:selectItem itemValue="AC" itemLabel="AC" />
                             <f:selectItem itemValue="AL" itemLabel="AL" />
@@ -163,7 +161,7 @@
                             <f:selectItem itemValue="SC" itemLabel="SC" />
                             <f:selectItem itemValue="SE" itemLabel="SE" />
                             <f:selectItem itemValue="TO" itemLabel="TO" />
-                        </p:selectOneMenu>
+                        </h:selectOneMenu>
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <p:outputLabel>Endereço</p:outputLabel>
@@ -192,10 +190,12 @@
 
                         <p:outputLabel>Senha</p:outputLabel>
                         <p:password value="#{clienteNovoBean.senha}"><f:validateRequired/></p:password>
-
+                        
+                        <div>
                         <h:commandButton value="CADASTRAR"
                                          action="#{clienteNovoBean.salvar()}"
                                          styleClass="btn btn-primary" />
+                        </div>
                     </div>
                 </h:form>
             </div>
