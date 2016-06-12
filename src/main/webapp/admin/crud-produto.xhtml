@@ -115,13 +115,13 @@
                             <p:column headerText="Ações">
                                 <p:commandLink title="Alterar" update=":formAlterar:Alterar"
                                                oncomplete="PF('dialogAlterar').show()" immediate="true">
-                                    <p:graphicImage value="./imagens/edit_icon.png" />
+                                    <p:graphicImage value="../resources/img/edit-icon.png"  style="width: 37%; height: 24%; margin-left: 2px;" />
                                     <f:setPropertyActionListener target="#{prodBean.produto}"
                                                                  value="#{lista}" />
                                 </p:commandLink>
                                 <p:commandLink title="Excluir" update=":formExcluir:Excluir"
                                                oncomplete="PF('confirmation').show()" immediate="true">
-                                    <p:graphicImage value="./imagens/del_icon.png" />
+                                    <p:graphicImage value="../resources/img/trash-icon.png" style="width: 33%; height: 13%;" />
                                     <f:setPropertyActionListener target="#{prodBean.produto}"
                                                                  value="#{lista}" />
                                 </p:commandLink>
