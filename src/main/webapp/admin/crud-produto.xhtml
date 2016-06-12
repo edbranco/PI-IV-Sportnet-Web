@@ -49,10 +49,7 @@
 
         <div id="listaAndCarrinho" class="row crudProdutoCliente"><h2>Lista de Produtos</h2></div>
 
-        <p:commandButton value="Cadastrar"
-                         actionListener="#{prodBean.cadastrar}"
-                         update=":formPrincipal:tabelaProdutos"
-                         oncomplete="PF('dialogCadastrar').hide()" />
+ 
 
         <div align="center">
             <h:form id="formPrincipal">
@@ -238,6 +235,11 @@
 
                         </h:inputText>
                         <span><h:message for="txt-preco" /></span>
+                        
+                               <p:commandButton value="Cadastrar"
+                         actionListener="#{prodBean.cadastrar}"
+                         update=":formPrincipal:tabelaProdutos"
+                         oncomplete="PF('dialogCadastrar').hide()" />
 
                     </p:panelGrid>
 
