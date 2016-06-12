@@ -141,10 +141,10 @@
                                 </h:inputText>
                             </div>
                             <div class="col-md-2">
-                                <p>#{item.produto.preco}</p>
+                                <h:outputText value="#{item.produto.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText>
                             </div>
                             <div class="col-md-2">
-                                <p>#{item.preco}</p>
+                                <b><h:outputText value="#{item.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></b>
                             </div>
                         </div>
                     </ui:repeat>
@@ -154,7 +154,7 @@
                     <hr/>
                     <div class="col-md-12 total">CEP <h:outputLabel><h:inputText styleClass="form-control" pt:placeholder="00000-000"/></h:outputLabel></div>
                     <hr/> -->
-                    <div class="col-md-12 total">TOTAL R$ <h:outputLabel>#{compraBean.valorTotal}</h:outputLabel></div>
+                    <div class="col-md-12 total">TOTAL R$ <b><h:outputText value="#{compraBean.valorTotal}"><f:convertNumber minFractionDigits="2" /></h:outputText></b></div>
                     <hr/>  
                     <div class="col-md-12">
                         <div class="col-md-6">

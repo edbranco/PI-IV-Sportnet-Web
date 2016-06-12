@@ -144,7 +144,7 @@
                                     </h:form>
                                 </h:outputLink>
                                 <p>#{prod.nome}</p>
-                                <p>R$ #{prod.preco}</p>                               
+                                <p>R$ <h:outputText value="#{prod.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>                              
                                 <f:param name="id" value="#{prod.id}" />
                                 <div class="col-md-12">
                                     <h:form prependId="false">

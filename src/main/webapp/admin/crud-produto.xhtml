@@ -103,7 +103,7 @@
                             </p:column>
 
                             <p:column headerText="Preço">
-                                <h:outputText value="#{lista.preco}" />
+                                <p>R$ <h:outputText value="#{lista.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                             </p:column>
 
                             <p:column headerText="Imagem">

@@ -126,7 +126,7 @@
 
                 <div class="col-md-3 alinhamentoFooter">
                     <div class="detalhesProduto">
-                        <p>R$ #{produtoNovoBean.produto.preco}</p>
+                        <p>R$ <h:outputText value="#{produtoNovoBean.produto.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                         <p></p>
                         <hr/>
                         <h:form>

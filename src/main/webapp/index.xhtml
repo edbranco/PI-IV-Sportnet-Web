@@ -148,7 +148,7 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(8).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(8).nome}</p>                        
-                        <p>R$ #{produtoNovoBean.obter(8).preco}</p>
+                        <p>R$ <h:outputText value="#{produtoNovoBean.obter(8).preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                         <p></p>
                     </div>
                     <div class="col-md-4">
@@ -156,8 +156,8 @@
                             <f:param name="id" value="#{produtoNovoBean.obter(72).id}" />
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(72).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
-                        <p>#{produtoNovoBean.obter(72).nome}</p>                        
-                        <p>R$ #{produtoNovoBean.obter(72).preco}</p>
+                        <p>#{produtoNovoBean.obter(72).nome}</p>     
+                        <p>R$ <h:outputText value="#{produtoNovoBean.obter(72).preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                         <p></p>
                     </div>
                     <div class="col-md-4">
@@ -166,7 +166,7 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(29).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(29).nome}</p>                        
-                        <p>R$ #{produtoNovoBean.obter(29).preco}</p>
+                        <p>R$ <h:outputText value="#{produtoNovoBean.obter(29).preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                         <p></p>
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(65).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(65).nome}</p>                        
-                        <p>R$ #{produtoNovoBean.obter(65).preco}</p>
+                        <p>R$ <h:outputText value="#{produtoNovoBean.obter(65).preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                         <p></p>
                     </div>
                     <div class="col-md-4">
@@ -186,7 +186,7 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(19).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(19).nome}</p>  
-                        <p>R$ #{produtoNovoBean.obter(19).preco}</p>
+                        <p>R$ <h:outputText value="#{produtoNovoBean.obter(19).preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                         <p></p>
                     </div>
                     <div class="col-md-4">
@@ -195,7 +195,7 @@
                             <h:graphicImage value="/resources/produtos/#{produtoNovoBean.obter(9).imagemPrincipal}" class="img-responsive"/>
                         </h:outputLink>
                         <p>#{produtoNovoBean.obter(9).nome}</p>                        
-                        <p>R$ #{produtoNovoBean.obter(9).preco}</p>
+                        <p>R$ <h:outputText value="#{produtoNovoBean.obter(9).preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
                         <p></p>
                     </div>
                 </div>

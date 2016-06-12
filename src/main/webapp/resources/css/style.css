@@ -152,8 +152,7 @@ h1{
     color: #021F54;
     padding-bottom: 10px;
 }
-.alinhamentoFooter > .col-md-4 > p{
-    text-align: justify;    
+.alinhamentoFooter > .col-md-4 > p{   
     font-size: 13pt;
     padding-bottom: 10px;
 }
@@ -256,7 +255,7 @@ hr {
     margin-bottom: 10px;
     margin-top:10px;
 }
-.carrinho p, .carrinho > form  > .col-md-12 > .col-md-2 > input, .carrinho > form > .col-md-12 > .col-md-4 > .col-md-6 {
+.carrinho .col-md-2, .carrinho > form  > .col-md-12 > .col-md-2 > input, .carrinho > form > .col-md-12 > .col-md-4 > .col-md-6 {
     font-size:12pt;
     text-align: center;
 }
@@ -363,6 +362,9 @@ hr {
 #cadastro form .btn-primary{
     margin-top:15px;
 }
+#cadastro .estados{
+        width:180px
+    }
 @media all and (max-width: 991px) {
     .detalhesProduto, #detalhesProduto2{
         width: 240px;
@@ -410,6 +412,9 @@ hr {
         text-align: center;
         margin:30px 20% 100px 20%;
         font-size:8pt;
+    }
+    #cadastro .estados{
+        width:155px
     }
 }
 /* --------BEGIN--------------------- */
