@@ -59,7 +59,7 @@
                             Novo Produto </p:commandLink>
 
                         <p:dataTable  id="tabelaProdutos" var="lista" value="#{prodBean.produtos}"
-                                      style="width:80%; height: 100%;" paginator="true" rows="5">
+                                      style="width:80%; height: 100%; font-size: 15px;" paginator="true" rows="5">
 
                             <p:column headerText="Id">
                                 <h:outputText value="#{lista.id}" />
@@ -130,7 +130,7 @@
         <!-- formulario de edicao -->
         <h:form id="formAlterar">
             <p:dialog header="Alterar" widgetVar="dialogAlterar" modal="true" showEffect="explode"
-                      id="Alterar">
+                      id="Alterar" style="font-size: 16px;">
                 <p:panelGrid id="panelAlterar" columns="2">
 
                     <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
@@ -188,7 +188,7 @@
         <!-- formulario de cadastro -->
         <div id="formProduto" class="row">
             <h:form id="formCadastrar">
-                <p:dialog header="Cadastrar" widgetVar="dialogCadastrar" modal="true" showEffect="explode">
+                <p:dialog header="Cadastrar" widgetVar="dialogCadastrar" modal="true" showEffect="explode" style="font-size: 16px;">
                     <p:panelGrid id="panelCadastrar" columns="2">
 
                         <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
@@ -245,7 +245,7 @@
             </h:form>
         </div>
         <h:form id="formExcluir">
-            <p:confirmDialog id="Excluir"
+            <p:confirmDialog style="font-size: 16px;" id="Excluir"
                              message="Você gostaria de Deletar o #{prodBean.produto.nome}?"
                              header="Excluir" severity="alert" widgetVar="confirmation" showEffect="explode">
 

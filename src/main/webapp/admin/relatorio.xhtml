@@ -99,13 +99,14 @@
 
                     <p:column headerText="Preço">
                         <h:outputText value="#{prod.preco}" />
-                    </p:column>
+                    </p:column>          
 
                     <p:column headerText="Imagem">
                         <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive" />
                     </p:column>
                 </p:dataTable>
-
+                <h4 style="margin-left: 69%;">Valor Total da Venda: R$ #{relatorioBean.v.vlTotal}</h4>
+                <br></br>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-12">
