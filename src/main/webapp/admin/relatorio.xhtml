@@ -116,7 +116,7 @@
                     </h:form>
                 </div>
                 <p>#{relatorioBean.v.idVenda}</p>
-                <p>#{relatorioBean.v.idCliente}</p>
+                <p>#{relatorioBean.v.nomeCliente}</p>
                 <ui:repeat value="#{relatorioBean.v.produtos}" var="prod">
                     <h:form>
                         <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   

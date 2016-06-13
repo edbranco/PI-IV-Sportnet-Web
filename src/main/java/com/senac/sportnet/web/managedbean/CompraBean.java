@@ -115,7 +115,7 @@ public class CompraBean implements Serializable {
     public String fecharCompra() {
         ProdutoService prodService = new ProdutoServiceJPA();
         try {
-            prodService.finalizarCompra(itens, total, usuarioBean.getUsuario().getId());
+            prodService.finalizarCompra(itens, total, usuarioBean.getUsuario().getNome());
             return "venda/codigoVenda.xhtml?faces-redirect=true";
         } catch (NullPointerException e) {
             return "autenticar.xhtml?faces-redirect=true";

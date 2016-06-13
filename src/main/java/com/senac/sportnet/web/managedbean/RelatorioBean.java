@@ -51,8 +51,12 @@ public class RelatorioBean implements Serializable{
     public void mostrarRelatorios(){
         RelatorioService rs = new RelatorioServiceJPA();
         
-        v = rs.mostrar(id);
-        
+        Venda v2 = rs.mostrar(id);
+        if(v2==null){
+            
+        }else{
+            v = v2;
+        }
         
     }
 }
