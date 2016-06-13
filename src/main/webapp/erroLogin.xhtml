@@ -1,12 +1,132 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>SPORTNET</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputScript name="js/jquery.min.js" />
+        <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/style.css" />
+        <h:outputScript name="js/menu.js" />
+        <h:outputScript name="js/redirecionar.js" />
     </h:head>
     <h:body>
-        Erro de login ou senha
+        <div class="container-fluid">
+            <div class="row" id="topo">
+                <div class="col-md-6">
+                    <ui:fragment rendered="#{usuarioBean.usuario == null}">
+                        <h2>Olá visitante, identifique-se 
+                            <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                            ou                         
+                            <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+                        </h2>
+                    </ui:fragment>
+
+                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                        <h2>Olá #{usuarioBean.nome} ;)
+                            <h:form>
+                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                            </h:form>
+                        </h2>
+                    </ui:fragment>
+                </div>
+                <div class="col-md-6">
+                    <h:outputLink value="admin/admin-menu.xhtml">Acesso de admin</h:outputLink>                    
+                </div>
+            </div>
+            <div class="row headerFooter">
+                <div class="col-md-4">
+                    <h:outputLink value="index.xhtml">
+                        <h1>SPORTNET</h1>
+                    </h:outputLink>
+                </div>
+                <div class="col-md-4">
+                    <h:form>
+                        <div class="input-group">
+                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
+                            <span class="input-group-addon">
+                                <h:graphicImage name="img/lupa.jpg" />
+                            </span>
+                        </div>
+                    </h:form>
+                </div>
+                <div class="col-md-4">
+                    <span>
+                    <h:graphicImage name="img/telefone.png"/> 
+                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                    </span>
+                </div>
+            </div>
+            <div class="row" id="listaAndCarrinho">
+                <div class="col-md-10 pagina">
+                    <nav class="menu">
+                        <ul>
+                            <li>
+                                <h:outputLink value="#">
+                                    CALÇADOS
+                                </h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="listaBota.xhtml">Bota</h:outputLink></li>
+                                    <li><h:outputLink value="listaChuteira.xhtml">Chuteira</h:outputLink></li>
+                                    <li><h:outputLink value="listaTenis.xhtml">Tênis</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">ACESSÓRIOS</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="listaMochila.xhtml">Mochila</h:outputLink></li>
+                                    <li><h:outputLink value="listaBone.xhtml">Boné</h:outputLink></li>
+                                    <li><h:outputLink value="listaCaneleira.xhtml">Caneleira</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">MARCAS</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="listaAdidas.xhtml">Adidas</h:outputLink></li>
+                                    <li><h:outputLink value="listaNike.xhtml">Nike</h:outputLink></li>
+                                    <li><h:outputLink value="listaPuma.xhtml">Puma</h:outputLink></li>
+                                    <li><h:outputLink value="listaFila.xhtml">Fila</h:outputLink></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h:outputLink value="#">ROUPAS</h:outputLink>
+                                <ul>
+                                    <li><h:outputLink value="listaAgasalho.xhtml">Agasalho</h:outputLink></li>
+                                    <li><h:outputLink value="listaBermuda.xhtml">Bermuda</h:outputLink></li>
+                                    <li><h:outputLink value="listaBlusa.xhtml">Blusa</h:outputLink></li>
+                                    <li><h:outputLink value="listaCalca.xhtml">Calças</h:outputLink></li>
+                                    <li><h:outputLink value="listaCamisaTime.xhtml">Camisas Time</h:outputLink></li>
+                                    <li><h:outputLink value="listaCamiseta.xhtml">Camisetas</h:outputLink></li>
+                                    <li><h:outputLink value="listaJaqueta.xhtml">Jaquetas</h:outputLink></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
+                </div>
+            </div>
+            <div class="row autenticar content alinhamentoFooter">
+                <h:form>
+                    <div class="col-md-12">              
+                        <span>USUÁRIO OU SENHA INCORRETOS</span>
+                    </div>
+                </h:form>
+            </div>
+            <div class="row headerFooter">
+                <div class="col-md-12">
+                    <p>2016 - SportNet todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
     </h:body>
 </html>
-

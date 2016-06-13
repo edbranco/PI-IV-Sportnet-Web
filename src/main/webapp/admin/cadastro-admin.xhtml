@@ -11,7 +11,6 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputScript name="js/jquery.min.js" />
         <h:outputScript name="js/bootstrap.min.js" />
         <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
@@ -38,7 +37,7 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="crud-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin-menu.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
@@ -47,94 +46,32 @@
                         <h1>SPORTNET</h1>
                     </h:outputLink>
                 </div>
-                <!-- <div class="col-md-4">
-                    <h:form>
-                        <div class="input-group">
-                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
-                            <span class="input-group-addon">
-                                <h:graphicImage name="img/lupa.jpg" />
-                            </span>
-                        </div>
-                    </h:form>
-                </div> -->
             </div> 
-            <!-- <div class="row" id="listaAndCarrinho">
-                 <div class="col-md-10 pagina">
-                     <nav class="menu">
-                         <ul>
-                             <li>
-                                 <h:outputLink value="#">
-                                     CALÇADOS
-                                 </h:outputLink>
-                                 <ul>
-                                     <li><h:outputLink value="listaBota.xhtml">Bota</h:outputLink></li>
-                                     <li><h:outputLink value="listaChuteira.xhtml">Chuteira</h:outputLink></li>
-                                     <li><h:outputLink value="listaTenis.xhtml">Tênis</h:outputLink></li>
-                                 </ul>
-                             </li>
-                             <li>
-                                 <h:outputLink value="#">ACESSÓRIOS</h:outputLink>
-                                 <ul>
-                                     <li><h:outputLink value="listaMochila.xhtml">Mochila</h:outputLink></li>
-                                     <li><h:outputLink value="listaBone.xhtml">Boné</h:outputLink></li>
-                                     <li><h:outputLink value="listaCaneleira.xhtml">Caneleira</h:outputLink></li>
-                                 </ul>
-                             </li>
-                             <li>
-                                 <h:outputLink value="#">MARCAS</h:outputLink>
-                                 <ul>
-                                     <li><h:outputLink value="listaAdidas.xhtml">Adidas</h:outputLink></li>
-                                     <li><h:outputLink value="listaNike.xhtml">Nike</h:outputLink></li>
-                                     <li><h:outputLink value="listaPuma.xhtml">Puma</h:outputLink></li>
-                                     <li><h:outputLink value="listaFila.xhtml">Fila</h:outputLink></li>
-                                 </ul>
-                             </li>
-                             <li>
-                                 <h:outputLink value="#">ROUPAS</h:outputLink>
-                                 <ul>
-                                     <li><h:outputLink value="listaAgasalho.xhtml">Agasalho</h:outputLink></li>
-                                     <li><h:outputLink value="listaBermuda.xhtml">Bermuda</h:outputLink></li>
-                                     <li><h:outputLink value="listaBlusa.xhtml">Blusa</h:outputLink></li>
-                                     <li><h:outputLink value="listaCalca.xhtml">Calças</h:outputLink></li>
-                                     <li><h:outputLink value="listaCamisaTime.xhtml">Camisas Time</h:outputLink></li>
-                                     <li><h:outputLink value="listaCamiseta.xhtml">Camisetas</h:outputLink></li>
-                                     <li><h:outputLink value="listaJaqueta.xhtml">Jaquetas</h:outputLink></li>
-                                 </ul>
-                             </li>
-                         </ul>
-                     </nav>
-                 </div>
-                 <div class="col-md-2">
-                     <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
-                 </div>
-             </div> -->
+            <div class="row crudProdutoCliente" id="listaAndCarrinho">
+                <h2>Cadastro de Admin</h2>
+            </div>
             <div id="cadastro" class="row">
                 <h:form prependId="false" enctype="multipart/form-data">
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-md-12 col-sm-12">
                         <p:outputLabel>Nome Completo</p:outputLabel>
                         <p:inputText  value="#{adminBean.nome}"><f:validateRequired/></p:inputText>
 
                         <p:outputLabel>CPF</p:outputLabel>
                         <p:inputMask mask="999.999.999-99" value="#{adminBean.cpf}"><f:validateRequired/></p:inputMask>
-
+                        
+                        
                         <p:outputLabel>Sexo</p:outputLabel>
+                        <div id="sexo">
                         <p:selectOneRadio value="#{adminBean.sexo}">
                             <f:validateRequired/> 
-                            <f:selectItem itemValue="masculino" itemLabel="Masculino"/>
+                            <f:selectItem itemValue="masculino" itemLabel="Masculino"/><br/>
                             <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
                         </p:selectOneRadio>
-
+                        </div>
                         <p:outputLabel>Data de Nascimento</p:outputLabel>
                         <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{adminBean.dtNascimento}">
                             <f:validateRequired/> 
                         </p:calendar>
-
-
-
-                    </div>
-
-
-                    <div class="col-md-3 col-sm-12">
 
                         <p:outputLabel>E-mail</p:outputLabel>
                         <p:inputText value="#{adminBean.email}"><f:validateRequired/></p:inputText>
@@ -151,8 +88,6 @@
                         <h:inputHidden value="#{adminBean.endCidade}" />
                         <h:inputHidden value="#{adminBean.endEstado}" />
                         <h:inputHidden value="#{adminBean.papel}" />
-                      
-
                         <div>
                             <h:commandButton value="CADASTRAR"
                                              action="#{adminBean.salvar()}"

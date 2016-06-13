@@ -95,7 +95,7 @@ h1{
 }
 /*Parte da Footer */
 .alinhamentoFooter{
-    padding-bottom: 100px;
+    padding-bottom: 75px;
 }
 .container-fluid{
     position: relative;
@@ -309,7 +309,7 @@ hr {
 }
 .crudProdutoCliente h2{
     text-align: center;
-    font-size:14pt;
+    font-size:20pt;
 }
 .autenticar{
     text-align: center;
@@ -376,8 +376,25 @@ hr {
     margin-top:15px;
 }
 #cadastro .estados{
-        width:180px
-    }
+    width:180px
+}
+#menuAdmin{
+    text-align: center;
+    font-size:18pt;
+
+}
+#menuAdmin a{
+    display: block;
+    margin-bottom: 60px;
+    margin-top:70px;
+}
+#sexo{
+    margin-left:38%;
+    margin-right: 50%;
+}
+.autenticar span{
+    font-size:14pt;
+}
 @media all and (max-width: 991px) {
     .detalhesProduto, #detalhesProduto2{
         width: 240px;
@@ -412,6 +429,10 @@ hr {
         border-style:solid;
         border-color: #E6E6E6;
     }
+    #sexo{
+        margin-left:0;
+        margin-right: 0;
+    }
 }
 @media all and (max-width: 499px){
     .detalhesProduto, #detalhesProduto2{
@@ -429,6 +450,10 @@ hr {
     #cadastro .estados{
         width:155px
     }
+    #sexo{
+        margin-left:0;
+        margin-right: 0;
+    }   
 }
 /* --------BEGIN--------------------- */
 /* --------MENU RESPONSIVO---------- */

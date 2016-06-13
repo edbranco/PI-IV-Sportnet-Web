@@ -9,6 +9,7 @@ import com.senac.spornet.entity.Usuario;
 import com.senac.sportnet.service.UsuarioClienteService;
 import com.senac.sportnet.servicejpa.UsuarioClienteServiceJPA;
 import java.io.Serializable;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;

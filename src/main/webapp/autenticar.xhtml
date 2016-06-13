@@ -16,6 +16,7 @@
         <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
+        <h:outputScript name="js/erroAutenticacao.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
@@ -129,7 +130,7 @@
                             </p:password> 
                             <!-- correção do bug do commandbutton -->
                             <p:outputLabel></p:outputLabel>
-                            <h:commandButton styleClass="btn btn-info buttonAutenticar" value="Entrar" action="#{usuarioBean.autenticar()}"/>
+                            <h:commandButton styleClass="btn btn-info buttonAutenticar" value="Entrar" action="#{usuarioBean.autenticar()}" onclick="exibirMensagem()" />
                         </div>
                         <div class="col-md-6">
                             <p:outputLabel>QUERO ME CADASTRAR</p:outputLabel>

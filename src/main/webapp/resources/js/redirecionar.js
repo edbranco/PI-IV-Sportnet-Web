@@ -1,0 +1,1 @@
+setTimeout($(function () {location.replace("autenticar.xhtml"); }), 6000);
