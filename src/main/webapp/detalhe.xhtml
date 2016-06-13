@@ -39,7 +39,7 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin/admin-menu.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
@@ -53,10 +53,16 @@
                         <div class="input-group">
                             <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
                             <span class="input-group-addon">
-                                <h:graphicImage name="img/lupa.jpg" class="" />
+                                <h:graphicImage name="img/lupa.jpg" />
                             </span>
                         </div>
                     </h:form>
+                </div>
+                <div class="col-md-4">
+                    <span>
+                    <h:graphicImage name="img/telefone.png"/> 
+                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                    </span>
                 </div>
             </div>
             <div class="row" id="listaAndCarrinho">
@@ -130,17 +136,6 @@
                         <p></p>
                         <hr/>
                         <h:form>
-                            <h:outputLabel for="qtd" id="qtd">Quantidade:</h:outputLabel>
-                            <h:inputText p:type="number" p:step="1" p:min="1" p:max="" p:name="quantity" value="1" title="Qtd" size="2"></h:inputText>
-                            <hr/>
-                            <h:outputLabel for="tamanho" id="tamanho">Tamanho:</h:outputLabel>
-                            <br/>
-                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>#{produtoNovoBean.produto.tamanho}</h:outputLabel>
-                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>36</h:outputLabel>
-                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>37</h:outputLabel>
-                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>38</h:outputLabel>
-                            <h:outputLabel styleClass="radio-inline"><input type="radio" name="tamanho"/>39</h:outputLabel>
-                            <hr/>
                             <a>
                                 <h:commandButton action="#{compraBean.adicionarProduto(produtoNovoBean.idProduto, 1)}" styleClass="btn btn-primary" pt:role="button" value="Comprar">
                                     <f:param name="id" value="#{produtoNovoBean.idProduto}" />

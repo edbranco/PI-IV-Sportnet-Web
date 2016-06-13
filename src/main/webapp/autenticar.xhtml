@@ -28,17 +28,17 @@
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                         </h2>
                     </ui:fragment>
-                
-                <ui:fragment rendered="#{usuarioBean.usuario != null}">
-                    <h2>Olá #{usuarioBean.nome} ;)
-                        <h:form>
-                            <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
-                        </h:form>
-                    </h2>
-                </ui:fragment>
+
+                    <ui:fragment rendered="#{usuarioBean.usuario != null}">
+                        <h2>Olá #{usuarioBean.nome} ;)
+                            <h:form>
+                                <h:commandLink id="logout" action="#{usuarioBean.logout()}" value="Sair"/>
+                            </h:form>
+                        </h2>
+                    </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin/admin-menu.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
@@ -56,6 +56,12 @@
                             </span>
                         </div>
                     </h:form>
+                </div>
+                <div class="col-md-4">
+                    <span>
+                    <h:graphicImage name="img/telefone.png"/> 
+                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                    </span>
                 </div>
             </div>
             <div class="row" id="listaAndCarrinho">

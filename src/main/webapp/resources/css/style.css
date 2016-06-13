@@ -71,10 +71,27 @@ h1{
 .headerFooter .input-group {
     padding: 0px;
     margin-top:40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 .headerFooter .input-group .form-control{
     font-size:14pt;
+}
+.headerFooter > .col-md-4:last-of-type  img{
+    width: 60px;
+    height: 60px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+.headerFooter > .col-md-4:last-of-type{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:10px;
+    color:#FFF;
+    font-size:14pt;
+}
+.headerFooter > .col-md-4:last-of-type label{
+    margin-left:20px;
+    margin-top:30px;
 }
 /*Parte da Footer */
 .alinhamentoFooter{
@@ -122,6 +139,7 @@ h1{
 }
 .col-md-12, #banner{
     padding: 0px;
+    margin-bottom:40px;
 }
 .produtos{
     text-align: center;
@@ -198,9 +216,6 @@ hr {
     height: 27px;
     margin-left: 10px;
     font-size: 10pt;
-}
-.radio-inline {
-    font-size: 14px;
 }
 .btn-primary {
     background-color: rgb(117, 169, 249);
@@ -309,10 +324,8 @@ hr {
 .autenticar > form > div > div input{
     width: 200px;
     height: 30px;
+    font-size:10.5pt;
 }
-/*.buttonAutenticar{
-    display: block;
-}*/
 #datatableProduto img{
     height: 100px;
     width: 100px;

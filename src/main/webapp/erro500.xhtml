@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>SPORTNET</title>
         <meta charset="utf-8"/>
@@ -15,6 +16,7 @@
         <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
+        <h:outputScript name="js/parcelamento.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
@@ -37,7 +39,7 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/admin-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin/admin-menu.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
@@ -55,6 +57,12 @@
                             </span>
                         </div>
                     </h:form>
+                </div>
+                <div class="col-md-4">
+                    <span>
+                    <h:graphicImage name="img/telefone.png"/> 
+                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                    </span>
                 </div>
             </div>
             <div class="row" id="listaAndCarrinho">
@@ -107,7 +115,9 @@
                     <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
                 </div>
             </div>
+            <center>
             <h3 id="protocolo">Erro Interno no Servidor</h3>
+            </center>
             <div class="row headerFooter">
                 <div class="col-md-12">
                     <p>2016 - SportNet todos os direitos reservados.</p>

@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>SPORTNET</title>
         <meta charset="utf-8"/>
@@ -37,7 +38,7 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/crud-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="admin/admin-menu.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
@@ -55,6 +56,12 @@
                             </span>
                         </div>
                     </h:form>
+                </div>
+                <div class="col-md-4">
+                    <span>
+                    <h:graphicImage name="img/telefone.png"/> 
+                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                    </span>
                 </div>
             </div>
             <div class="row" id="listaAndCarrinho">
