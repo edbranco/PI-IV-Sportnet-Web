@@ -50,11 +50,16 @@
             <h:form id="formPrincipal">
                 <div class="row content alinhamentoFooter">
                     <div class="col-md-12">
+
+                        <h:outputLink value="admin-menu.xhtml">
+                            <p:graphicImage value="../resources/img/back-icon.png"  style="width: 2%; height: 2%; margin-right: 5px;" />Voltar</h:outputLink>  
+
                         <p:commandLink title="Adicionar" id="cadastrar" oncomplete="PF('dialogCadastrar').show()">
-                                    <p:graphicImage value="../resources/img/adicionar.png"  style="width: 15px; height: 15px; margin-left: 2px;margin-right: 4px;" />
-                                </p:commandLink>
+                            <p:graphicImage value="../resources/img/add-icon.png"  style="width: 2%; height: 2%; margin-left: 69%;margin-right: 4px;" />
+                            Novo Produto </p:commandLink>
+
                         <p:dataTable  id="tabelaProdutos" var="lista" value="#{prodBean.produtos}"
-                                      style="width:70%" paginator="true" rows="5">
+                                      style="width:80%; height: 100%;" paginator="true" rows="5">
 
                             <p:column headerText="Id">
                                 <h:outputText value="#{lista.id}" />
@@ -100,7 +105,7 @@
                                 <h:graphicImage value="/resources/produtos/#{lista.getImagemPrincipal()}" class="img-responsive"/>
                             </p:column>
                             <p:column headerText="Ações">
-                                
+
                                 <p:commandLink title="Alterar" update=":formAlterar:Alterar"
                                                oncomplete="PF('dialogAlterar').show()" immediate="true">
                                     <p:graphicImage value="../resources/img/edit-icon.png"  style="width: 20px; height: 20px; margin-left: 2px;margin-right: 7px;" />

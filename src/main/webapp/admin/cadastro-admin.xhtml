@@ -50,6 +50,10 @@
             <div class="row crudProdutoCliente" id="listaAndCarrinho">
                 <h2>Cadastro de Admin</h2>
             </div>
+
+            <h:outputLink value="admin-menu.xhtml">
+                <p:graphicImage value="../resources/img/back-icon.png"  style="width: 2%; height: 2%; margin-right: 5px;" />Voltar</h:outputLink>  
+
             <div id="cadastro" class="row">
                 <h:form prependId="false" enctype="multipart/form-data">
                     <div class="col-md-12 col-sm-12">
@@ -58,15 +62,15 @@
 
                         <p:outputLabel>CPF</p:outputLabel>
                         <p:inputMask mask="999.999.999-99" value="#{adminBean.cpf}"><f:validateRequired/></p:inputMask>
-                        
-                        
+
+
                         <p:outputLabel>Sexo</p:outputLabel>
                         <div id="sexo">
-                        <p:selectOneRadio value="#{adminBean.sexo}">
-                            <f:validateRequired/> 
-                            <f:selectItem itemValue="masculino" itemLabel="Masculino"/><br/>
-                            <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
-                        </p:selectOneRadio>
+                            <p:selectOneRadio value="#{adminBean.sexo}">
+                                <f:validateRequired/> 
+                                <f:selectItem itemValue="masculino" itemLabel="Masculino"/><br/>
+                                <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
+                            </p:selectOneRadio>
                         </div>
                         <p:outputLabel>Data de Nascimento</p:outputLabel>
                         <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{adminBean.dtNascimento}">

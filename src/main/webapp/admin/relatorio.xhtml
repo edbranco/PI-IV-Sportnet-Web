@@ -51,6 +51,9 @@
             <div class="row crudProdutoCliente" id="listaAndCarrinho">
                 <h2>Relatório</h2>
             </div>
+            <h:outputLink value="admin-menu.xhtml">
+                <p:graphicImage value="../resources/img/back-icon.png"  style="width: 2%; height: 2%; margin-right: 5px;" />Voltar</h:outputLink>
+            <br></br><br></br>
             <div class="row alinhamentoFooter content">
                 <div>
                     <h:form styleClass="form-inline" style="margin-left: 8px;">
@@ -93,7 +96,7 @@
                     <p:column headerText="Qtd Atual">
                         <h:outputText value="#{prod.qtdAtual}" />
                     </p:column>
-                    
+
                     <p:column headerText="Preço">
                         <h:outputText value="#{prod.preco}" />
                     </p:column>
