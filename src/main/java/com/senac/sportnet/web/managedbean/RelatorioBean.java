@@ -19,7 +19,8 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class RelatorioBean implements Serializable{
     Venda venda;
-    List<Venda> v;
+    Long id;
+    Venda v;
     public RelatorioBean() {
     }
 
@@ -30,12 +31,28 @@ public class RelatorioBean implements Serializable{
     public void setVenda(Venda venda) {
         this.venda = venda;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Venda getV() {
+        return v;
+    }
+
+    public void setV(Venda v) {
+        this.v = v;
+    }
     
-    public List<Venda> getRelatorios(){
+    public void mostrarRelatorios(){
         RelatorioService rs = new RelatorioServiceJPA();
         
-        v = rs.mostrar();
-        return v;
+        v = rs.mostrar(id);
+        
         
     }
 }
