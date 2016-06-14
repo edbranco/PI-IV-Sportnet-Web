@@ -147,6 +147,7 @@
                             </div>
                             <div class="col-md-2">
                                 <h:inputText pt:type="number" value="#{item.quantidade}">
+                                    <f:validateLongRange minimum="1" maximum="50" />
                                     <f:ajax render="@form" listener="#{compraBean.atualizarQuantidade()}" />
                                 </h:inputText>
                             </div>
