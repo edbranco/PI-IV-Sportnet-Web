@@ -85,7 +85,7 @@ public class AdminBean implements Serializable {
         flash.put("mensagem", new Mensagem("Admin '"
                 + c.getNome()
                 + "' cadastrado com sucesso", "success"));
-        return "adminCadastrado.xhtml?faces-redirect=true";
+        return "admin-menu.xhtml?faces-redirect=true";
 
     }
 

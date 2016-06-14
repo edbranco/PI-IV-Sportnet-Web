@@ -46,81 +46,85 @@
             </div>
         </div>
         <div id="listaAndCarrinho" class="row crudProdutoCliente"><h2>Gerenciar Produtos</h2></div>    
-            <h:form id="formPrincipal">
-                <div id="crudProduto" class="row content alinhamentoFooter">
-                    <div class="col-md-12" style="text-align:center; font-size:14pt; margin-top:20px;   ">
-                            <p:commandLink title="Adicionar" id="cadastrar" oncomplete="PF('dialogCadastrar').show()">
-                                <p:graphicImage value="../resources/img/add-icon.png"  style="width: 35px; height: 35px;" />
-                                Novo Produto </p:commandLink>
-                    </div>
-                    <div class="col-md-12">
-                            <p:dataTable  id="tabelaProdutos" var="lista" value="#{prodBean.produtos}" paginator="true" rows="4" reflow="true">
+        <h:form id="formPrincipal">
+            <div id="crudProduto" class="row content alinhamentoFooter">
+                <div class="col-md-12" style="text-align:center; font-size:14pt; margin-top:20px;   ">
 
-                                <p:column headerText="Id">
-                                    <h:outputText value="#{lista.id}" />
-                                </p:column>
+<!--                    <h:outputLink value="admin-menu.xhtml">
+                        <p:graphicImage value="../resources/img/back-icon.png"  style="width: 2%; height: 2%; margin-right: 30%; position: fixed;" />   </h:outputLink>  -->
 
-                                <p:column headerText="Nome">
-                                    <h:outputText value="#{lista.nome}" />
-                                </p:column>
-
-                                <p:column headerText="Categoria">
-                                    <h:outputText value="#{lista.categorias[0].nome}" />
-                                </p:column>
-
-                                <p:column headerText="Marca">
-                                    <h:outputText value="#{lista.marca}" />
-                                </p:column>
-
-                                <p:column headerText="Descrição">
-                                    <h:outputText value="#{lista.descricao}" />
-                                </p:column>
-
-                                <p:column headerText="Gênero">
-                                    <h:outputText value="#{lista.genero}" />
-                                </p:column>
-
-                                <p:column headerText="Tamanho">
-                                    <h:outputText value="#{lista.tamanho}" />
-                                </p:column>
-
-                                <p:column headerText="Cor">
-                                    <h:outputText value="#{lista.cor}" />
-                                </p:column>
-
-                                <p:column headerText="Quantidade">
-                                    <h:outputText value="#{lista.qtdAtual}" />
-                                </p:column>
-
-                                <p:column headerText="Preço">
-                                    <p>R$ <h:outputText value="#{lista.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
-                                </p:column>
-
-                                <p:column headerText="Imagem">
-                                    <h:graphicImage value="/resources/produtos/#{lista.getImagemPrincipal()}" class="img-responsive"/>
-                                </p:column>
-                                <p:column headerText="Ações">
-                                    <div id="botoesCrud">
-                                    <p:commandLink title="Alterar" update=":formAlterar:Alterar"
-                                                   oncomplete="PF('dialogAlterar').show()" immediate="true">
-                                        <p:graphicImage value="../resources/img/edit-icon.png" styleClass="botaoEditar" />
-                                        <f:setPropertyActionListener target="#{prodBean.produto}"
-                                                                     value="#{lista}" />
-                                    </p:commandLink>
-                                    <p:commandLink title="Excluir" update=":formExcluir:Excluir"
-                                                   oncomplete="PF('confirmation').show()" immediate="true">
-                                        <p:graphicImage value="../resources/img/deletar.png" styleClass="botaoDeletar" />
-                                        <f:setPropertyActionListener target="#{prodBean.produto}"
-                                                                     value="#{lista}" />
-                                    </p:commandLink>
-                                    </div>
-                                </p:column>
-
-                            </p:dataTable>
-
-                    </div>
+                    <p:commandLink title="Adicionar" id="cadastrar" oncomplete="PF('dialogCadastrar').show()">
+                        <p:graphicImage value="../resources/img/add-icon.png"  style="width: 35px; height: 35px; margin-left: 80px;" />
+                        Novo Produto </p:commandLink>
                 </div>
-            </h:form>
+                <div class="col-md-12">
+                    <p:dataTable  id="tabelaProdutos" var="lista" value="#{prodBean.produtos}" paginator="true" rows="5" reflow="true">
+
+                        <p:column headerText="Id">
+                            <h:outputText value="#{lista.id}" />
+                        </p:column>
+
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{lista.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Categoria">
+                            <h:outputText value="#{lista.categorias[0].nome}" />
+                        </p:column>
+
+                        <p:column headerText="Marca">
+                            <h:outputText value="#{lista.marca}" />
+                        </p:column>
+
+                        <p:column headerText="Descrição">
+                            <h:outputText value="#{lista.descricao}" />
+                        </p:column>
+
+                        <p:column headerText="Gênero">
+                            <h:outputText value="#{lista.genero}" />
+                        </p:column>
+
+                        <p:column headerText="Tamanho">
+                            <h:outputText value="#{lista.tamanho}" />
+                        </p:column>
+
+                        <p:column headerText="Cor">
+                            <h:outputText value="#{lista.cor}" />
+                        </p:column>
+
+                        <p:column headerText="Quantidade">
+                            <h:outputText value="#{lista.qtdAtual}" />
+                        </p:column>
+
+                        <p:column headerText="Preço">
+                            <p>R$ <h:outputText value="#{lista.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
+                        </p:column>
+
+                        <p:column headerText="Imagem">
+                            <h:graphicImage value="/resources/produtos/#{lista.getImagemPrincipal()}" class="img-responsive"/>
+                        </p:column>
+                        <p:column headerText="Ações">
+                            <div id="botoesCrud">
+                                <p:commandLink title="Alterar" update=":formAlterar:Alterar"
+                                               oncomplete="PF('dialogAlterar').show()" immediate="true">
+                                    <p:graphicImage value="../resources/img/edit-icon.png" styleClass="botaoEditar" />
+                                    <f:setPropertyActionListener target="#{prodBean.produto}"
+                                                                 value="#{lista}" />
+                                </p:commandLink>
+                                <p:commandLink title="Excluir" update=":formExcluir:Excluir"
+                                               oncomplete="PF('confirmation').show()" immediate="true">
+                                    <p:graphicImage value="../resources/img/deletar.png" styleClass="botaoDeletar" />
+                                    <f:setPropertyActionListener target="#{prodBean.produto}"
+                                                                 value="#{lista}" />
+                                </p:commandLink>
+                            </div>
+                        </p:column>
+
+                    </p:dataTable>
+
+                </div>
+            </div>
+        </h:form>
 
         <!-- formulario de edicao -->
         <h:form id="formAlterar">
@@ -187,56 +191,56 @@
                     <div class="ui-fluid">
                         <p:panelGrid id="panelCadastrar" columns="2">
 
-                        <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
-                        <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
-                                     required="true" requiredMessage="Preencher o nome" 
-                                     pt:placeholder="Nome do produto" styleClass="form-control" />
-                        <span><h:message for="txt-nome" /></span>
+                            <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
+                            <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
+                                         required="true" requiredMessage="Preencher o nome" 
+                                         pt:placeholder="Nome do produto" styleClass="form-control" />
+                            <span><h:message for="txt-nome" /></span>
 
-                        <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
-                        <h:inputTextarea value="#{prodBean.produto.descricao}" id="txt-descricao"
-                                         required="true" requiredMessage="Preencher a descrição do produto" 
-                                         pt:placeholder="Descrição do produto" styleClass="form-control" />
-                        <span><h:message for="txt-descricao" /></span>
+                            <h:outputLabel for="txt-descricao" value="Descrição" styleClass="control-label" />
+                            <h:inputTextarea value="#{prodBean.produto.descricao}" id="txt-descricao"
+                                             required="true" requiredMessage="Preencher a descrição do produto" 
+                                             pt:placeholder="Descrição do produto" styleClass="form-control" />
+                            <span><h:message for="txt-descricao" /></span>
 
-                        <h:outputLabel value="Categorias" />
-                        <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
-                        <h:selectManyCheckbox value="#{prodBean.idsCategorias}" label="Categorias" converter="javax.faces.Integer">
-                            <f:selectItems id="teste" value="#{categoriaBean.lista}" var="cat"
-                                           itemValue="#{cat.id}" 
-                                           itemLabel="#{cat.nome}" />
-                        </h:selectManyCheckbox>
-                        <span><h:message for="chk-categorias" /></span>
+                            <h:outputLabel value="Categorias" />
+                            <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
+                            <h:selectManyCheckbox value="#{prodBean.idsCategorias}" label="Categorias" converter="javax.faces.Integer">
+                                <f:selectItems id="teste" value="#{categoriaBean.lista}" var="cat"
+                                               itemValue="#{cat.id}" 
+                                               itemLabel="#{cat.nome}" />
+                            </h:selectManyCheckbox>
+                            <span><h:message for="chk-categorias" /></span>
 
-                        <h:outputLabel value="Marca"/>
-                        <h:inputText styleClass="form-control" value="#{prodBean.produto.marca}"/>
+                            <h:outputLabel value="Marca"/>
+                            <h:inputText styleClass="form-control" value="#{prodBean.produto.marca}"/>
 
-                        <h:outputLabel value="Cor"/>
-                        <h:inputText styleClass="form-control" value="#{prodBean.produto.cor}"/>
+                            <h:outputLabel value="Cor"/>
+                            <h:inputText styleClass="form-control" value="#{prodBean.produto.cor}"/>
 
-                        <h:outputLabel value="Tamanho"/>
-                        <h:inputText styleClass="form-control" value="#{prodBean.produto.tamanho}"/>
+                            <h:outputLabel value="Tamanho"/>
+                            <h:inputText styleClass="form-control" value="#{prodBean.produto.tamanho}"/>
 
-                        <h:outputLabel value="Genero"/>
-                        <h:inputText styleClass="form-control" value="#{prodBean.produto.genero}"/> 
+                            <h:outputLabel value="Genero"/>
+                            <h:inputText styleClass="form-control" value="#{prodBean.produto.genero}"/> 
 
-                        <h:outputLabel value="Qtd Atual"/>
-                        <h:inputText styleClass="form-control" value="#{prodBean.produto.qtdAtual}"/>  
+                            <h:outputLabel value="Qtd Atual"/>
+                            <h:inputText styleClass="form-control" value="#{prodBean.produto.qtdAtual}"/>  
 
-                        <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
-                        <h:inputText value="#{prodBean.produto.preco}" id="txt-preco"
-                                     required="true" requiredMessage="Preencher o preço do produto" 
-                                     pt:placeholder="Preço do produto" styleClass="form-control">
+                            <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
+                            <h:inputText value="#{prodBean.produto.preco}" id="txt-preco"
+                                         required="true" requiredMessage="Preencher o preço do produto" 
+                                         pt:placeholder="Preço do produto" styleClass="form-control">
 
-                        </h:inputText>
-                        <span><h:message for="txt-preco" /></span>
+                            </h:inputText>
+                            <span><h:message for="txt-preco" /></span>
 
-                        <p:commandButton value="Cadastrar"
-                                         actionListener="#{prodBean.cadastrar}"
-                                         update=":formPrincipal:tabelaProdutos"
-                                         oncomplete="PF('dialogCadastrar').hide()" />
+                            <p:commandButton value="Cadastrar"
+                                             actionListener="#{prodBean.cadastrar}"
+                                             update=":formPrincipal:tabelaProdutos"
+                                             oncomplete="PF('dialogCadastrar').hide()" />
 
-                    </p:panelGrid>
+                        </p:panelGrid>
                     </div>
                 </p:dialog>
             </h:form>
