@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>SPORTNET</title>
         <meta charset="utf-8"/>
@@ -27,9 +28,9 @@
                 <div class="col-md-6">
                     <ui:fragment rendered="#{usuarioBean.usuario == null}">
                         <h2>Olá visitante, identifique-se 
-                            <h:outputLink value="autenticar.xhtml">aqui</h:outputLink>
+                            <h:outputLink value="../autenticar.xhtml">aqui</h:outputLink>
                             ou                         
-                            <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
+                            <h:outputLink value="../cadastro.xhtml">cadastre-se</h:outputLink>
                         </h2>
                     </ui:fragment>
 
@@ -42,12 +43,12 @@
                     </ui:fragment>
                 </div>
                 <div class="col-md-6">
-                    <h:outputLink value="admin/admin-produto.xhtml">Acesso de admin</h:outputLink>                    
+                    <h:outputLink value="../admin/admin-produto.xhtml">Acesso de admin</h:outputLink>                    
                 </div>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-4">
-                    <h:outputLink value="index.xhtml">
+                    <h:outputLink value="../index.xhtml">
                         <h1>SPORTNET</h1>
                     </h:outputLink>
                 </div>
@@ -61,6 +62,12 @@
                         </div>
                     </h:form>
                 </div>
+                <div class="col-md-4">
+                    <span>
+                    <h:graphicImage name="img/telefone.png"/> 
+                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                    </span>
+                </div>
             </div>
             <div class="row" id="listaAndCarrinho">
                 <div class="col-md-10 pagina">
@@ -71,49 +78,49 @@
                                     CALÇADOS
                                 </h:outputLink>
                                 <ul>
-                                    <li><h:outputLink value="listaBota.xhtml">Bota</h:outputLink></li>
-                                    <li><h:outputLink value="listaChuteira.xhtml">Chuteira</h:outputLink></li>
-                                    <li><h:outputLink value="listaTenis.xhtml">Tênis</h:outputLink></li>
+                                    <li><h:outputLink value="../listaBota.xhtml">Bota</h:outputLink></li>
+                                    <li><h:outputLink value="../listaChuteira.xhtml">Chuteira</h:outputLink></li>
+                                    <li><h:outputLink value="../listaTenis.xhtml">Tênis</h:outputLink></li>
                                 </ul>
                             </li>
                             <li>
                                 <h:outputLink value="#">ACESSÓRIOS</h:outputLink>
                                 <ul>
-                                    <li><h:outputLink value="listaMochila.xhtml">Mochila</h:outputLink></li>
-                                    <li><h:outputLink value="listaBone.xhtml">Boné</h:outputLink></li>
-                                    <li><h:outputLink value="listaCaneleira.xhtml">Caneleira</h:outputLink></li>
+                                    <li><h:outputLink value="../listaMochila.xhtml">Mochila</h:outputLink></li>
+                                    <li><h:outputLink value="../listaBone.xhtml">Boné</h:outputLink></li>
+                                    <li><h:outputLink value="../listaCaneleira.xhtml">Caneleira</h:outputLink></li>
                                 </ul>
                             </li>
                             <li>
                                 <h:outputLink value="#">MARCAS</h:outputLink>
                                 <ul>
-                                    <li><h:outputLink value="listaAdidas.xhtml">Adidas</h:outputLink></li>
-                                    <li><h:outputLink value="listaNike.xhtml">Nike</h:outputLink></li>
-                                    <li><h:outputLink value="listaPuma.xhtml">Puma</h:outputLink></li>
-                                    <li><h:outputLink value="listaFila.xhtml">Fila</h:outputLink></li>
+                                    <li><h:outputLink value="../listaAdidas.xhtml">Adidas</h:outputLink></li>
+                                    <li><h:outputLink value="../listaNike.xhtml">Nike</h:outputLink></li>
+                                    <li><h:outputLink value="../listaPuma.xhtml">Puma</h:outputLink></li>
+                                    <li><h:outputLink value="../listaFila.xhtml">Fila</h:outputLink></li>
                                 </ul>
                             </li>
                             <li>
                                 <h:outputLink value="#">ROUPAS</h:outputLink>
                                 <ul>
-                                    <li><h:outputLink value="listaAgasalho.xhtml">Agasalho</h:outputLink></li>
-                                    <li><h:outputLink value="listaBermuda.xhtml">Bermuda</h:outputLink></li>
-                                    <li><h:outputLink value="listaBlusa.xhtml">Blusa</h:outputLink></li>
-                                    <li><h:outputLink value="listaCalca.xhtml">Calças</h:outputLink></li>
-                                    <li><h:outputLink value="listaCamisaTime.xhtml">Camisas Time</h:outputLink></li>
-                                    <li><h:outputLink value="listaCamiseta.xhtml">Camisetas</h:outputLink></li>
-                                    <li><h:outputLink value="listaJaqueta.xhtml">Jaquetas</h:outputLink></li>
+                                    <li><h:outputLink value="../listaAgasalho.xhtml">Agasalho</h:outputLink></li>
+                                    <li><h:outputLink value="../listaBermuda.xhtml">Bermuda</h:outputLink></li>
+                                    <li><h:outputLink value="../listaBlusa.xhtml">Blusa</h:outputLink></li>
+                                    <li><h:outputLink value="../listaCalca.xhtml">Calças</h:outputLink></li>
+                                    <li><h:outputLink value="../listaCamisaTime.xhtml">Camisas Time</h:outputLink></li>
+                                    <li><h:outputLink value="../listaCamiseta.xhtml">Camisetas</h:outputLink></li>
+                                    <li><h:outputLink value="../listaJaqueta.xhtml">Jaquetas</h:outputLink></li>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-md-2">
-                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
+                    <h:outputLink value="../carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
                 </div>
             </div>
             <div class="row alinhamentoFooter content">
-                <h1 id="protocolo">Compra efetuada com sucesso !! Este é o numero do seu pedido: #{compraBean.ultimaVenda().idVenda}</h1>
+                <center><h1 id="protocolo" style="font-size:14pt;">Compra efetuada com sucesso. Este é o numero do seu pedido: #{compraBean.ultimaVenda().idVenda}</h1></center>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-12">

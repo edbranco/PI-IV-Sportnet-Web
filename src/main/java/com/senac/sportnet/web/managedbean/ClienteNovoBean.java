@@ -85,7 +85,7 @@ public class ClienteNovoBean implements Serializable {
         flash.put("mensagem", new Mensagem("Cliente '"
                 + c.getNome()
                 + "' cadastrado com sucesso", "success"));
-        return "/index.xhtml?faces-redirect=true";
+        return "/cadastradoSucesso.xhtml?faces-redirect=true";
 
     }
 

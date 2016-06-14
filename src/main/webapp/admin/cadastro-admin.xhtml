@@ -15,6 +15,8 @@
         <h:outputStylesheet name="css/bootstrap.min.css" />
         <h:outputStylesheet name="css/style.css" />
         <h:outputScript name="js/menu.js" />
+        <h:outputScript name="js/pt_BR.js" />
+        <h:outputScript name="redirecionar.js" />
     </h:head>
     <h:body>
         <div class="container-fluid">
@@ -50,61 +52,57 @@
             <div class="row crudProdutoCliente" id="listaAndCarrinho">
                 <h2>Cadastro de Admin</h2>
             </div>
+                <div id="cadastro" class="row">
+                    <h:form prependId="false" enctype="multipart/form-data">
+                        <div class="col-md-12 col-sm-12">
+                            <p:outputLabel>Nome Completo</p:outputLabel>
+                            <p:inputText  value="#{adminBean.nome}"><f:validateRequired/></p:inputText>
 
-            <h:outputLink value="admin-menu.xhtml">
-                <p:graphicImage value="../resources/img/back-icon.png"  style="width: 2%; height: 2%; margin-right: 5px;" />Voltar</h:outputLink>  
-
-            <div id="cadastro" class="row">
-                <h:form prependId="false" enctype="multipart/form-data">
-                    <div class="col-md-12 col-sm-12">
-                        <p:outputLabel>Nome Completo</p:outputLabel>
-                        <p:inputText  value="#{adminBean.nome}"><f:validateRequired/></p:inputText>
-
-                        <p:outputLabel>CPF</p:outputLabel>
-                        <p:inputMask mask="999.999.999-99" value="#{adminBean.cpf}"><f:validateRequired/></p:inputMask>
+                            <p:outputLabel>CPF</p:outputLabel>
+                            <p:inputMask mask="999.999.999-99" value="#{adminBean.cpf}"><f:validateRequired/></p:inputMask>
 
 
-                        <p:outputLabel>Sexo</p:outputLabel>
-                        <div id="sexo">
-                            <p:selectOneRadio value="#{adminBean.sexo}">
+                            <p:outputLabel>Sexo</p:outputLabel>
+                            <div id="sexo">
+                                <p:selectOneRadio value="#{adminBean.sexo}">
+                                    <f:validateRequired/> 
+                                    <f:selectItem itemValue="masculino" itemLabel="Masculino"/><br/>
+                                    <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
+                                </p:selectOneRadio>
+                            </div>
+                            <p:outputLabel>Data de Nascimento</p:outputLabel>
+                            <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{adminBean.dtNascimento}">
                                 <f:validateRequired/> 
-                                <f:selectItem itemValue="masculino" itemLabel="Masculino"/><br/>
-                                <f:selectItem itemValue="feminino" itemLabel="Feminino" />	
-                            </p:selectOneRadio>
+                            </p:calendar>
+                            
+                            <p:outputLabel>E-mail</p:outputLabel>
+                            <p:inputText value="#{adminBean.email}"><f:validateRequired/></p:inputText>
+
+                            <p:outputLabel>Login</p:outputLabel>
+                            <p:inputText  value="#{adminBean.login}"><f:validateRequired/></p:inputText>
+
+                            <p:outputLabel>Senha</p:outputLabel>
+                            <p:password value="#{adminBean.senha}"><f:validateRequired/></p:password>
+
+                            <h:inputHidden value="#{adminBean.endRua}" />
+                            <h:inputHidden value="#{adminBean.endNum}" />
+                            <h:inputHidden value="#{adminBean.endCep}" />
+                            <h:inputHidden value="#{adminBean.endCidade}" />
+                            <h:inputHidden value="#{adminBean.endEstado}" />
+                            <h:inputHidden value="#{adminBean.papel}" />
+                            <div>
+                                <h:commandButton value="CADASTRAR"
+                                                 action="#{adminBean.salvar()}"
+                                                 styleClass="btn btn-primary" />
+                            </div>
                         </div>
-                        <p:outputLabel>Data de Nascimento</p:outputLabel>
-                        <p:calendar locale="pt_BR" navigator="true" mask="99/99/9999"  value="#{adminBean.dtNascimento}">
-                            <f:validateRequired/> 
-                        </p:calendar>
-
-                        <p:outputLabel>E-mail</p:outputLabel>
-                        <p:inputText value="#{adminBean.email}"><f:validateRequired/></p:inputText>
-
-                        <p:outputLabel>Login</p:outputLabel>
-                        <p:inputText  value="#{adminBean.login}"><f:validateRequired/></p:inputText>
-
-                        <p:outputLabel>Senha</p:outputLabel>
-                        <p:password value="#{adminBean.senha}"><f:validateRequired/></p:password>
-
-                        <h:inputHidden value="#{adminBean.endRua}" />
-                        <h:inputHidden value="#{adminBean.endNum}" />
-                        <h:inputHidden value="#{adminBean.endCep}" />
-                        <h:inputHidden value="#{adminBean.endCidade}" />
-                        <h:inputHidden value="#{adminBean.endEstado}" />
-                        <h:inputHidden value="#{adminBean.papel}" />
-                        <div>
-                            <h:commandButton value="CADASTRAR"
-                                             action="#{adminBean.salvar()}"
-                                             styleClass="btn btn-primary" />
-                        </div>
-                    </div>
-                </h:form>
-            </div>
-            <div class="row headerFooter">
-                <div class="col-md-12">
-                    <p>2016 - SportNet todos os direitos reservados.</p>
+                    </h:form>
                 </div>
-            </div>
+                <div class="row headerFooter">
+                    <div class="col-md-12">
+                        <p>2016 - SportNet todos os direitos reservados.</p>
+                    </div>
+                </div>
         </div>
     </h:body>
 </html>
