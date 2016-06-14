@@ -59,8 +59,8 @@
                 </div>
                 <div class="col-md-4">
                     <span>
-                    <h:graphicImage name="img/telefone.png"/> 
-                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                        <h:graphicImage name="img/telefone.png"/> 
+                        <p:outputLabel> (11) 5682-7300</p:outputLabel>
                     </span>
                 </div>
             </div>
@@ -182,7 +182,10 @@
                         <p:outputLabel>Bairro</p:outputLabel>
                         <p:inputText value="#{clienteNovoBean.endBairro}"><f:validateRequired/></p:inputText>
 
-                        
+                        <p:outputLabel>CEP</p:outputLabel>
+                        <p:inputMask mask="99999-999" value="#{clienteNovoBean.endCep}"><f:validateRequired/></p:inputMask>
+
+
                     </div>
 
                     <div class="col-md-3 col-sm-12">
@@ -199,9 +202,9 @@
                         <h:inputHidden value="#{clienteNovoBean.papel}" />
 
                         <div>
-                        <h:commandButton value="CADASTRAR"
-                                         action="#{clienteNovoBean.salvar()}"
-                                         styleClass="btn btn-primary" />
+                            <h:commandButton value="CADASTRAR"
+                                             action="#{clienteNovoBean.salvar()}"
+                                             styleClass="btn btn-primary" />
                         </div>
                     </div>
                 </h:form>
