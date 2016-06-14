@@ -130,4 +130,8 @@ public class CompraBean implements Serializable {
         ProdutoService cv = new ProdutoServiceJPA();
         return cv.protocoloVenda();
     }
+    
+    public void removeItem(ProdutoQuantidade item){
+        itens.remove(item);
+    }
 }

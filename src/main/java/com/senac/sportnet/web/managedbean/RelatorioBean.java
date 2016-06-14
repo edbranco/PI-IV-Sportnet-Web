@@ -59,4 +59,10 @@ public class RelatorioBean implements Serializable{
         }
         
     }
+    public List<Venda> getRelatorio(){
+        RelatorioService rs = new RelatorioServiceJPA();
+        
+        
+        return rs.mostrarTodos();
+    }
 }

@@ -140,7 +140,10 @@
                                 <div class="col-md-6"><p>#{item.produto.nome}</p></div>
                             </div>
                             <div class="col-md-2">
-                                <h:graphicImage name="img/lixeira.png"/>
+                                <h:commandLink action="#{compraBean.removeItem(item)}">
+                                    <h:graphicImage name="img/lixeira.png"/>
+                                </h:commandLink>
+                                
                             </div>
                             <div class="col-md-2">
                                 <h:inputText pt:type="number" value="#{item.quantidade}">
