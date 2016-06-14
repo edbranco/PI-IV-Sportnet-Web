@@ -413,8 +413,8 @@ hr {
     text-align: center; 
 }
 .ui-datatable-reflow .ui-datatable-data td {
-        font-size:10pt;
-    }
+    font-size:10pt;
+}
 @media all and (max-width: 991px) {
     .detalhesProduto, #detalhesProduto2{
         width: 240px;
@@ -475,7 +475,10 @@ hr {
     .detalhesProduto, #detalhesProduto2{
         width: 240px;
         margin-left: 0;
-    }   
+    }
+    .autenticar div:last-of-type{
+        margin-top:40px;
+    }
     .alinharFooter > .col-md-2{
         margin-left: 40px;
     }
