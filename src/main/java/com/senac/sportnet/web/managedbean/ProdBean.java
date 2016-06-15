@@ -27,13 +27,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.Part;
+import org.primefaces.context.RequestContext;
 
 /**
  *
  * @author nliggia-ibm
  */
-
-
 @ManagedBean(name = "prodBean")
 @ViewScoped
 public class ProdBean {
@@ -77,6 +76,9 @@ public class ProdBean {
         produtos = produtoService.listar(0, 100);
 
         produto = new Produto();
+        RequestContext context = RequestContext.getCurrentInstance();
+        context.execute("PF('dialogCadastrar').hide();");
+        
 
     }
 
