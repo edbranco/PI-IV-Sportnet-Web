@@ -58,8 +58,8 @@
 
                 <h5 style="margin-left: 8px;">Nome do Cliente: #{rel.nomeCliente} </h5>
                 <h5 style="margin-left: 8px;">Protocolo da Venda: #{rel.idVenda}</h5>
-                <h5 style="margin-left: 8px;">Data:  #{rel.dtVenda}</h5>
-                <h5 style="margin-left: 8px;">Valor Total: R$ #{rel.vlTotal}</h5>
+                <p style="margin-left: 8px; font-size: 14px;">Data: <h:outputText value="#{rel.dtVenda}"><f:convertDateTime  pattern="dd/MM/yyyy  'as' HH:mm"/></h:outputText></p>
+                <p style="margin-left: 8px; font-size: 14px;">Valor Total: R$ <h:outputText value="#{rel.vlTotal}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
 
                 <div class="col-md-12">
                     <p:dataTable value="#{rel.produtos}" var="prod" style="font-size: 15px;" emptyMessage="Nenhum resultado encontrado" reflow="true">
@@ -97,6 +97,7 @@
 
                     </p:dataTable>
                 </div>
+                <hr></hr>
             </ui:repeat>
 
 

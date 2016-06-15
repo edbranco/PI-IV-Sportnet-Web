@@ -51,66 +51,69 @@
             <div class="row crudProdutoCliente" id="listaAndCarrinho">
                 <h2>Relatório</h2>
             </div>
-                <br></br><br></br>
-                <div class="row alinhamentoFooter content">
-                    <div>
-                        <h:form styleClass="form-inline" style="margin-left: 8px;">
-                            <h:outputLabel style="font-size: 20px;">Protocolo da Venda: </h:outputLabel>
-                            <h:inputText pt:type="number" value="#{relatorioBean.id}" styleClass="form-control" style="margin-right: 2px; margin-left: 5px;"/>
-                            <h:commandButton action="#{relatorioBean.mostrarRelatorios()}" value="Buscar" styleClass="btn btn-primary" style="margin-top: 12px;"/>
-                        </h:form>
-                    </div>
-
-
-                    <br></br>
-                    <h4 style="margin-left: 8px;">Número do pedido: #{relatorioBean.v.idVenda} </h4>
-                    <h4 style="margin-left: 8px;">Nome do Cliente: #{relatorioBean.v.nomeCliente}</h4>
-
-                    <p:dataTable value="#{relatorioBean.v.produtos}" var="prod" style="font-size: 15px;" emptyMessage="Nenhum resultado encontrado" reflow="true">
-                        <p:column headerText="Nome">
-                            <h:outputText value="#{prod.nome}" />
-                        </p:column>
-
-                        <p:column headerText="Marca">
-                            <h:outputText value="#{prod.marca}" />
-                        </p:column>
-
-                        <p:column headerText="Cor">
-                            <h:outputText value="#{prod.cor}" />
-                        </p:column>
-
-                        <p:column headerText="Tamanho">
-                            <h:outputText value="#{prod.tamanho}" />
-                        </p:column>
-
-                        <p:column headerText="Tamanho">
-                            <h:outputText value="#{prod.tamanho}" />
-                        </p:column>
-
-                        <p:column headerText="Gênero">
-                            <h:outputText value="#{prod.genero}" />
-                        </p:column>
-
-                        <p:column headerText="Qtd Atual">
-                            <h:outputText value="#{prod.qtdAtual}" />
-                        </p:column>
-
-                        <p:column headerText="Preço">
-                            <h:outputText value="#{prod.preco}" />
-                        </p:column>          
-
-                        <p:column headerText="Imagem">
-                            <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive" />
-                        </p:column>
-                    </p:dataTable>
-                    <h4 style="margin-left: 69%; margin-bottom: 20px;">Valor Total da Venda: R$ #{relatorioBean.v.vlTotal}</h4>
-                    <br></br>
+            <br></br><br></br>
+            <div class="row alinhamentoFooter content">
+                <div>
+                    <h:form styleClass="form-inline" style="margin-left: 8px;">
+                        <h:outputLabel style="font-size: 20px;">Protocolo da Venda: </h:outputLabel>
+                        <h:inputText pt:type="number" value="#{relatorioBean.id}" styleClass="form-control" style="margin-right: 2px; margin-left: 5px;"/>
+                        <h:commandButton action="#{relatorioBean.mostrarRelatorios()}" value="Buscar" styleClass="btn btn-primary" style="margin-top: 12px;"/>
+                    </h:form>
                 </div>
-                <div class="row headerFooter">
-                    <div class="col-md-12">
-                        <p>2016 - SportNet todos os direitos reservados.</p>
-                    </div>
+
+
+                <br></br>
+                <h4 style="margin-left: 8px;">Número do pedido: #{relatorioBean.v.idVenda} </h4>
+                <h4 style="margin-left: 8px;">Nome do Cliente: #{relatorioBean.v.nomeCliente}</h4>
+                <p style="margin-left: 8px; font-size: 18px;">Data: <h:outputText value="#{relatorioBean.v.dtVenda}"><f:convertDateTime  pattern="dd/MM/yyyy  'as' HH:mm"/></h:outputText></p>
+
+
+                <p:dataTable value="#{relatorioBean.v.produtos}" var="prod" style="font-size: 15px;" emptyMessage="Nenhum resultado encontrado" reflow="true">
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{prod.nome}" />
+                    </p:column>
+
+                    <p:column headerText="Marca">
+                        <h:outputText value="#{prod.marca}" />
+                    </p:column>
+
+                    <p:column headerText="Cor">
+                        <h:outputText value="#{prod.cor}" />
+                    </p:column>
+
+                    <p:column headerText="Tamanho">
+                        <h:outputText value="#{prod.tamanho}" />
+                    </p:column>
+
+                    <p:column headerText="Tamanho">
+                        <h:outputText value="#{prod.tamanho}" />
+                    </p:column>
+
+                    <p:column headerText="Gênero">
+                        <h:outputText value="#{prod.genero}" />
+                    </p:column>
+
+                    <p:column headerText="Qtd Atual">
+                        <h:outputText value="#{prod.qtdAtual}" />
+                    </p:column>
+
+                    <p:column headerText="Preço">
+                        <h:outputText value="#{prod.preco}" />
+                    </p:column>          
+
+                    <p:column headerText="Imagem">
+                        <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive" />
+                    </p:column>
+                </p:dataTable>
+
+                <p style="margin-left: 69%; margin-bottom: 20px; font-size: 18px; margin-top: 3px;">Valor Total da Venda: R$ <h:outputText value="#{relatorioBean.v.vlTotal}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>
+                <br></br>
+            </div>
+            <div class="row headerFooter">
+                <div class="col-md-12">
+                    <p>2016 - SportNet todos os direitos reservados.</p>
                 </div>
+            </div>
         </div>
     </h:body>
 </html>
