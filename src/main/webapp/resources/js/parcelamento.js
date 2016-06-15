@@ -16,6 +16,8 @@ $(function () {
         for (i = 1; i <= numeroDivPreco; i++) {
             parcelamento = $(".produtos:nth-of-type(" + j + ") div:nth-of-type(" + i + ") p:nth-of-type(2)").text().replace("R$", "");
             parcelamento = parseFloat(parcelamento);
+            parcelamento = parcelamento.toFixed(2);
+            $(".produtos:nth-of-type(" + j + ") div:nth-of-type(" + i + ") p:nth-of-type(2)").html("R$ "+parcelamento);
             parcelamento /= 4;
             parcelamento = parcelamento.toFixed(2);
             console.log(parcelamento);

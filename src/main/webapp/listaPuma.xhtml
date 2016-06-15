@@ -59,8 +59,8 @@
                 </div>
                 <div class="col-md-4">
                     <span>
-                    <h:graphicImage name="img/telefone.png"/> 
-                    <p:outputLabel> (11) 5682-7300</p:outputLabel>
+                        <h:graphicImage name="img/telefone.png"/> 
+                        <p:outputLabel> (11) 5682-7300</p:outputLabel>
                     </span>
                 </div>
             </div>
@@ -115,27 +115,26 @@
                 </div>
             </div>
             <div class="row alinharFooter alinhamentoFooter">
-                
-                    <div class="col-md-12 produtos" >
-                        <ui:repeat value="#{produtoNovoBean.getListaPorMarca('Puma')}" var="prod">
-                            <div class="col-md-4">
-                                <h:outputLink value="detalhe.xhtml">
-                                    <f:param name="id" value="#{prod.id}" />
-                                    <h:form>
-                                        <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   
-                                    </h:form>
-                                </h:outputLink>
-                                <p>#{prod.nome}</p>
-                                <p>R$ <h:outputText value="#{prod.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>                              
+                <div class="col-md-12 produtos" >
+                    <ui:repeat value="#{produtoNovoBean.getListaPorMarca('Puma')}" var="prod">
+                        <div class="col-md-4">
+                            <h:outputLink value="detalhe.xhtml">
                                 <f:param name="id" value="#{prod.id}" />
-                                <div class="col-md-12">
-                                    <h:form prependId="false">
-                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success carrinhoButton tamanhoButton" pt:role="button"/>
-                                    </h:form>
-                                </div>
+                                <h:form>
+                                    <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   
+                                </h:form>
+                            </h:outputLink>
+                            <p>#{prod.nome}</p>
+                            <p>R$ <h:outputText value="#{prod.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>                              
+                            <f:param name="id" value="#{prod.id}" />
+                            <div class="col-md-12">
+                                <h:form prependId="false">
+                                    <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success carrinhoButton tamanhoButton" pt:role="button"/>
+                                </h:form>
                             </div>
-                        </ui:repeat>
-                    </div>
+                        </div>
+                    </ui:repeat>
+                </div>
             </div>
             <div class="row headerFooter">
                 <div class="col-md-12">
