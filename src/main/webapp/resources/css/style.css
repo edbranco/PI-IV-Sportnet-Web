@@ -403,15 +403,28 @@ hr {
 }
 /*--modal crud produtos--*/
 #formCadastrar div div input, #formCadastrar div div textArea, #formAlterar div div input,#formAlterar div div textArea {
-    margin-bottom:10px;
+    margin-bottom:12px;
     width: 50%;
     height: 30px;
 }
 #formCadastrar table td label, #formAlterar table td label{
     padding:0 10px 0 10px;
 }
-#formAlterar button{
-    width: 100%;
+#formCadastrar table tr td, #formAlterar table tr td{
+    text-align: left;
+}
+#formCadastrar label, #formAlterar label{
+    display: block;
+}
+#formCadastrar input, #formAlterar input, #formCadastrar textArea, #formAlterar textArea{
+    text-align: center;
+}
+#formAlterar button, #formCadastrar button{
+    width: 50%;
+    margin-bottom:8px;
+}
+#formCadastrar, #formAlterar, #formAlterar, #formCadastrar table td {
+    text-align: center;
 }
 @media all and (max-width: 991px) {
     .detalhesProduto, #detalhesProduto2{
