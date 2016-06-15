@@ -50,8 +50,8 @@
             <div id="crudProduto" class="row content alinhamentoFooter">
                 <div class="col-md-12" style="text-align:center; font-size:14pt; margin-top:20px;   ">
 
-<!--                    <h:outputLink value="admin-menu.xhtml">
-                        <p:graphicImage value="../resources/img/back-icon.png"  style="width: 2%; height: 2%; margin-right: 30%; position: fixed;" />   </h:outputLink>  -->
+                    <!--                    <h:outputLink value="admin-menu.xhtml">
+                                            <p:graphicImage value="../resources/img/back-icon.png"  style="width: 2%; height: 2%; margin-right: 30%; position: fixed;" />   </h:outputLink>  -->
 
                     <p:commandLink title="Adicionar" id="cadastrar" oncomplete="PF('dialogCadastrar').show()">
                         <p:graphicImage value="../resources/img/add-icon.png"  style="width: 35px; height: 35px;" />
@@ -127,50 +127,51 @@
         <!-- formulario de edicao -->
         <h:form id="formAlterar">
             <p:dialog header="Alterar" widgetVar="dialogAlterar" modal="true" showEffect="explode"
-                      id="Alterar" styleClass="font-size: 16px; width: 50%;overflow:auto" >
+                      id="Alterar" style="font-size: 16px;" responsive="true" resizable="false" width="410" height="770" >
                 <p:panelGrid id="panelAlterar" styleClass="overflow:auto;">
 
                     <h:outputLabel for="txt-nome" value="Nome" />
                     <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
                                  required="true" requiredMessage="Preencher o nome" 
-                                 pt:placeholder="Nome do produto" />
+                                 pt:placeholder="Nome do produto" style="width: 100%;" />
                     <span><h:message for="txt-nome" /></span>
 
                     <h:outputLabel for="txt-descricao" value="Descrição" />
                     <h:inputTextarea value="#{prodBean.produto.descricao}" id="txt-descricao"
                                      required="true" requiredMessage="Preencher a descrição do produto" 
-                                     pt:placeholder="Descrição do produto"  />
+                                     pt:placeholder="Descrição do produto" style="width: 100%;"/>
                     <span><h:message for="txt-descricao" /></span>
 
                     <h:outputLabel value="Categorias" />
                     <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
                     <p:selectManyCheckbox id="grid2" value="#{prodBean.idsCategorias}" label="Categorias" layout="grid" columns="3" converter="javax.faces.Integer">
-                                <f:selectItems value="#{categoriaBean.lista}" var="cat" itemLabel="#{cat.nome}" itemValue="#{cat.id}" />
-                            </p:selectManyCheckbox>
+                        <f:selectItems value="#{categoriaBean.lista}" var="cat" itemLabel="#{cat.nome}" itemValue="#{cat.id}" />
+                    </p:selectManyCheckbox>
                     <span><h:message for="chk-categorias" /></span>
 
                     <h:outputLabel value="Marca"/>
-                    <h:inputText  value="#{prodBean.produto.marca}"/>
+                    <h:inputText  value="#{prodBean.produto.marca}" style="width: 100%;"/>
 
                     <h:outputLabel value="Cor"/>
-                    <h:inputText  value="#{prodBean.produto.cor}"/>
+                    <h:inputText  value="#{prodBean.produto.cor}" style="width: 100%;"/>
 
                     <h:outputLabel value="Tamanho"/>
-                    <h:inputText  value="#{prodBean.produto.tamanho}"/>
+                    <h:inputText  value="#{prodBean.produto.tamanho}" style="width: 100%;"/>
 
                     <h:outputLabel value="Genero"/>
-                    <h:inputText  value="#{prodBean.produto.genero}"/> 
+                    <h:inputText  value="#{prodBean.produto.genero}" style="width: 100%;"/> 
+
 
                     <h:outputLabel value="Qtd Atual"/>
-                    <h:inputText  value="#{prodBean.produto.qtdAtual}"/>  
+                    <h:inputText  value="#{prodBean.produto.qtdAtual}" style="width: 100%;"/>  
 
                     <h:outputLabel for="txt-preco" value="Preço" />
                     <h:inputText value="#{prodBean.produto.preco}" id="txt-preco"
                                  required="true" requiredMessage="Preencher o preço do produto" 
-                                 pt:placeholder="Preço do produto">
+                                 pt:placeholder="Preço do produto" style="width: 100%;">
 
                     </h:inputText>
-                    <span><h:message for="txt-preco" /></span>
+                    <span><h:message for="txt-preco" style="width: 100%;"/></span>
 
                 </p:panelGrid>
                 <p:commandButton value="Alterar"
@@ -183,19 +184,17 @@
         <!-- formulario de cadastro -->
         <div id="formProduto" class="row">
             <h:form id="formCadastrar">
-                <p:dialog header="Cadastrar" widgetVar="dialogCadastrar" modal="true" showEffect="explode" styleClass="font-size: 16px; width: 50%;">
+                <p:dialog header="Cadastrar" widgetVar="dialogCadastrar" modal="true" showEffect="explode" style="font-size: 16px;" responsive="true" resizable="false" width="410" height="770">
                     <div class="ui-fluid">
                         <p:panelGrid id="panelCadastrar">
                             <h:outputLabel for="txt-nome" value="Nome" />
                             <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
                                          required="true" requiredMessage="Preencher o nome" 
-                                         pt:placeholder="Nome do produto" />
-                            <span><h:message for="txt-nome" /></span>
-
+                                         pt:placeholder="Nome do produto" style="width: 100%;"/>
                             <h:outputLabel for="txt-descricao" value="Descrição"  />
                             <h:inputTextarea value="#{prodBean.produto.descricao}" id="txt-descricao"
                                              required="true" requiredMessage="Preencher a descrição do produto" 
-                                             pt:placeholder="Descrição do produto"  />
+                                             pt:placeholder="Descrição do produto"  style="width: 100%;" />
                             <span><h:message for="txt-descricao" /></span>
 
                             <h:outputLabel value="Categorias" />
@@ -204,28 +203,31 @@
                                 <f:selectItems value="#{categoriaBean.lista}" var="cat" itemLabel="#{cat.nome}" itemValue="#{cat.id}" />
                             </p:selectManyCheckbox>
                             <span><h:message for="chk-categorias" /></span>                     
-                            
+
                             <h:outputLabel value="Marca"/>
-                            <h:inputText value="#{prodBean.produto.marca}"/>
+                            <h:inputText value="#{prodBean.produto.marca}" style="width: 100%;"/>
 
                             <h:outputLabel value="Cor"/>
-                            <h:inputText  value="#{prodBean.produto.cor}"/>
-                            
-                            <h:outputLabel value="Tamanho"/>
-                            <h:inputText  value="#{prodBean.produto.tamanho}"/>
+                            <h:inputText  value="#{prodBean.produto.cor}" style="width: 100%;"/>
 
-                            <h:outputLabel value="Genero"/>
-                            <h:inputText  value="#{prodBean.produto.genero}"/> 
+                            <h:outputLabel value="Tamanho"/>
+                            <h:inputText  value="#{prodBean.produto.tamanho}" style="width: 100%;"/>
+
+                            <p:outputLabel for="genero" value="Gênero" />
+                            <p:selectOneMenu id="genero" value="#{prodBean.produto.genero}" style="width:100%;">
+                                <f:selectItem itemLabel="Masculino" itemValue="masculino" />
+                                <f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+                            </p:selectOneMenu>
 
                             <h:outputLabel value="Qtd Atual"/>
-                            <h:inputText  value="#{prodBean.produto.qtdAtual}">
-                            <f:validateLongRange minimum="1" />
+                            <h:inputText  value="#{prodBean.produto.qtdAtual}" style="width: 100%;">
+                                <f:validateLongRange minimum="1" />
                             </h:inputText>
                             <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
                             <h:inputText value="#{prodBean.produto.preco}" id="txt-preco"
                                          required="true" requiredMessage="Preencher o preço do produto" 
-                                         pt:placeholder="Preço do produto">
-                            <f:convertNumber minFractionDigits="2" />
+                                         pt:placeholder="Preço do produto" style="width: 100%;">
+                                <f:convertNumber minFractionDigits="2" />
                             </h:inputText>
                             <span><h:message for="txt-preco" /></span>
                             <p:commandButton value="Cadastrar"
@@ -238,7 +240,7 @@
             </h:form>
         </div>
         <h:form id="formExcluir">
-            <p:confirmDialog styleClass="font-size: 16px; width: 50%;" id="Excluir"
+            <p:confirmDialog style="font-size: 18px;" id="Excluir"
                              message="Você gostaria de Deletar o #{prodBean.produto.nome}?"
                              header="Excluir" severity="alert" widgetVar="confirmation" showEffect="explode">
 
