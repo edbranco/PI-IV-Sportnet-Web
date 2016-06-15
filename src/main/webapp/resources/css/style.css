@@ -336,19 +336,6 @@ hr {
     text-align: right;
     margin-top:10px;
 }
-/*--------MODAL BOOTSTRAP-------------*/
-.modal-body{
-    font-size:11pt;
-    text-align: center;
-}
-.modal-content {
-    padding:50px;
-}
-.modal-title{
-    text-align: center;
-}
-/*-----------------------------------*/
-
 #cadastro{
     margin:15px 20% 115px 20%;
     font-size:10pt;
@@ -413,6 +400,18 @@ hr {
 }
 .ui-datatable-reflow .ui-datatable-data td {
     font-size:10pt;
+}
+/*--modal crud produtos--*/
+#formCadastrar div div input, #formCadastrar div div textArea, #formAlterar div div input,#formAlterar div div textArea {
+    margin-bottom:10px;
+    width: 50%;
+    height: 30px;
+}
+#formCadastrar table td label, #formAlterar table td label{
+    padding:0 10px 0 10px;
+}
+#formAlterar button{
+    width: 100%;
 }
 @media all and (max-width: 991px) {
     .detalhesProduto, #detalhesProduto2{

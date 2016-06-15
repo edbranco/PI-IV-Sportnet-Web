@@ -129,8 +129,8 @@
         <!-- formulario de edicao -->
         <h:form id="formAlterar">
             <p:dialog header="Alterar" widgetVar="dialogAlterar" modal="true" showEffect="explode"
-                      id="Alterar" style="font-size: 16px;" >
-                <p:panelGrid id="panelAlterar" columns="2">
+                      id="Alterar" styleClass="font-size: 16px; width: 50%;" >
+                <p:panelGrid id="panelAlterar">
 
                     <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
                     <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
@@ -146,11 +146,9 @@
 
                     <h:outputLabel value="Categorias" />
                     <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
-                    <h:selectManyCheckbox value="#{prodBean.idsCategorias}" label="Categorias" converter="javax.faces.Integer">
-                        <f:selectItems id="teste" value="#{categoriaBean.lista}" var="cat"
-                                       itemValue="#{cat.id}" 
-                                       itemLabel="#{cat.nome}" />
-                    </h:selectManyCheckbox>
+                    <p:selectManyCheckbox id="grid2" value="#{prodBean.idsCategorias}" label="Categorias" layout="grid" columns="3" converter="javax.faces.Integer">
+                                <f:selectItems value="#{categoriaBean.lista}" var="cat" itemLabel="#{cat.nome}" itemValue="#{cat.id}" />
+                            </p:selectManyCheckbox>
                     <span><h:message for="chk-categorias" /></span>
 
                     <h:outputLabel value="Marca"/>
@@ -187,11 +185,10 @@
         <!-- formulario de cadastro -->
         <div id="formProduto" class="row">
             <h:form id="formCadastrar">
-                <p:dialog header="Cadastrar" widgetVar="dialogCadastrar" modal="true" showEffect="explode" style="font-size: 16px;" >
+                <p:dialog header="Cadastrar" widgetVar="dialogCadastrar" modal="true" showEffect="explode" styleClass="font-size: 16px; width: 50%;">
                     <div class="ui-fluid">
-                        <p:panelGrid id="panelCadastrar" columns="2">
-
-                            <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label" />
+                        <p:panelGrid id="panelCadastrar">
+                            <h:outputLabel for="txt-nome" value="Nome" styleClass="control-label"/>
                             <h:inputText value="#{prodBean.produto.nome}" id="txt-nome"
                                          required="true" requiredMessage="Preencher o nome" 
                                          pt:placeholder="Nome do produto" styleClass="form-control" />
@@ -205,19 +202,17 @@
 
                             <h:outputLabel value="Categorias" />
                             <!-- http://stackoverflow.com/questions/10361440/im-getting-value-is-not-a-valid-option-for-selectmanycheckbox -->
-                            <h:selectManyCheckbox value="#{prodBean.idsCategorias}" label="Categorias" converter="javax.faces.Integer">
-                                <f:selectItems id="teste" value="#{categoriaBean.lista}" var="cat"
-                                               itemValue="#{cat.id}" 
-                                               itemLabel="#{cat.nome}" />
-                            </h:selectManyCheckbox>
-                            <span><h:message for="chk-categorias" /></span>
-
+                            <p:selectManyCheckbox id="grid2" value="#{prodBean.idsCategorias}" label="Categorias" layout="grid" columns="3" converter="javax.faces.Integer">
+                                <f:selectItems value="#{categoriaBean.lista}" var="cat" itemLabel="#{cat.nome}" itemValue="#{cat.id}" />
+                            </p:selectManyCheckbox>
+                            <span><h:message for="chk-categorias" /></span>                     
+                            
                             <h:outputLabel value="Marca"/>
                             <h:inputText styleClass="form-control" value="#{prodBean.produto.marca}"/>
 
                             <h:outputLabel value="Cor"/>
                             <h:inputText styleClass="form-control" value="#{prodBean.produto.cor}"/>
-
+                            
                             <h:outputLabel value="Tamanho"/>
                             <h:inputText styleClass="form-control" value="#{prodBean.produto.tamanho}"/>
 
@@ -225,28 +220,27 @@
                             <h:inputText styleClass="form-control" value="#{prodBean.produto.genero}"/> 
 
                             <h:outputLabel value="Qtd Atual"/>
-                            <h:inputText styleClass="form-control" value="#{prodBean.produto.qtdAtual}"/>  
-
+                            <h:inputText styleClass="form-control" value="#{prodBean.produto.qtdAtual}">
+                            <f:validateLongRange minimum="1" />
+                            </h:inputText>
                             <h:outputLabel for="txt-preco" value="Preço" styleClass="control-label" />
                             <h:inputText value="#{prodBean.produto.preco}" id="txt-preco"
                                          required="true" requiredMessage="Preencher o preço do produto" 
                                          pt:placeholder="Preço do produto" styleClass="form-control">
-
+                            <f:convertNumber minFractionDigits="2" />
                             </h:inputText>
                             <span><h:message for="txt-preco" /></span>
-
                             <p:commandButton value="Cadastrar"
                                              actionListener="#{prodBean.cadastrar}"
                                              update=":formPrincipal:tabelaProdutos"
-                                             oncomplete="PF('dialogCadastrar').hide()" />
-
+                                             oncomplete="PF('dialogCadastrar').hide()"/>
                         </p:panelGrid>
                     </div>
                 </p:dialog>
             </h:form>
         </div>
         <h:form id="formExcluir">
-            <p:confirmDialog style="font-size: 16px;" id="Excluir"
+            <p:confirmDialog styleClass="font-size: 16px; width: 50%;" id="Excluir"
                              message="Você gostaria de Deletar o #{prodBean.produto.nome}?"
                              header="Excluir" severity="alert" widgetVar="confirmation" showEffect="explode">
 
