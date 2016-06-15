@@ -115,8 +115,13 @@ public class CompraBean implements Serializable {
     public String fecharCompra() {
         ProdutoService prodService = new ProdutoServiceJPA();
         try {
-            prodService.finalizarCompra(itens, total, usuarioBean.getUsuario().getNome());
-            return "venda/codigoVenda.xhtml?faces-redirect=true";
+            if (itens.isEmpty()) {
+                return "/index.xhtml?faces-redirect=true";
+            } else {
+                prodService.finalizarCompra(itens, total, usuarioBean.getUsuario().getNome());
+                return "venda/codigoVenda.xhtml?faces-redirect=true";
+            }
+
         } catch (NullPointerException e) {
             return "autenticar.xhtml?faces-redirect=true";
         }
@@ -130,8 +135,8 @@ public class CompraBean implements Serializable {
         ProdutoService cv = new ProdutoServiceJPA();
         return cv.protocoloVenda();
     }
-    
-    public void removeItem(ProdutoQuantidade item){
+
+    public void removeItem(ProdutoQuantidade item) {
         itens.remove(item);
     }
 }
