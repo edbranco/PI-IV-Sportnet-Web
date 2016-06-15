@@ -426,6 +426,7 @@ hr {
 #formCadastrar, #formAlterar, #formAlterar, #formCadastrar table td {
     text-align: center;
 }
+/*--fim modal crud produtos--*/
 @media all and (max-width: 991px) {
     .detalhesProduto, #detalhesProduto2{
         width: 240px;
@@ -452,6 +453,10 @@ hr {
         width: 20px;
         display: block;
     }
+    #crudProduto img{
+        width: 100px;
+        height: 100px;
+    }
 }
 @media all and (min-width: 500px) and (max-width: 994px) {
     .alinharFooter > .col-md-2{
@@ -474,7 +479,7 @@ hr {
         margin-right:1%;   
     }
     #crudProduto img{
-        width: 120px;
+        width: 100px;
         height: 100px;
     }
     .botaoEditar{
