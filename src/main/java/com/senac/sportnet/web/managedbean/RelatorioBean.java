@@ -5,6 +5,7 @@
  */
 package com.senac.sportnet.web.managedbean;
 
+import com.senac.spornet.entity.Produto;
 import com.senac.spornet.entity.Venda;
 import com.senac.sportnet.service.RelatorioService;
 import com.senac.sportnet.servicejpa.RelatorioServiceJPA;
@@ -17,11 +18,38 @@ import javax.faces.bean.ManagedBean;
  * @author Eder Rodrigues
  */
 @ManagedBean
-public class RelatorioBean implements Serializable{
-    Venda venda;
-    Long id;
-    Venda v;
+public class RelatorioBean implements Serializable {
+
+    private Venda venda;
+    private Long id;
+    private Venda v;
+
+    private String nameSearch;
+    List<Produto> resultProducts;
+
     public RelatorioBean() {
+    }
+
+    public String getNameSearch() {
+        return nameSearch;
+    }
+
+    public void setNameSearch(String nameSearch) {
+        this.nameSearch = nameSearch;
+    }
+
+    public List<Produto> getResultProducts() {
+        return resultProducts;
+    }
+
+    public void setResultProducts(List<Produto> resultProducts) {
+        this.resultProducts = resultProducts;
+    }
+
+    public void searchProduct() {
+        RelatorioService rs = new RelatorioServiceJPA();
+        resultProducts = rs.searchProducts(nameSearch);
+//        return "/listaPesquisa.xhtml?faces-redirect=true";
     }
 
     public Venda getVenda() {
@@ -47,22 +75,30 @@ public class RelatorioBean implements Serializable{
     public void setV(Venda v) {
         this.v = v;
     }
-    
-    public void mostrarRelatorios(){
+
+    public void mostrarRelatorios() {
         RelatorioService rs = new RelatorioServiceJPA();
-        
+
         Venda v2 = rs.mostrar(id);
-        if(v2==null){
-            
-        }else{
+        if (v2 == null) {
+
+        } else {
             v = v2;
         }
-        
+
     }
-    public List<Venda> getRelatorio(){
+
+    public List<Venda> getRelatorio() {
         RelatorioService rs = new RelatorioServiceJPA();
-        
-        
+
         return rs.mostrarTodos();
+    }
+
+    public List<Produto> getProdutos() {
+
+        return resultProducts;
+    }
+    public void limparPesquisa(){
+        resultProducts.clear();
     }
 }

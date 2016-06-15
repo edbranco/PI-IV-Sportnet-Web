@@ -119,6 +119,7 @@ public class CompraBean implements Serializable {
                 return "/index.xhtml?faces-redirect=true";
             } else {
                 prodService.finalizarCompra(itens, total, usuarioBean.getUsuario().getNome());
+                itens.clear();
                 return "venda/codigoVenda.xhtml?faces-redirect=true";
             }
 

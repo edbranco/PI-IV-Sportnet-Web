@@ -50,11 +50,25 @@
                 <div class="col-md-4">
                     <h:form>
                         <div class="input-group">
-                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
-                            <span class="input-group-addon">
+                            <h:inputText value="#{relatorioBean.nameSearch}" styleClass="form-control" pt:placeholder="Procurar"/> 
+                            <h:commandLink action="#{relatorioBean.searchProduct()}">
                                 <h:graphicImage name="img/lupa.jpg" />
-                            </span>
+                            </h:commandLink>
                         </div>
+                        <ui:fragment rendered="#{relatorioBean.resultProducts != null}">
+                            <h:commandLink action="#{relatorioBean.limparPesquisa()}" value="Voltar"/>
+                            <div id="pesquisaResultado">
+                                <ui:repeat value="#{relatorioBean.resultProducts}" var="prod">
+                                    <h:outputLink value="detalhe.xhtml">
+                                        <f:param name="id" value="#{prod.id}" />
+                                        <h:form>
+                                            <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   
+                                        </h:form>
+                                        <h:outputLabel value="#{prod.nome}"/>
+                                    </h:outputLink>       
+                                </ui:repeat>
+                            </div>
+                        </ui:fragment>
                     </h:form>
                 </div>
                 <div class="col-md-4">
@@ -64,78 +78,80 @@
                     </span>
                 </div>
             </div>
-            <div class="row" id="listaAndCarrinho">
-                <div class="col-md-10 pagina">
-                    <nav class="menu">
-                        <ul>
-                            <li>
-                                <h:outputLink value="#">
-                                    CALÇADOS
+            <ui:fragment rendered="#{relatorioBean.resultProducts == null}">
+                <div class="row" id="listaAndCarrinho">
+                    <div class="col-md-10 pagina">
+                        <nav class="menu">
+                            <ul>
+                                <li>
+                                    <h:outputLink value="#">
+                                        CALÇADOS
+                                    </h:outputLink>
+                                    <ul>
+                                        <li><h:outputLink value="listaBota.xhtml">Bota</h:outputLink></li>
+                                        <li><h:outputLink value="listaChuteira.xhtml">Chuteira</h:outputLink></li>
+                                        <li><h:outputLink value="listaTenis.xhtml">Tênis</h:outputLink></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h:outputLink value="#">ACESSÓRIOS</h:outputLink>
+                                    <ul>
+                                        <li><h:outputLink value="listaMochila.xhtml">Mochila</h:outputLink></li>
+                                        <li><h:outputLink value="listaBone.xhtml">Boné</h:outputLink></li>
+                                        <li><h:outputLink value="listaCaneleira.xhtml">Caneleira</h:outputLink></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h:outputLink value="#">MARCAS</h:outputLink>
+                                    <ul>
+                                        <li><h:outputLink value="listaAdidas.xhtml">Adidas</h:outputLink></li>
+                                        <li><h:outputLink value="listaNike.xhtml">Nike</h:outputLink></li>
+                                        <li><h:outputLink value="listaPuma.xhtml">Puma</h:outputLink></li>
+                                        <li><h:outputLink value="listaFila.xhtml">Fila</h:outputLink></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h:outputLink value="#">ROUPAS</h:outputLink>
+                                    <ul>
+                                        <li><h:outputLink value="listaAgasalho.xhtml">Agasalho</h:outputLink></li>
+                                        <li><h:outputLink value="listaBermuda.xhtml">Bermuda</h:outputLink></li>
+                                        <li><h:outputLink value="listaBlusa.xhtml">Blusa</h:outputLink></li>
+                                        <li><h:outputLink value="listaCalca.xhtml">Calças</h:outputLink></li>
+                                        <li><h:outputLink value="listaCamisaTime.xhtml">Camisas Time</h:outputLink></li>
+                                        <li><h:outputLink value="listaCamiseta.xhtml">Camisetas</h:outputLink></li>
+                                        <li><h:outputLink value="listaJaqueta.xhtml">Jaquetas</h:outputLink></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-2">
+                        <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
+                    </div>
+                </div>
+                <div class="row alinharFooter alinhamentoFooter">
+                    <div class="col-md-12 produtos" >
+                        <ui:repeat value="#{produtoNovoBean.getListaPorMarca('Nike')}" var="prod">
+                            <div class="col-md-4">
+                                <h:outputLink value="detalhe.xhtml">
+                                    <f:param name="id" value="#{prod.id}" />
+                                    <h:form>
+                                        <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   
+                                    </h:form>
                                 </h:outputLink>
-                                <ul>
-                                    <li><h:outputLink value="listaBota.xhtml">Bota</h:outputLink></li>
-                                    <li><h:outputLink value="listaChuteira.xhtml">Chuteira</h:outputLink></li>
-                                    <li><h:outputLink value="listaTenis.xhtml">Tênis</h:outputLink></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h:outputLink value="#">ACESSÓRIOS</h:outputLink>
-                                <ul>
-                                    <li><h:outputLink value="listaMochila.xhtml">Mochila</h:outputLink></li>
-                                    <li><h:outputLink value="listaBone.xhtml">Boné</h:outputLink></li>
-                                    <li><h:outputLink value="listaCaneleira.xhtml">Caneleira</h:outputLink></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h:outputLink value="#">MARCAS</h:outputLink>
-                                <ul>
-                                    <li><h:outputLink value="listaAdidas.xhtml">Adidas</h:outputLink></li>
-                                    <li><h:outputLink value="listaNike.xhtml">Nike</h:outputLink></li>
-                                    <li><h:outputLink value="listaPuma.xhtml">Puma</h:outputLink></li>
-                                    <li><h:outputLink value="listaFila.xhtml">Fila</h:outputLink></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h:outputLink value="#">ROUPAS</h:outputLink>
-                                <ul>
-                                    <li><h:outputLink value="listaAgasalho.xhtml">Agasalho</h:outputLink></li>
-                                    <li><h:outputLink value="listaBermuda.xhtml">Bermuda</h:outputLink></li>
-                                    <li><h:outputLink value="listaBlusa.xhtml">Blusa</h:outputLink></li>
-                                    <li><h:outputLink value="listaCalca.xhtml">Calças</h:outputLink></li>
-                                    <li><h:outputLink value="listaCamisaTime.xhtml">Camisas Time</h:outputLink></li>
-                                    <li><h:outputLink value="listaCamiseta.xhtml">Camisetas</h:outputLink></li>
-                                    <li><h:outputLink value="listaJaqueta.xhtml">Jaquetas</h:outputLink></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-md-2">
-                    <h:outputLink value="carrinho.xhtml"><h:graphicImage name="img/carrinho.jpg"/></h:outputLink>   
-                </div>
-            </div>
-            <div class="row alinharFooter alinhamentoFooter">
-                <div class="col-md-12 produtos" >
-                    <ui:repeat value="#{produtoNovoBean.getListaPorMarca('Nike')}" var="prod">
-                        <div class="col-md-4">
-                            <h:outputLink value="detalhe.xhtml">
+                                <p>#{prod.nome}</p>
+                                <p>R$ <h:outputText value="#{prod.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>                              
                                 <f:param name="id" value="#{prod.id}" />
-                                <h:form>
-                                    <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   
-                                </h:form>
-                            </h:outputLink>
-                            <p>#{prod.nome}</p>
-                            <p>R$ <h:outputText value="#{prod.preco}"><f:convertNumber minFractionDigits="2" /></h:outputText></p>                              
-                            <f:param name="id" value="#{prod.id}" />
-                            <div class="col-md-12">
-                                <h:form prependId="false">
-                                    <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success carrinhoButton tamanhoButton" pt:role="button"/>
-                                </h:form>
+                                <div class="col-md-12">
+                                    <h:form prependId="false">
+                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success carrinhoButton tamanhoButton" pt:role="button"/>
+                                    </h:form>
+                                </div>
                             </div>
-                        </div>
-                    </ui:repeat>
+                        </ui:repeat>
+                    </div>
                 </div>
-            </div>
+            </ui:fragment>
             <div class="row headerFooter">
                 <div class="col-md-12">
                     <p>2016 - SportNet todos os direitos reservados.</p>
