@@ -26,13 +26,14 @@ h2{
 }
 h1{
     font-size:20pt;
-    padding: 0px 70px 0px 70px;
     margin-top:37px;
     margin-bottom:50px;
     font-family: sans-serif;
 }
 .headerFooter > .col-md-4 > a{
-    text-decoration:none; 
+    text-decoration:none;
+    width: 10px;
+    
 }
 #topo{
     background-color: #021f54;
@@ -100,10 +101,17 @@ h1{
     height: 31px;
     padding-left:4px;
 }
+.headerFooter .col-md-4 form input:focus {
+  outline: none;
+}
 .headerFooter .col-md-4 form .input-group-addon img{
     height: 31px;
     position: relative;
     right:5px;
+}
+.headerFooter .col-md-4 form .input-group-addon{
+    position: relative;
+    top:-10px;
 }
 /*Parte da Footer */
 .alinhamentoFooter{
