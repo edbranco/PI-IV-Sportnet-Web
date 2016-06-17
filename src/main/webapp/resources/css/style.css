@@ -77,7 +77,7 @@ h1{
     font-size:12pt;
     text-align: center;
     background-color: transparent;
-    border-color:transparent;
+    border-color:transparent; 
 }
 .headerFooter > .col-md-4:last-of-type  img{
     width: 60px;
@@ -108,9 +108,10 @@ h1{
   outline: none;
 }
 .headerFooter .col-md-4 form .input-group-addon img{
-    height: 31px;
+    height: 32px;
     position: relative;
-    right:5px;
+    right:4px;
+    padding-bottom: 2px;
 }
 .headerFooter .col-md-4 form .input-group-addon{
     position: relative;
