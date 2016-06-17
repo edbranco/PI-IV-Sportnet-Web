@@ -50,12 +50,26 @@
                 </div>
                 <div class="col-md-4">
                     <h:form>
-                        <div class="input-group">
-                            <h:inputText styleClass="form-control" pt:placeholder="Procurar"/> 
-                            <span class="input-group-addon">
+                        <span class="input-group-addon">
+                            <h:inputText value="#{relatorioBean.nameSearch}"  pt:placeholder="Procurar"/> 
+                            <h:commandLink action="#{relatorioBean.searchProduct()}">
                                 <h:graphicImage name="img/lupa.jpg" />
-                            </span>
-                        </div>
+                            </h:commandLink>  
+                        </span>
+                        <ui:fragment rendered="#{relatorioBean.resultProducts != null}">
+                            <h:commandLink action="#{relatorioBean.limparPesquisa()}" value="Voltar"/>
+                            <div id="pesquisaResultado">
+                                <ui:repeat value="#{relatorioBean.resultProducts}" var="prod">
+                                    <h:outputLink value="detalhe.xhtml">
+                                        <f:param name="id" value="#{prod.id}" />
+                                        <h:form>
+                                            <h:graphicImage value="/resources/produtos/#{prod.getImagemPrincipal()}" class="img-responsive"/>                                   
+                                        </h:form>
+                                        <h:outputLabel value="#{prod.nome}"/>
+                                    </h:outputLink>       
+                                </ui:repeat>
+                            </div>
+                        </ui:fragment>
                     </h:form>
                 </div>
                 <div class="col-md-4">

@@ -34,11 +34,6 @@ h1{
 .headerFooter > .col-md-4 > a{
     text-decoration:none; 
 }
-.input-group .input-group-addon, div > form > .input-group > .input-group-addon > img{
-    padding: 0px;
-    border-radius: 4px;
-    font-size: 14pt;
-}
 #topo{
     background-color: #021f54;
     min-height: 36px;
@@ -69,13 +64,16 @@ h1{
 .headerFooter{
     background-image: url("#{resource['/img/fundoTopo.jpg']}");
 }
-.headerFooter .input-group {
+.headerFooter form{
     padding: 0px;
     margin-top:40px;
     margin-bottom: 10px;
 }
-.headerFooter .input-group .form-control{
-    font-size:14pt;
+.headerFooter form .input-group-addon{
+    font-size:12pt;
+    text-align: center;
+    background-color: transparent;
+    border-color:transparent;
 }
 .headerFooter > .col-md-4:last-of-type  img{
     width: 60px;
@@ -93,6 +91,19 @@ h1{
 .headerFooter > .col-md-4:last-of-type label{
     margin-left:20px;
     margin-top:30px;
+}
+.headerFooter > .col-md-4{
+    text-align:center;
+}
+.headerFooter .col-md-4 form input {
+    width: 250px;
+    height: 31px;
+    padding-left:4px;
+}
+.headerFooter .col-md-4 form .input-group-addon img{
+    height: 31px;
+    position: relative;
+    right:5px;
 }
 /*Parte da Footer */
 .alinhamentoFooter{
@@ -491,6 +502,9 @@ hr {
     .detalhesProduto, #detalhesProduto2{
         width: 240px;
         margin-left: 0;
+    }
+    .headerFooter .col-md-4 form input {
+        width: 150px;
     }
     .autenticar div:last-of-type{
         margin-top:40px;

@@ -43,18 +43,13 @@
             </div>
             <div class="row headerFooter">
                 <div class="col-md-4">
-                    <h:outputLink value="index.xhtml">
-                        <h1>SPORTNET</h1>
-                    </h:outputLink>
-                </div>
-                <div class="col-md-4">
                     <h:form>
-                        <div class="input-group">
-                            <h:inputText value="#{relatorioBean.nameSearch}" styleClass="form-control" pt:placeholder="Procurar"/> 
+                        <span class="input-group-addon">
+                            <h:inputText value="#{relatorioBean.nameSearch}"  pt:placeholder="Procurar"/> 
                             <h:commandLink action="#{relatorioBean.searchProduct()}">
                                 <h:graphicImage name="img/lupa.jpg" />
-                            </h:commandLink>
-                        </div>
+                            </h:commandLink>  
+                        </span>
                         <ui:fragment rendered="#{relatorioBean.resultProducts != null}">
                             <h:commandLink action="#{relatorioBean.limparPesquisa()}" value="Voltar"/>
                             <div id="pesquisaResultado">

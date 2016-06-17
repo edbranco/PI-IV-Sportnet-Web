@@ -35,7 +35,6 @@
                             <h:outputLink value="cadastro.xhtml">cadastre-se</h:outputLink>
                         </h2>
                     </ui:fragment>
-
                     <ui:fragment rendered="#{usuarioBean.usuario != null}">
                         <h2>Olá #{usuarioBean.nome} ;)
                             <h:form>
@@ -56,12 +55,12 @@
                 </div>
                 <div class="col-md-4">
                     <h:form>
-                        <div class="input-group">
-                            <h:inputText value="#{relatorioBean.nameSearch}" styleClass="form-control" pt:placeholder="Procurar"/> 
+                        <span class="input-group-addon">
+                            <h:inputText value="#{relatorioBean.nameSearch}"  pt:placeholder="Procurar"/> 
                             <h:commandLink action="#{relatorioBean.searchProduct()}">
                                 <h:graphicImage name="img/lupa.jpg" />
-                            </h:commandLink>
-                        </div>
+                            </h:commandLink>  
+                        </span>
                         <ui:fragment rendered="#{relatorioBean.resultProducts != null}">
                             <h:commandLink action="#{relatorioBean.limparPesquisa()}" value="Voltar"/>
                             <div id="pesquisaResultado">
@@ -78,7 +77,6 @@
                         </ui:fragment>
                     </h:form>
                 </div>
-
                 <div class="col-md-4">
                     <span>
                         <h:graphicImage name="img/telefone.png"/> 
