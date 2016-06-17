@@ -57,6 +57,7 @@
                         </span>
                         <ui:fragment rendered="#{relatorioBean.resultProducts != null}">
                             <h:commandLink action="#{relatorioBean.limparPesquisa()}" value="Voltar"/>
+                                <div class="col-md-12 alinharFooter alinhamentoFooter" id="teste">
                                 <ui:repeat value="#{relatorioBean.resultProducts}" var="prod">
                                     <div class="col-md-4">
                                     <h:outputLink value="#">
@@ -68,6 +69,7 @@
                                     </h:outputLink> 
                                     </div>
                                 </ui:repeat>
+                                    </div>
                         </ui:fragment>
                     </h:form>
                 </div>
